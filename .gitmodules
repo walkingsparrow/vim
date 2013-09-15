@@ -21,7 +21,8 @@
 	url = https://github.com/kshenoy/vim-signature.git
 [submodule "bundle/Vim-R-plugin"]
 	path = bundle/Vim-R-plugin
-	url = https://github.com/vim-scripts/Vim-R-plugin.git
+        url = https://github.com/vim-scripts/Vim-R-plugin.git
+        ignore = dirty
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -45,7 +46,8 @@
 	url = https://github.com/majutsushi/tagbar.git
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
-	url = https://github.com/vim-scripts/bufexplorer.zip.git
+        url = https://github.com/vim-scripts/bufexplorer.zip.git
+        ignore = dirty
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
