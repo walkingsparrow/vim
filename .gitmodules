@@ -55,9 +55,6 @@
 	path = bundle/linepower.vim
         url = https://github.com/zhaocai/linepower.vim.git
         ignore = dirty
-[submodule "bundle/pyflakes-vim"]
-	path = bundle/pyflakes-vim
-	url = https://github.com/kevinw/pyflakes-vim.git
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
