@@ -82,4 +82,4 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 
 nmap \e :NERDTreeToggle<CR>
 
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:airline_theme="bubblegum"
