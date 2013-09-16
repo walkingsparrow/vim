@@ -66,3 +66,6 @@
 	path = bundle/vim-expand-region
         url = https://github.com/terryma/vim-expand-region.git
         ignore = dirty
+[submodule "bundle/headlights"]
+	path = bundle/headlights
+	url = https://github.com/mbadran/headlights.git

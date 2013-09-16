@@ -5,7 +5,6 @@ filetype indent on
 
 set ofu=syntaxcomplete#Complete
 
-"set number
 set ruler
 set ai sw=4
 set paste
@@ -24,8 +23,8 @@ let ConqueTerm_ReadUnfocused = 1
 
 set linespace=5
 
-nmap <F2> <Plug>RESendMBlock
 imap <F2> <Plug>RESendMBlock
+nmap <F2> <Plug>RESendMBlock
 vmap <F2> <Plug>RESendMBlock
 
 set grepprg=grep\ -nH\ $*
@@ -54,8 +53,10 @@ let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm"
 let vimpager_use_gvim = 1
 
 set number
+hi LineNr ctermfg=243 ctermbg=253 
 
 au BufNewFile,BufRead *.sql_in setlocal ft=sql
+au BufNewFile,BufRead *.py_in setlocal ft=python
 
 " ------------------------------------------------------
 "  http://statico.github.io/vim.html settings
@@ -83,3 +84,14 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 nmap \e :NERDTreeToggle<CR>
 
 let g:airline_theme="bubblegum"
+
+let g:headlights_smart_menus = 1
+
+let g:move_key_modifier = 'C'
+
+nmap <F8> :TagbarToggle<CR>
+
+" Open file at last edit position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+"hi Comment cterm=italic
