@@ -69,3 +69,7 @@
 [submodule "bundle/headlights"]
 	path = bundle/headlights
 	url = https://github.com/mbadran/headlights.git
+[submodule "bundle/fontsize.vim"]
+	path = bundle/fontsize.vim
+        url = https://github.com/vim-scripts/fontsize.vim.git
+        ignore = dirty
