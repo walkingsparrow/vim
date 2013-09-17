@@ -95,3 +95,7 @@ nmap <F8> :TagbarToggle<CR>
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "hi Comment cterm=italic
+
+"Auto line breaks for text and latex files
+au BufEnter *.txt setl tx ts=4 sw=4 fo+=n2a
+"au BufEnter *.tex setl tx ts=4 sw=4 fo+=n2a

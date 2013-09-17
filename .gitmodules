@@ -42,9 +42,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/vim-latex-suite"]
-	path = bundle/vim-latex-suite
-	url = https://github.com/gerw/vim-latex-suite.git
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
