@@ -101,3 +101,7 @@ au BufEnter *.txt setl tx ts=4 sw=4 fo+=n2a
 au BufEnter *.tex setl tx ts=4 sw=4 fo+=n2a
 
 let g:atp_folding =1
+
+set background=light
+colorscheme solarized
+
