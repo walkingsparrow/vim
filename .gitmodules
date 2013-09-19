@@ -67,3 +67,7 @@
 	path = bundle/fontsize.vim
         url = https://github.com/vim-scripts/fontsize.vim.git
         ignore = dirty
+[submodule "bundle/atp-vim"]
+	path = bundle/atp-vim
+        url = git://git.code.sf.net/p/atp-vim/code
+        ignore = dirty
