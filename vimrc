@@ -53,7 +53,7 @@ let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm"
 let vimpager_use_gvim = 1
 
 set number
-hi LineNr ctermfg=243 ctermbg=253 
+hi LineNr ctermfg=243 ctermbg=253
 
 au BufNewFile,BufRead *.sql_in setlocal ft=sql
 au BufNewFile,BufRead *.py_in setlocal ft=python
@@ -97,13 +97,19 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 "hi Comment cterm=italic
 
 "Auto line breaks for text and latex files
-au BufEnter *.txt setl tx ts=4 sw=4 fo+=n2a
-au BufEnter *.tex setl tx ts=4 sw=4 fo=aw2tq
+au BufEnter *.txt setl ts=4 sw=4 fo=aw2q
+au BufEnter *.tex setl ts=4 sw=4 fo=aw2tq
 
 let g:atp_folding =1
 
 "set background=light
 set background=dark
 "colorscheme solarized
-colorscheme robinhood
+colorscheme grape "robinhood
+highlight LineNr guibg=#ffeef3 guifg=gray72
 
+let g:atp_tab_map=1
+highlight Pmenu guibg=gray36 guifg=gray
+
+"match ErrorMsg '\s\+$'
+autocmd BufWritePre * :%s/\s\+$//e
