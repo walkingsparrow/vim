@@ -102,11 +102,18 @@ au BufEnter *.tex setl ts=4 sw=4 fo=aw2tq
 
 let g:atp_folding =1
 
-"set background=light
-set background=dark
-"colorscheme solarized
-colorscheme grape "robinhood
-highlight LineNr guibg=#ffeef3 guifg=gray72
+set background=light
+"set background=dark
+colorscheme solarized
+"colorscheme grape "robinhood
+"highlight LineNr guibg=#ffeef3 guifg=gray72
+
+let g:solarized_bold=1 " 1|0 show bold fonts
+let g:solarized_italic=1 " 1|0 show italic fonts
+let g:solarized_underline=1 " 1|0 show underlines
+let g:solarized_contrast="high" " normal|high|low contrast
+let g:solarized_visibility="high" " normal|high|low effect on whitespace characters
+"hi Normal guifg=black
 
 let g:atp_tab_map=1
 highlight Pmenu guibg=gray36 guifg=gray
