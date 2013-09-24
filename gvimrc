@@ -5,7 +5,7 @@ set lsp=2
 set transparency=2
 "colorscheme github "robinhood
 highlight Comment gui=italic
-set linespace=4
+set linespace=6
 "au GuiEnter * vnew
 "highlight Cursor guibg=lightskyblue1 guifg=deepskyblue4
 

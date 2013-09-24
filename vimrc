@@ -107,7 +107,7 @@ let g:atp_folding =1
 colorscheme zenburn
 "colorscheme solarized
 "colorscheme grape "robinhood
-highlight LineNr guibg=gray31 guifg=gray47
+highlight LineNr guibg=gray27 guifg=gray47
 "highlight Normal guibg=gray27
 
 let g:solarized_bold=1 " 1|0 show bold fonts
