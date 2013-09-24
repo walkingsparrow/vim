@@ -89,7 +89,7 @@ let g:headlights_smart_menus = 1
 
 let g:move_key_modifier = 'C'
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarToggle<CR>
 
 " Open file at last edit position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
