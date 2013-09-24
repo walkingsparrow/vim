@@ -122,3 +122,11 @@ highlight Pmenu guibg=gray36 guifg=gray
 
 "match ErrorMsg '\s\+$'
 autocmd BufWritePre * :%s/\s\+$//e
+
+"rainbow_parentheses.vim
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
