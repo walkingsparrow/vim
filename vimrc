@@ -124,7 +124,9 @@ highlight Pmenu guibg=gray36 guifg=gray
 autocmd BufWritePre * :%s/\s\+$//e
 
 "rainbow_parentheses.vim
-au VimEnter * RainbowParenthesesToggle
+"au VimEnter * RainbowParenthesesToggle
+au FileType clojure RainbowParenthesesToggle
+au FileType lisp RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
