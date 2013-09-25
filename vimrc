@@ -97,18 +97,20 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 "hi Comment cterm=italic
 
 "Auto line breaks for text and latex files
-au BufEnter *.txt setl ts=4 sw=4 fo=aw2q
-au BufEnter *.tex setl ts=4 sw=4 fo=aw2tq
+au BufEnter *.txt setl ts=4 sw=4 tw=70 fo=aw2q
+au BufEnter *.tex setl ts=4 sw=4 tw=70 fo=aw2tq
 
 let g:atp_folding =1
 
 "set background=light
 "set background=dark
-colorscheme zenburn
+"colorscheme zenburn
+colorscheme seoul256
 "colorscheme solarized
 "colorscheme grape "robinhood
 highlight LineNr guibg=gray27 guifg=gray47
-"highlight Normal guibg=gray27
+highlight Normal guibg=gray25
+highlight Comment gui=italic
 
 let g:solarized_bold=1 " 1|0 show bold fonts
 let g:solarized_italic=1 " 1|0 show italic fonts
