@@ -106,3 +106,6 @@
 [submodule "bundle/seoul256.vim"]
 	path = bundle/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim.git
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree.git
