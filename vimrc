@@ -104,13 +104,13 @@ let g:atp_folding =1
 
 "set background=light
 "set background=dark
-"colorscheme zenburn
-colorscheme seoul256
+colorscheme zenburn
+"colorscheme seoul256
 "colorscheme solarized
 "colorscheme grape "robinhood
 highlight LineNr guibg=gray27 guifg=gray47
-highlight Normal guibg=gray25
-highlight Comment gui=italic guifg=gray61
+"highlight Normal guibg=gray25
+"highlight Comment gui=italic guifg=gray61
 
 let g:solarized_bold=1 " 1|0 show bold fonts
 let g:solarized_italic=1 " 1|0 show italic fonts
