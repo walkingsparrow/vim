@@ -57,6 +57,7 @@ hi LineNr ctermfg=243 ctermbg=253
 
 au BufNewFile,BufRead *.sql_in setlocal ft=sql
 au BufNewFile,BufRead *.py_in setlocal ft=python
+au BufNewFile,BufRead *.notes setlocal ft=notes
 
 " ------------------------------------------------------
 "  http://statico.github.io/vim.html settings
