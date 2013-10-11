@@ -1,0 +1,10 @@
+execute pathogen#infect()
+let vimpager_use_gvim = 1
+let vimpager_passthrough = 1
+set nowrap
+set guioptions+=b
+set number
+colorscheme seoul256
+highlight LineNr guibg=gray27 guifg=gray47
+highlight Normal guibg=gray25
+highlight Comment gui=italic guifg=gray61

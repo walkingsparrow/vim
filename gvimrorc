@@ -1,0 +1,22 @@
+"colorscheme peachpuff
+"set guifont=Ubuntu\ Mono:h19
+"set guifont=Menlo:h17
+"set guifont=Monaco:h14
+set guifont=Consolas:h16
+"set guifont=Inconsolata:h19
+"set bg=light
+"highlight Normal guibg=wheat1
+"lightyellow
+set lines=40 columns=100
+set lsp=2
+"set transparency=2
+set number
+"colorscheme github "robinhood
+"highlight Comment gui=italic
+colorscheme seoul256
+highlight LineNr guibg=gray27 guifg=gray47
+highlight Normal guibg=gray25
+highlight Comment gui=italic guifg=gray61
+set linespace=4
+"au GuiEnter * vnew
+highlight Cursor guibg=lightskyblue1 guifg=deepskyblue4

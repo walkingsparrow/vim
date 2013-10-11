@@ -123,4 +123,7 @@
 	path = bundle/slimv.vim
         url = https://github.com/vim-scripts/slimv.vim.git
         ignore = dirty
-
+[submodule "bundle/LargeFile"]
+	path = bundle/LargeFile
+        url = https://github.com/vim-scripts/LargeFile.git
+        ignore = dirty
