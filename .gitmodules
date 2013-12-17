@@ -45,10 +45,6 @@
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "bundle/dbext.vim"]
-	path = bundle/dbext.vim
-        url = https://github.com/vim-scripts/dbext.vim.git
-        ignore = dirty
 [submodule "bundle/vim-move"]
 	path = bundle/vim-move
         url = https://github.com/matze/vim-move.git

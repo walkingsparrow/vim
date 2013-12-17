@@ -1,4 +1,5 @@
 execute pathogen#infect()
+set guifont=Monaco:h14
 let vimpager_use_gvim = 1
 let vimpager_passthrough = 1
 set nowrap
