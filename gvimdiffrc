@@ -1,5 +1,5 @@
 "set guifont=Monaco:h12
-set guifont=Consolas:h13
+"set guifont=Consolas:h13
 "highlight Normal guibg=wheat1
 set lines=999 columns=999
 autocmd VimResized * wincmd =
