@@ -140,3 +140,9 @@
 	path = bundle/vim-js-context-coloring
         url = https://github.com/bigfish/vim-js-context-coloring.git
         ignore = dirty
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git

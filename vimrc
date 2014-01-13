@@ -126,3 +126,16 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 command -nargs=* -complete=help H vertical belowright help <args>
 
 map <F4> :setlocal spell! spelllang=en_us<CR>
+
+set guifont=Consolas:h16
+set lines=40 columns=100
+set lsp=2
+highlight Comment gui=italic
+set linespace=6
+
+colorscheme robinhood
+highlight Comment gui=italic
+
+let g:atp_tab_map=1
+highlight Pmenu guibg=gray36 guifg=gray
+
