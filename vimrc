@@ -100,6 +100,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 "Auto line breaks for text and latex files
 au BufEnter *.txt setl ts=4 sw=4 tw=70 fo=aw2q
 au BufEnter *.tex setl ts=4 sw=4 tw=70 fo=aw2tq
+au FileType ruby setl sw=2 sts=2 et
 
 let g:atp_folding =1
 
@@ -138,4 +139,11 @@ highlight Comment gui=italic
 
 let g:atp_tab_map=1
 highlight Pmenu guibg=gray36 guifg=gray
+
+"highlight OverLength guifg=red
+"match OverLength /\%75v.*/
+augroup vimrc_autocmds
+    autocmd BufEnter * highlight OverLength ctermfg=red guifg=red
+    autocmd BufEnter * match OverLength /\%76v.*/
+augroup END
 
