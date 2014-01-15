@@ -9,7 +9,7 @@
 ""set background=light
 ""set background=dark
 ""colorscheme zenburn
-"colorscheme robinhood
+colorscheme robinhood
 ""colorscheme seoul256
 ""colorscheme solarized
 ""colorscheme grape "robinhood
@@ -26,4 +26,5 @@
 
 "let g:atp_tab_map=1
 "highlight Pmenu guibg=gray36 guifg=gray
+
 

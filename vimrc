@@ -84,6 +84,7 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 
 nmap \e :NERDTreeToggle<CR>
 
+"let g:airline_powerline_fonts = 1
 let g:airline_theme="bubblegum"
 
 let g:headlights_smart_menus = 1
@@ -94,8 +95,6 @@ nmap <F9> :TagbarToggle<CR>
 
 " Open file at last edit position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-"hi Comment cterm=italic
 
 "Auto line breaks for text and latex files
 au BufEnter *.txt setl ts=4 sw=4 tw=70 fo=aw2q
@@ -134,14 +133,12 @@ set lsp=2
 highlight Comment gui=italic
 set linespace=6
 
-colorscheme robinhood
+"colorscheme robinhood
 highlight Comment gui=italic
 
 let g:atp_tab_map=1
 highlight Pmenu guibg=gray36 guifg=gray
 
-"highlight OverLength guifg=red
-"match OverLength /\%75v.*/
 augroup vimrc_autocmds
     autocmd BufEnter * highlight OverLength ctermfg=red guifg=red
     autocmd BufEnter * match OverLength /\%76v.*/
