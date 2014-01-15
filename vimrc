@@ -147,3 +147,7 @@ augroup vimrc_autocmds
     autocmd BufEnter * match OverLength /\%76v.*/
 augroup END
 
+se nostartofline
+
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc> <Esc>:nohlsearch<CR><Esc>
