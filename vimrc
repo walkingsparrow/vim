@@ -145,12 +145,29 @@ se nostartofline
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
-vmap <C-v> "+p
-vmap <C-c> "+y
+"vmap <C-v> "+p
+"vmap <C-c> "+y
 
+set clipboard=unnamed
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
+if &term =~ '^xterm'
+  " solid underscore
+  let &t_SI .= "\<Esc>[5 q"
+  " solid block
+  let &t_EI .= "\<Esc>[2 q"
+  " 1 or 0 -> blinking block
+  " 3 -> blinking underscore
+  " Recent versions of xterm (282 or above) also support
+  " 5 -> blinking vertical bar
+  " 6 -> solid vertical bar
+endif
+
+set background=dark
 colorscheme myzenburn
 highlight Comment gui=italic
-"highlight Normal ctermbg=236 ctermfg=229
-"highlight LineNr ctermbg=237 ctermfg=243
+highlight Normal ctermbg=236 ctermfg=248
+highlight LineNr ctermbg=237 ctermfg=243
 
 
