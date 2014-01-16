@@ -15,7 +15,7 @@ colorscheme robinhood
 ""colorscheme grape "robinhood
 ""highlight LineNr guibg=gray27 guifg=gray47
 ""highlight Normal guibg=gray25
-"highlight Comment gui=italic
+highlight Comment gui=italic
 
 ""let g:solarized_bold=1 " 1|0 show bold fonts
 ""let g:solarized_italic=1 " 1|0 show italic fonts
@@ -25,6 +25,4 @@ colorscheme robinhood
 ""hi Normal guifg=black
 
 "let g:atp_tab_map=1
-"highlight Pmenu guibg=gray36 guifg=gray
-
-
+highlight Pmenu guibg=gray36 guifg=gray

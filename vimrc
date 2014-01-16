@@ -130,11 +130,7 @@ map <F4> :setlocal spell! spelllang=en_us<CR>
 set guifont=Consolas:h16
 set lines=40 columns=100
 set lsp=2
-highlight Comment gui=italic
 set linespace=6
-
-"colorscheme robinhood
-highlight Comment gui=italic
 
 let g:atp_tab_map=1
 highlight Pmenu guibg=gray36 guifg=gray
@@ -148,3 +144,13 @@ se nostartofline
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+
+vmap <C-v> "+p
+vmap <C-c> "+y
+
+colorscheme myzenburn
+highlight Comment gui=italic
+"highlight Normal ctermbg=236 ctermfg=229
+"highlight LineNr ctermbg=237 ctermfg=243
+
+
