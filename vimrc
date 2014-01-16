@@ -7,7 +7,7 @@ set ofu=syntaxcomplete#Complete
 
 set ruler
 set ai sw=4
-set paste
+"set paste
 set mouse=a
 
 set backspace=indent,eol,start
