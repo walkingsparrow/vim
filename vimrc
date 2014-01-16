@@ -147,4 +147,4 @@ augroup END
 se nostartofline
 
 " Make double-<Esc> clear search highlights
-nnoremap <silent> <Esc> <Esc>:nohlsearch<CR><Esc>
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
