@@ -170,4 +170,6 @@ highlight Comment gui=italic
 highlight Normal ctermbg=236 ctermfg=248
 highlight LineNr ctermbg=237 ctermfg=243
 
+set ttymouse=sgr " make mouse work in tagbar
+
 

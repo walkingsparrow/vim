@@ -26,3 +26,5 @@ highlight Comment gui=italic
 
 "let g:atp_tab_map=1
 highlight Pmenu guibg=gray36 guifg=gray
+set paste
+set ttymouse=xterm
