@@ -146,3 +146,11 @@
 [submodule "bundle/vim-bundler"]
 	path = bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
+[submodule "bundle/vim-autocomplpop"]
+	path = bundle/vim-autocomplpop
+        url = https://github.com/othree/vim-autocomplpop.git
+        ignore = dirty
+[submodule "bundle/L9"]
+	path = bundle/L9
+        url = https://github.com/vim-scripts/L9.git
+        ignore = dirty

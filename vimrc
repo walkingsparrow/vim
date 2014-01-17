@@ -154,7 +154,7 @@ vmap <C-c> :w !pbcopy<CR><CR>
 
 if &term =~ '^xterm'
   " solid underscore
-  let &t_SI .= "\<Esc>[5 q"
+  let &t_SI .= "\<Esc>[6 q"
   " solid block
   let &t_EI .= "\<Esc>[2 q"
   " 1 or 0 -> blinking block
