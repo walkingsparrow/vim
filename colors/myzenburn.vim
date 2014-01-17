@@ -171,10 +171,10 @@ if &t_Co > 255
     hi Debug           ctermfg=181   cterm=bold
     hi Define          ctermfg=223   cterm=bold
     hi Delimiter       ctermfg=245
-    hi DiffAdd         ctermfg=66    ctermbg=236     cterm=bold
-    hi DiffChange      ctermbg=236
+    hi DiffAdd         ctermfg=66    ctermbg=235     cterm=bold
+    hi DiffChange      ctermbg=235
     hi DiffDelete      ctermfg=236   ctermbg=238
-    hi DiffText        ctermfg=217   ctermbg=236     cterm=bold
+    hi DiffText        ctermfg=217   ctermbg=235     cterm=bold
     hi Directory       ctermfg=188   cterm=bold
     hi ErrorMsg        ctermfg=115   ctermbg=235     cterm=bold
     hi Exception       ctermfg=249   cterm=bold
@@ -196,7 +196,7 @@ if &t_Co > 255
     hi PreProc         ctermfg=223   cterm=bold
     hi Question        ctermfg=15    cterm=bold
     hi Repeat          ctermfg=223   cterm=bold
-    hi Search          ctermfg=230   ctermbg=236
+    hi Search          ctermfg=230   ctermbg=235
     hi SpecialChar     ctermfg=181   cterm=bold
     hi SpecialComment  ctermfg=108   cterm=bold
     hi Special         ctermfg=181
@@ -215,49 +215,49 @@ if &t_Co > 255
     hi Underlined      ctermfg=188   ctermbg=234     cterm=bold
     hi VertSplit       ctermfg=236   ctermbg=65
     hi VisualNOS       ctermfg=236   ctermbg=210     cterm=bold
-    hi WarningMsg      ctermfg=15    ctermbg=236     cterm=bold
-    hi WildMenu        ctermbg=236   ctermfg=194     cterm=bold
-    hi CursorLine      ctermbg=236   cterm=none
+    hi WarningMsg      ctermfg=15    ctermbg=235     cterm=bold
+    hi WildMenu        ctermbg=235   ctermfg=194     cterm=bold
+    hi CursorLine      ctermbg=235   cterm=none
 
     " spellchecking, always "bright" background
-    hi SpellLocal ctermfg=14  ctermbg=236
-    hi SpellBad   ctermfg=9   ctermbg=236
-    hi SpellCap   ctermfg=12  ctermbg=236
-    hi SpellRare  ctermfg=13  ctermbg=236
+    hi SpellLocal ctermfg=14  ctermbg=235
+    hi SpellBad   ctermfg=9   ctermbg=235
+    hi SpellCap   ctermfg=12  ctermbg=235
+    hi SpellRare  ctermfg=13  ctermbg=235
 
     " pmenu
     hi PMenu      ctermfg=248  ctermbg=0
     hi PMenuSel   ctermfg=223 ctermbg=235
 
     if exists("g:zenburn_high_Contrast")
-        hi Normal ctermfg=229 ctermbg=236
+        hi Normal ctermfg=229 ctermbg=235
         hi NonText         ctermfg=238
 
         if exists("g:zenburn_color_also_Ignore")
             hi Ignore          ctermfg=238
         endif
     else
-        hi Normal ctermfg=229 ctermbg=236
+        hi Normal ctermfg=229 ctermbg=235
         hi Cursor          ctermbg=109
-        hi diffadd         ctermbg=236
+        hi diffadd         ctermbg=235
         hi diffdelete      ctermbg=238
-        hi difftext        ctermbg=236
-        hi errormsg        ctermbg=236
+        hi difftext        ctermbg=235
+        hi errormsg        ctermbg=235
         hi foldcolumn      ctermbg=238
         hi folded          ctermbg=238
         hi incsearch       ctermbg=228
         hi linenr          ctermbg=237
         hi search          ctermbg=240
-        hi statement       ctermbg=236
+        hi statement       ctermbg=235
         hi statusline      ctermbg=144
         hi statuslinenc    ctermbg=108
-        hi title           ctermbg=236
-        hi todo            ctermbg=236
-        hi underlined      ctermbg=236
+        hi title           ctermbg=235
+        hi todo            ctermbg=235
+        hi underlined      ctermbg=235
         hi vertsplit       ctermbg=65
         hi visualnos       ctermbg=210
-        hi warningmsg      ctermbg=236
-        hi wildmenu        ctermbg=236
+        hi warningmsg      ctermbg=235
+        hi wildmenu        ctermbg=235
         hi NonText         ctermfg=240
 
         if exists("g:zenburn_color_also_Ignore")
