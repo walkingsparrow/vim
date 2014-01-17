@@ -133,7 +133,7 @@ set lsp=2
 set linespace=6
 
 let g:atp_tab_map=1
-highlight Pmenu guibg=gray36 guifg=gray
+highlight Pmenu guibg=gray36 guifg=gray ctermbg=243 ctermfg=238
 
 augroup vimrc_autocmds
     autocmd BufEnter * highlight OverLength ctermfg=red guifg=red
