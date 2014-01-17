@@ -166,6 +166,7 @@ endif
 
 set background=dark
 colorscheme myzenburn
+highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
 highlight Comment gui=italic
 highlight Normal ctermbg=235 ctermfg=248
 highlight LineNr ctermbg=236 ctermfg=240
