@@ -239,25 +239,25 @@ if &t_Co > 255
     else
         hi Normal ctermfg=229 ctermbg=235
         hi Cursor          ctermbg=109
-        hi diffadd         ctermbg=236
+        hi diffadd         ctermbg=235
         hi diffdelete      ctermbg=238
-        hi difftext        ctermbg=236
-        hi errormsg        ctermbg=236
+        hi difftext        ctermbg=235
+        hi errormsg        ctermbg=235
         hi foldcolumn      ctermbg=238
         hi folded          ctermbg=238
         hi incsearch       ctermbg=228
         hi linenr          ctermbg=237
         hi search          ctermbg=240
-        hi statement       ctermbg=236
+        hi statement       ctermbg=235
         hi statusline      ctermbg=144
         hi statuslinenc    ctermbg=108
-        hi title           ctermbg=236
-        hi todo            ctermbg=236
-        hi underlined      ctermbg=236
+        hi title           ctermbg=235
+        hi todo            ctermbg=235
+        hi underlined      ctermbg=235
         hi vertsplit       ctermbg=65
         hi visualnos       ctermbg=210
-        hi warningmsg      ctermbg=236
-        hi wildmenu        ctermbg=236
+        hi warningmsg      ctermbg=235
+        hi wildmenu        ctermbg=235
         hi NonText         ctermfg=240
 
         if exists("g:zenburn_color_also_Ignore")

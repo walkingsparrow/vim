@@ -135,8 +135,9 @@ set linespace=6
 let g:atp_tab_map=1
 highlight Pmenu guibg=gray36 guifg=gray ctermbg=243 ctermfg=238
 
+" highlight long lines
 augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermfg=red guifg=red
+    autocmd BufEnter * highlight OverLength ctermbg=236 guibg=#003700
     autocmd BufEnter * match OverLength /\%76v.*/
 augroup END
 
@@ -167,10 +168,13 @@ endif
 set background=dark
 colorscheme myzenburn
 highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
-highlight Comment gui=italic
+"set term=screen-256color
+highlight Comment gui=italic "cterm=italic
 highlight Normal ctermbg=235 ctermfg=248
 highlight LineNr ctermbg=236 ctermfg=240
 
-set ttymouse=sgr " make mouse work in tagbar
+set ttymouse=sgr " make mouse work in Tagbar
+
+set autoread " auto-update the file if it is changed by other editors
 
 
