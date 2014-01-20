@@ -82,7 +82,7 @@ set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
-nmap \e :NERDTreeToggle<CR>
+nmap <F7> :NERDTreeTabsToggle<CR>
 
 "let g:airline_powerline_fonts = 1
 let g:airline_theme="bubblegum"
@@ -184,5 +184,9 @@ highlight LineNr ctermbg=236 ctermfg=240
 set ttymouse=sgr " make mouse work in Tagbar
 
 set autoread " auto-update the file if it is changed by other editors
+
+nnoremap Q <nop>
+
+set showbreak=↪
 
 
