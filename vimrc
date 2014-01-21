@@ -83,6 +83,7 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 nmap <F7> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 "let g:airline_powerline_fonts = 1
 let g:airline_theme="bubblegum"
@@ -178,7 +179,7 @@ colorscheme myzenburn
 highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
 "set term=screen-256color
 highlight Comment gui=italic "cterm=italic
-highlight Normal ctermbg=235 ctermfg=248
+highlight Normal ctermbg=235 ctermfg=250
 highlight LineNr ctermbg=236 ctermfg=240
 
 set ttymouse=sgr " make mouse work in Tagbar
