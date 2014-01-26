@@ -190,4 +190,4 @@ nnoremap Q <nop>
 
 set showbreak=↪
 
-
+noremap <silent> <F2> :BufExplorer<CR>

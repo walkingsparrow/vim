@@ -14,3 +14,6 @@ highlight LineNr ctermbg=236 ctermfg=240
 set mouse=a
 set ttymouse=sgr " make mouse work in Tagba
 set number
+set clipboard=unnamed
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
