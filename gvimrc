@@ -28,3 +28,5 @@ highlight Comment gui=italic
 highlight Pmenu guibg=gray36 guifg=gray
 set paste
 set ttymouse=xterm
+
+let g:indentLine_color_gui = '#003700'
