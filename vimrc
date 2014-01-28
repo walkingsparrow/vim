@@ -134,7 +134,7 @@ set lsp=2
 set linespace=6
 
 let g:atp_tab_map=1
-highlight Pmenu guibg=gray36 guifg=gray ctermbg=243 ctermfg=238
+highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=243 ctermfg=238
 
 " highlight long lines
 augroup vimrc_autocmds
@@ -194,3 +194,6 @@ noremap <silent> <F2> :BufExplorer<CR>
 
 let g:indentLine_color_term = 237
 let g:indentLine_char = '|'
+
+" align function arguments
+set cino+=(0)
