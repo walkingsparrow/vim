@@ -147,12 +147,7 @@ se nostartofline
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
-"vmap <C-v> "+p
-"vmap <C-c> "+y
-
-set clipboard=unnamed
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
+set clipboard=unnamedplus,unnamed,autoselect
 
 if &term =~ '^xterm'
    "use an orange cursor in insert mode
@@ -193,7 +188,7 @@ set showbreak=↪
 noremap <silent> <F2> :BufExplorer<CR>
 
 let g:indentLine_color_term = 237
-let g:indentLine_char = '|'
+let g:indentLine_char = "|"
 
 " align function arguments
 set cino+=(0)
