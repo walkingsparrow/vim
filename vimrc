@@ -192,3 +192,5 @@ let g:indentLine_char = "|"
 
 " align function arguments
 set cino+=(0)
+
+map <F6> :set wrap!<cr>
