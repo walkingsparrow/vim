@@ -197,3 +197,6 @@ map <F6> :set wrap!<cr>
 
 autocmd FileType r setlocal formatoptions=cq
 let vimrplugin_applescript = 0
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
