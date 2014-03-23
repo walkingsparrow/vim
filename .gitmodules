@@ -1,9 +1,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/closetag"]
-	path = bundle/closetag
-	url = https://github.com/docunext/closetag.vim.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -20,9 +17,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/tabular"]
-	path = bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/vim-pandoc"]
 	path = bundle/vim-pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc.git
@@ -50,10 +44,6 @@
 	path = bundle/vim-expand-region
         url = https://github.com/terryma/vim-expand-region.git
         ignore = dirty
-[submodule "bundle/fontsize.vim"]
-	path = bundle/fontsize.vim
-        url = https://github.com/vim-scripts/fontsize.vim.git
-        ignore = dirty
 [submodule "bundle/atp-vim"]
 	path = bundle/atp-vim
         url = git://git.code.sf.net/p/atp-vim/code
@@ -67,13 +57,6 @@
 [submodule "bundle/vim-misc"]
 	path = bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
-[submodule "bundle/vim-colorscheme-switcher"]
-	path = bundle/vim-colorscheme-switcher
-	url = https://github.com/xolox/vim-colorscheme-switcher.git
-[submodule "bundle/Conque-Shell"]
-	path = bundle/Conque-Shell
-        url = https://github.com/vim-scripts/Conque-Shell
-        ignore = dirty
 [submodule "bundle/vim-easymotion"]
 	path = bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
@@ -87,15 +70,9 @@
 	path = bundle/vim-clojure-static
         url = https://github.com/guns/vim-clojure-static.git
         ignore = dirty
-[submodule "bundle/vim-classpath"]
-	path = bundle/vim-classpath
-	url = https://github.com/tpope/vim-classpath.git
 [submodule "bundle/seoul256.vim"]
 	path = bundle/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim.git
-[submodule "bundle/undotree"]
-	path = bundle/undotree
-	url = https://github.com/mbbill/undotree.git
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
@@ -114,25 +91,9 @@
 	path = bundle/LargeFile
         url = https://github.com/vim-scripts/LargeFile.git
         ignore = dirty
-[submodule "bundle/VOoM"]
-	path = bundle/VOoM
-        url = https://github.com/vim-scripts/VOoM.git
-        ignore = dirty
 [submodule "bundle/vim-online-thesaurus"]
 	path = bundle/vim-online-thesaurus
         url = https://github.com/beloglazov/vim-online-thesaurus.git
-        ignore = dirty
-[submodule "bundle/vimwiki"]
-	path = bundle/vimwiki
-        url = https://github.com/vimwiki/vimwiki.git
-        ignore = dirty
-[submodule "bundle/vimroom"]
-	path = bundle/vimroom
-        url = https://github.com/mikewest/vimroom.git
-        ignore = dirty
-[submodule "bundle/vim-js-context-coloring"]
-	path = bundle/vim-js-context-coloring
-        url = https://github.com/bigfish/vim-js-context-coloring.git
         ignore = dirty
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
