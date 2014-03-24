@@ -125,3 +125,9 @@
 [submodule "bundle/vim-classpath"]
 	path = bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath.git
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
