@@ -76,10 +76,6 @@
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
-[submodule "bundle/vim-dict"]
-	path = bundle/vim-dict
-        url = https://github.com/szw/vim-dict.git
-        ignore = dirty
 [submodule "bundle/vim-notes"]
 	path = bundle/vim-notes
 	url = https://github.com/xolox/vim-notes.git
@@ -90,10 +86,6 @@
 [submodule "bundle/LargeFile"]
 	path = bundle/LargeFile
         url = https://github.com/vim-scripts/LargeFile.git
-        ignore = dirty
-[submodule "bundle/vim-online-thesaurus"]
-	path = bundle/vim-online-thesaurus
-        url = https://github.com/beloglazov/vim-online-thesaurus.git
         ignore = dirty
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
@@ -125,9 +117,6 @@
 [submodule "bundle/vim-classpath"]
 	path = bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath.git
-[submodule "bundle/undotree"]
-	path = bundle/undotree
-	url = https://github.com/mbbill/undotree.git
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
