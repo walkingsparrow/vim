@@ -114,7 +114,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 "undotree
-nnoremap <F5> :UndotreeToggle<cr>
+"nnoremap <F5> :UndotreeToggle<cr>
 
 "persistent undo
 set undodir=~/.vim-undo
@@ -274,3 +274,7 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+autocmd Filetype scala set softtabstop=2
+autocmd Filetype scala set sw=2
+autocmd Filetype scala set ts=2
