@@ -8,7 +8,7 @@ set transparency=2
 set guifont=Monaco:h13
 set number
 "colorscheme github
-colorscheme seoul256
+"colorscheme seoul256
 highlight LineNr guibg=gray27 guifg=gray47
 highlight Normal guibg=gray25
 highlight Comment gui=italic guifg=gray61
