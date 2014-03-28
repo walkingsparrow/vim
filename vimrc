@@ -88,7 +88,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 "let g:airline_powerline_fonts = 1
 let g:airline_theme="bubblegum"
 
-let g:headlights_smart_menus = 1
+"let g:headlights_smart_menus = 1
 
 let g:move_key_modifier = 'C'
 
