@@ -99,6 +99,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au BufEnter *.txt setl ts=4 sw=4 tw=70 fo=aw2q
 au BufEnter *.tex setl ts=4 sw=4 tw=70 fo=aw2tq
 au FileType ruby setl sw=2 sts=2 et
+au FileType notes setl ts=4 sw=4 tw=70 fo=aw2tq
 
 let g:atp_folding =1
 
@@ -196,7 +197,7 @@ map <F6> :set wrap!<cr>
 autocmd FileType r setlocal formatoptions=cq
 let vimrplugin_applescript = 0
 
-let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
 
