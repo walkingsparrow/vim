@@ -200,6 +200,10 @@ let vimrplugin_applescript = 0
 "let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_enable_balloons = 1
 
 " ----------------------------------------------------------------------
 
@@ -280,3 +284,5 @@ let g:tagbar_type_go = {
 autocmd Filetype scala set softtabstop=2
 autocmd Filetype scala set sw=2
 autocmd Filetype scala set ts=2
+
+set fillchars+=stl:\ ,stlnc:\
