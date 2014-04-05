@@ -289,4 +289,22 @@ set fillchars+=stl:\ ,stlnc:\
 
 au BufNewFile,BufRead *.sbt setlocal ft=sbt
 
+"-----------------------------------------------------
+" auto insert a new line after {
 inoremap {<cr> {<cr>}<c-o><s-o>
+
+"-----------------------------------------------------
+
+" use TAB for indentation in insert-mode
+set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
+set indentkeys=!<Tab>,o,O
+
+map <Tab> i<Tab><Esc>^
+
+" Kernel style indent
+set cinoptions=:0,(0,u0,W1s
+
+" GNU style indent
+"set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
+
+autocmd FileType * setlocal indentkeys+=!<Tab>
