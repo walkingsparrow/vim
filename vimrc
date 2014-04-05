@@ -286,3 +286,7 @@ autocmd Filetype scala set sw=2
 autocmd Filetype scala set ts=2
 
 set fillchars+=stl:\ ,stlnc:\
+
+au BufNewFile,BufRead *.sbt setlocal ft=sbt
+
+inoremap {<cr> {<cr>}<c-o><s-o>
