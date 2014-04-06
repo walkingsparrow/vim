@@ -13,3 +13,5 @@ map <F6> :set wrap!<cr>
 set noloadplugins
 "let g:nerdtree_tabs_open_on_gui_startup = 0
 set clipboard=unnamedplus,unnamed,autoselect
+nnoremap <C-S-Right> zL
+nnoremap <C-S-Left> zH
