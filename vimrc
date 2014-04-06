@@ -204,6 +204,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_balloons = 1
+let g:syntastic_mode_map = { 'mode': 'passive' }
+nmap <F5> :SyntasticCheck<CR>
+nmap <C-x> :SyntasticCheck<CR>
+
+set nostartofline
 
 " ----------------------------------------------------------------------
 
