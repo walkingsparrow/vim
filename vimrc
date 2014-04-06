@@ -171,7 +171,7 @@ endif
 set background=dark
 colorscheme myzenburn
 highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
-set term=xterm-256color-italic
+"set term=xterm-256color-italic
 highlight Comment gui=italic cterm=italic
 highlight Normal ctermbg=235 ctermfg=250
 highlight LineNr ctermbg=236 ctermfg=240
