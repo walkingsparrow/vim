@@ -318,10 +318,22 @@ autocmd FileType * setlocal indentkeys+=!<Tab>
 
 let g:ScreenImpl = "Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellAttachTargetCurrent = 1
 
-nmap <leader>x <S-v>:ScreenSend<CR>
-imap <leader>x <ESC><S-v>:ScreenSend<CR>i
-vmap <leader>x :ScreenSend<CR>
+function! Goto_next_nonblank()
+    let cur = line(".")
+    let end = line("$")
+    for i in range(cur+1, end+1)
+        if (len(getline(i)) > 0)
+            call cursor(i, 1)
+            return
+        endif
+    endfor
+endfunction
+
+nmap <leader>x <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+imap <leader>x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>i
+vmap <leader>x :ScreenSend<CR>:call Goto_next_nonblank()<CR>
 
 nmap <leader>, :ScreenShell!<CR>
 nmap <leader>; :ScreenShell<CR>
@@ -330,8 +342,11 @@ nmap <leader>; :ScreenShell<CR>
 
 " insert mode jump to head and
 imap <C-a> <ESC>^i
+nmap <C-a> ^
+nmap <C-e> $
 imap <C-e> <ESC>$a
 imap F <ESC>wa
 imap B <ESC>bi
-
+nmap F w
+nmap B b
 
