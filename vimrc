@@ -198,6 +198,8 @@ autocmd FileType r setlocal formatoptions=cq
 let vimrplugin_applescript = 0
 
 "let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_python_checkers=['pylint']
+"let g:syntastic_python_checker_args='--ignore=C0111'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -205,8 +207,10 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_balloons = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
-nmap <F5> :SyntasticCheck<CR>
-nmap <C-x> :SyntasticCheck<CR>
+nmap <F5> :w<CR>:SyntasticCheck<CR>
+nmap <leader>c :w<CR>:SyntasticCheck<CR>
+imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>i
+imap <leader>c <ESC>:w<CR>:SyntasticCheck<CR>i
 
 set nostartofline
 
@@ -333,10 +337,12 @@ endfunction
 
 nmap <leader>x <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
 imap <leader>x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>i
-vmap <leader>x :ScreenSend<CR>:call Goto_next_nonblank()<CR>
+vmap <leader>x :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
 nmap <leader>, :ScreenShell!<CR>
 nmap <leader>; :ScreenShell<CR>
+nmap <leader>' :IPython!<CR>
+nmap <leader>" :IPython<CR>
 
 " ---------------------------------------------------------------
 
@@ -351,3 +357,5 @@ nmap F w
 nmap B b
 
 nmap <C-d> :wq<CR>
+
+nnoremap <F8> :GundoToggle<CR>
