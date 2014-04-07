@@ -138,7 +138,7 @@ highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=243 ctermfg=238
 " highlight long lines
 augroup vimrc_autocmds
     autocmd BufEnter * highlight OverLength ctermbg=236 guibg=#003700
-    autocmd BufEnter * match OverLength /\%76v.*/
+    autocmd BufEnter * match OverLength /\%67v.*/
 augroup END
 
 se nostartofline
