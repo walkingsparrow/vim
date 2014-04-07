@@ -23,9 +23,9 @@ let ConqueTerm_ReadUnfocused = 1
 
 set linespace=5
 
-imap <F2> <Plug>RESendMBlock
-nmap <F2> <Plug>RESendMBlock
-vmap <F2> <Plug>RESendMBlock
+" imap <F2> <Plug>RESendMBlock
+" nmap <F2> <Plug>RESendMBlock
+" vmap <F2> <Plug>RESendMBlock
 
 set grepprg=grep\ -nH\ $*
 filetype indent on
@@ -62,11 +62,9 @@ au BufNewFile,BufRead *.notes setlocal ft=notes
 " ------------------------------------------------------
 "  http://statico.github.io/vim.html settings
 
-nmap \l :TlistToggle<CR>
-nmap \o :set paste!<CR>
-noremap <leader>t <Esc>:CommandT<CR>
-noremap <leader>f <Esc>:CommandTFlush<CR>
-noremap <leader>m <Esc>:CommandTBuffer<CR>
+" noremap <leader>t <Esc>:CommandT<CR>
+" noremap <leader>f <Esc>:CommandTFlush<CR>
+" noremap <leader>m <Esc>:CommandTBuffer<CR>
 
 execute pathogen#infect()
 " call pathogen#incubate()
@@ -143,9 +141,6 @@ augroup END
 
 se nostartofline
 
-" Make double-<Esc> clear search highlights
-nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
-
 set clipboard=unnamedplus,unnamed,autoselect
 
 if &term =~ '^xterm'
@@ -192,8 +187,6 @@ let g:indentLine_char = "╎"
 " align function arguments
 set cino+=(0
 
-map <F6> :set wrap!<cr>
-
 autocmd FileType r setlocal formatoptions=cq
 let vimrplugin_applescript = 0
 
@@ -207,10 +200,6 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_balloons = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
-nmap <F5> :w<CR>:SyntasticCheck<CR>
-nmap <leader>c :w<CR>:SyntasticCheck<CR>
-imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>i
-imap <leader>c <ESC>:w<CR>:SyntasticCheck<CR>i
 
 set nostartofline
 
@@ -357,5 +346,27 @@ nmap F w
 nmap B b
 
 nmap <C-d> :wq<CR>
+imap <C-d> <ESC>:wq<CR>
 
 nnoremap <F8> :GundoToggle<CR>
+
+" ---------------------------------------------------------------
+
+nmap <leader>w :w<CR>
+imap <leader>w <ESC>:w<CR>a
+
+nmap \l :TlistToggle<CR>
+nmap \o :set paste!<CR>
+
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+
+map <F6> :set wrap!<cr>
+
+nmap <F5> :w<CR>:SyntasticCheck<CR>
+nmap <leader>c :w<CR>:SyntasticCheck<CR>
+imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>a
+imap <leader>c <ESC>:w<CR>:SyntasticCheck<CR>a
+nmap <leader>C :SyntasticReset<CR>
+imap <leader>C <ESC>:SyntasticReset<CR>a
+
