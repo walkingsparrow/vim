@@ -319,6 +319,19 @@ autocmd FileType * setlocal indentkeys+=!<Tab>
 let g:ScreenImpl = "Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
 
-nmap <leader>s <S-v>:ScreenSend<CR>
-imap <leader>s <ESC><S-v>:ScreenSend<CR>i
-vmap <leader>s :ScreenSend<CR>
+nmap <leader>x <S-v>:ScreenSend<CR>
+imap <leader>x <ESC><S-v>:ScreenSend<CR>i
+vmap <leader>x :ScreenSend<CR>
+
+nmap <leader>, :ScreenShell!<CR>
+nmap <leader>; :ScreenShell<CR>
+
+" ---------------------------------------------------------------
+
+" insert mode jump to head and
+imap <C-a> <ESC>^i
+imap <C-e> <ESC>$a
+imap F <ESC>wa
+imap B <ESC>bi
+
+
