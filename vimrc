@@ -350,3 +350,4 @@ imap B <ESC>bi
 nmap F w
 nmap B b
 
+nmap <C-d> :wq<CR>
