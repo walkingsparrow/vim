@@ -319,3 +319,6 @@ autocmd FileType * setlocal indentkeys+=!<Tab>
 let g:ScreenImpl = "Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
 
+nmap <leader>s <S-v>:ScreenSend<CR>
+imap <leader>s <ESC><S-v>:ScreenSend<CR>i
+vmap <leader>s :ScreenSend<CR>
