@@ -295,12 +295,6 @@ inoremap {<cr> {<cr>}<c-o><s-o>
 
 "-----------------------------------------------------
 
-" use TAB for indentation in insert-mode
-set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
-set indentkeys=!<Tab>,o,O
-
-map <Tab> i<Tab><Esc>^
-
 " Kernel style indent
 set cinoptions=:0,(0,u0,W1s
 
@@ -326,14 +320,17 @@ function! Goto_next_nonblank()
     endfor
 endfunction
 
-nmap <leader>x <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
-imap <leader>x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>i
-vmap <leader>x :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+nmap ]x <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+imap ]x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>i
+vmap ]x :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
-nmap <leader>, :ScreenShell!<CR>
-nmap <leader>; :ScreenShell<CR>
-nmap <leader>' :IPython!<CR>
-nmap <leader>" :IPython<CR>
+nmap ], :ScreenShell!<CR>
+imap ], <ESC>:ScreenShell!<CR>a
+nmap ]; :ScreenShell<CR>
+imap ]; :ScreenShell<CR>a
+" unmap ]'
+" nmap ]' :IPython!<CR>
+" nmap ]" :IPython<CR>
 
 " ---------------------------------------------------------------
 
@@ -354,8 +351,8 @@ nnoremap <F8> :GundoToggle<CR>
 
 " ---------------------------------------------------------------
 
-nmap <leader>w :w<CR>
-imap <leader>w <ESC>:w<CR>a
+nmap ]w :w<CR>
+imap ]w <ESC>:w<CR>a
 
 nmap \l :TlistToggle<CR>
 nmap \o :set paste!<CR>
@@ -366,12 +363,21 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 map <F6> :set wrap!<cr>
 
 nmap <F5> :w<CR>:SyntasticCheck<CR>
-nmap <leader>c :w<CR>:SyntasticCheck<CR>
-imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>a
-imap <leader>c <ESC>:w<CR>:SyntasticCheck<CR>a
-nmap <leader>C :SyntasticReset<CR>
-imap <leader>C <ESC>:SyntasticReset<CR>a
 
+nmap ]c :w<CR>:SyntasticCheck<CR>
+imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>a
+
+imap ]c <ESC>:w<CR>:SyntasticCheck<CR>a
+nmap ]C :SyntasticReset<CR>
+imap ]C <ESC>:SyntasticReset<CR>a
+
+vmap ]= :Tabularize /=<CR>
+
+" use TAB for indentation in insert-mode
+set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
+set indentkeys=!<Tab>,o,O
+
+map <Tab> i<Tab><Esc>^
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
