@@ -94,10 +94,10 @@ let g:move_key_modifier = 'C'
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "Auto line breaks for text and latex files
-au BufEnter *.txt setl ts=4 sw=4 tw=70 fo=aw2q
-au BufEnter *.tex setl ts=4 sw=4 tw=70 fo=aw2tq
+au BufEnter *.txt setl ts=4 sw=4 tw=70 "fo=aw2q
+au BufEnter *.tex setl ts=4 sw=4 tw=70 "fo=aw2tq
 au FileType ruby setl sw=2 sts=2 et
-au FileType notes setl ts=4 sw=4 tw=70 fo=aw2tq
+au FileType notes setl ts=4 sw=4 tw=70 "fo=aw2tq
 
 let g:atp_folding =1
 
@@ -131,7 +131,9 @@ set lsp=2
 set linespace=6
 
 let g:atp_tab_map=1
-highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=243 ctermfg=238
+highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=243 ctermfg=253
+
+let g:acp_behaviorKeywordLength = 3
 
 " highlight long lines
 augroup vimrc_autocmds
