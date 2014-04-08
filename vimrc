@@ -321,7 +321,7 @@ function! Goto_next_nonblank()
 endfunction
 
 nmap ]x <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
-imap ]x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>i
+imap ]x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
 vmap ]x :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
 nmap ], :ScreenShell!<CR>
@@ -331,6 +331,29 @@ imap ]; :ScreenShell<CR>a
 " unmap ]'
 " nmap ]' :IPython!<CR>
 " nmap ]" :IPython<CR>
+
+" function! s:ScreenShellListener()
+"     if g:ScreenShellActive
+"         nmap <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+"         nmap <C-c><C-x> :ScreenQuit<cr>
+"         imap <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
+"         imap <C-c><C-x> <ESC>:ScreenQuit<cr>a
+"         vmap <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+"     else
+"         nmap <C-c><C-c> :ScreenShell!<CR>
+"         imap <C-c><C-c> <ESC>:ScreenShell!<CR>
+"     endif
+" endfunction
+"
+" nmap <C-c><C-c> :ScreenShell!<CR>
+" imap <C-c><C-c> <ESC>:ScreenShell!<CR>
+" augroup ScreenShellEnter
+"     autocmd User * call <SID>ScreenShellListener()
+" augroup END
+" augroup ScreenShellExit
+"     autocmd User * call <SID>ScreenShellListener()
+" augroup END
+
 
 " ---------------------------------------------------------------
 
