@@ -372,3 +372,6 @@ imap <leader>c <ESC>:w<CR>:SyntasticCheck<CR>a
 nmap <leader>C :SyntasticReset<CR>
 imap <leader>C <ESC>:SyntasticReset<CR>a
 
+
+" SQLite
+let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
