@@ -329,6 +329,17 @@ nmap <C-c>% :ScreenShell!<CR>
 imap <C-c>% <ESC>:ScreenShell!<CR>a
 nmap <C-c>" :ScreenShell<CR>
 imap <C-c>" :ScreenShell<CR>a
+
+function! s:ScreenShellListener()
+    if g:ScreenShellActive
+        nmap <C-c>q :ScreenQuit<CR>
+        imap <C-c>q <ESC>:ScreenQuit<CR>
+    else
+        nmap <C-c>q :wq<CR>
+        imap <C-c>q <ESC>:wq<CR>
+    endif
+endfunction
+
 " unmap <C-c>'
 " nmap <C-c>' :IPython!<CR>
 " nmap <C-c>" :IPython<CR>
@@ -345,15 +356,15 @@ imap <C-c>" :ScreenShell<CR>a
 "         imap <C-c><C-c> <ESC>:ScreenShell!<CR>
 "     endif
 " endfunction
-"
+
 " nmap <C-c><C-c> :ScreenShell!<CR>
 " imap <C-c><C-c> <ESC>:ScreenShell!<CR>
-" augroup ScreenShellEnter
-"     autocmd User * call <SID>ScreenShellListener()
-" augroup END
-" augroup ScreenShellExit
-"     autocmd User * call <SID>ScreenShellListener()
-" augroup END
+augroup ScreenShellEnter
+    autocmd User * call <SID>ScreenShellListener()
+augroup END
+augroup ScreenShellExit
+    autocmd User * call <SID>ScreenShellListener()
+augroup END
 
 
 " ---------------------------------------------------------------
@@ -367,9 +378,6 @@ imap F <ESC>wa
 imap B <ESC>bi
 nmap F w
 nmap B b
-
-nmap <C-c>q :wq<CR>
-imap <C-c>q <ESC>:wq<CR>
 
 nnoremap <F8> :GundoToggle<CR>
 
