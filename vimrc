@@ -321,17 +321,17 @@ function! Goto_next_nonblank()
     endfor
 endfunction
 
-nmap ]x <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
-imap ]x <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
-vmap ]x :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+nmap <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+imap <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
+vmap <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
-nmap ], :ScreenShell!<CR>
-imap ], <ESC>:ScreenShell!<CR>a
-nmap ]; :ScreenShell<CR>
-imap ]; :ScreenShell<CR>a
-" unmap ]'
-" nmap ]' :IPython!<CR>
-" nmap ]" :IPython<CR>
+nmap <C-c>% :ScreenShell!<CR>
+imap <C-c>% <ESC>:ScreenShell!<CR>a
+nmap <C-c>" :ScreenShell<CR>
+imap <C-c>" :ScreenShell<CR>a
+" unmap <C-c>'
+" nmap <C-c>' :IPython!<CR>
+" nmap <C-c>" :IPython<CR>
 
 " function! s:ScreenShellListener()
 "     if g:ScreenShellActive
@@ -368,15 +368,14 @@ imap B <ESC>bi
 nmap F w
 nmap B b
 
-nmap <C-d> :wq<CR>
-imap <C-d> <ESC>:wq<CR>
+nmap <C-c>q :wq<CR>
+imap <C-c>q <ESC>:wq<CR>
 
 nnoremap <F8> :GundoToggle<CR>
 
-" ---------------------------------------------------------------
-
-nmap ]w :w<CR>
-imap ]w <ESC>:w<CR>a
+" ------------------------------------------------------------
+nmap <C-c>w :w<CR>
+imap <C-c>w <ESC>:w<CR>a
 
 nmap \l :TlistToggle<CR>
 nmap \o :set paste!<CR>
@@ -388,20 +387,27 @@ map <F6> :set wrap!<cr>
 
 nmap <F5> :w<CR>:SyntasticCheck<CR>
 
-nmap ]c :w<CR>:SyntasticCheck<CR>
+nmap <C-c>c :w<CR>:SyntasticCheck<CR>
 imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>a
 
-imap ]c <ESC>:w<CR>:SyntasticCheck<CR>a
-nmap ]C :SyntasticReset<CR>
-imap ]C <ESC>:SyntasticReset<CR>a
+imap <C-c>c <ESC>:w<CR>:SyntasticCheck<CR>a
+nmap <C-c>C :SyntasticReset<CR>
+imap <C-c>C <ESC>:SyntasticReset<CR>a
 
-vmap ]= :Tabularize /=<CR>
+vmap <C-c>= :Tabularize /=<CR>
 
 " use TAB for indentation in insert-mode
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 
 map <Tab> i<Tab><Esc>^
+
+nmap <C-t> a<C-t><ESC>
+nmap <C-d> a<C-d><ESC>
+imap <C-c>. <C-t>
+imap <C-c>, <C-d>
+nmap <C-c>. <C-t>
+nmap <C-c>, <C-d>
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
