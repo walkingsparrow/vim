@@ -182,7 +182,6 @@ nnoremap Q <nop>
 set showbreak=↪
 
 noremap <silent> <F2> :BufExplorer<CR>
-imap <F2> <ESC>:BufExplorer<CR>
 
 let g:indentLine_color_term = 236
 let g:indentLine_char = "╎"
