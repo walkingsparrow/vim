@@ -417,7 +417,7 @@ imap <C-c>, <C-d>
 nmap <C-c>. <C-t>
 nmap <C-c>, <C-d>
 
-imap <C-p> <ESC>pi
+imap <C-p> <ESC>pa
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
