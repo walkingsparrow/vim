@@ -359,6 +359,16 @@ endfunction
 
 " nmap <C-c><C-c> :ScreenShell!<CR>
 " imap <C-c><C-c> <ESC>:ScreenShell!<CR>
+
+function! s:ScreenShortcutForPython()
+    nmap <buffer> <C-c>% :IPython!<CR>
+    imap <buffer> <C-c>% <ESC>:IPython!<CR>a
+    nmap <buffer> <C-c>" :IPython<CR>
+    imap <buffer> <C-c>" :IPython<CR>a
+endfunction
+
+autocmd FileType python call <SID>ScreenShortcutForPython()
+
 augroup ScreenShellEnter
     autocmd User * call <SID>ScreenShellListener()
 augroup END
