@@ -131,7 +131,6 @@ set lsp=2
 set linespace=6
 
 let g:atp_tab_map=1
-highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=243 ctermfg=253
 
 let g:acp_behaviorKeywordLength = 3
 
@@ -168,10 +167,20 @@ endif
 set background=dark
 colorscheme myzenburn
 highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
-"set term=xterm-256color-italic
 highlight Comment gui=italic cterm=italic
-highlight Normal ctermbg=235 ctermfg=250
+highlight Normal ctermbg=235 ctermfg=253
 highlight LineNr ctermbg=236 ctermfg=240
+highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
+highlight PmenuSel ctermbg=234 ctermfg=255
+
+"colorscheme robinhood
+" highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
+" highlight Comment gui=italic cterm=italic
+" highlight Normal ctermbg=None ctermfg=229
+" highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=238 ctermfg=250
+" highlight PmenuSel ctermbg=22 ctermfg=190
+set nonumber
+"highlight LineNr ctermfg=240
 
 set ttymouse=sgr " make mouse work in Tagbar
 
@@ -184,6 +193,7 @@ set showbreak=↪
 noremap <silent> <F2> :BufExplorer<CR>
 imap <F2> <ESC>:BufExplorer<CR>
 
+"let g:indentLine_loaded = 0
 let g:indentLine_color_term = 236
 let g:indentLine_char = "╎"
 
@@ -414,11 +424,20 @@ imap <C-c>C <ESC>:SyntasticReset<CR>a
 
 vmap <C-c>= :Tabularize /=<CR>
 
-" use TAB for indentation in insert-mode
-set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
-set indentkeys=!<Tab>,o,O
+function! s:TabForIndent()
+    " Don't strip on these filetypes
+    if &ft == 'python'
+        imap <Tab> <C-t>
+        return
+    endif
 
-map <Tab> i<Tab><Esc>^
+    " use TAB for indentation in insert-mode
+    set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
+    set indentkeys=!<Tab>,o,O
+    map <Tab> i<Tab><Esc>^
+endfunction
+
+autocmd BufEnter * call <SID>TabForIndent()
 
 nmap <C-t> a<C-t><ESC>
 nmap <C-d> a<C-d><ESC>
