@@ -302,7 +302,7 @@ au BufNewFile,BufRead *.sbt setlocal ft=sbt
 
 "-----------------------------------------------------
 " auto insert a new line after {
-inoremap {<cr> {<cr>}<c-o><s-o>
+inoremap {<cr> {<cr>}<Tab><c-o><s-o>
 
 "-----------------------------------------------------
 
