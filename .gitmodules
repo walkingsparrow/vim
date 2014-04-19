@@ -123,3 +123,10 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/vim-ctrlp-cmdpalette"]
+	path = bundle/vim-ctrlp-cmdpalette
+	url = https://github.com/fisadev/vim-ctrlp-cmdpalette.git
+[submodule "bundle/ctrlp-funky"]
+	path = bundle/ctrlp-funky
+	url = https://github.com/tacahiroy/ctrlp-funky.git
+        ignore = dirty

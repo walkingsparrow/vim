@@ -448,5 +448,15 @@ nmap <C-c>, <C-d>
 
 imap <C-p> <ESC>pa
 
+nmap <C-c>p :CtrlPCmdPalette<CR>
+imap <C-c>p <ESC>:CtrlPCmdPalette<CR>a
+
+" ctrlp-funky
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_syntax_highlight = 1
+nnoremap <C-c>f :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <C-c>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
