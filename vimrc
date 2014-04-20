@@ -171,7 +171,7 @@ highlight Comment gui=italic cterm=italic
 highlight Normal ctermbg=235 ctermfg=253
 highlight LineNr ctermbg=236 ctermfg=240
 highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
-highlight PmenuSel ctermbg=234 ctermfg=255
+highlight PmenuSel ctermbg=34 ctermfg=16
 
 "colorscheme robinhood
 " highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
@@ -419,10 +419,10 @@ imap <C-a> <ESC>^i
 nmap <C-a> ^
 nmap <C-e> $
 imap <C-e> <ESC>$a
-imap F <ESC>wa
-imap B <ESC>bi
-nmap F w
-nmap B b
+" imap F <ESC>wa
+" imap B <ESC>bi
+" nmap F w
+" nmap B b
 
 nnoremap <F8> :GundoToggle<CR>
 
