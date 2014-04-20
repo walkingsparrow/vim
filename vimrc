@@ -314,6 +314,32 @@ set cinoptions=:0,(0,u0,W1s
 
 autocmd FileType * setlocal indentkeys+=!<Tab>
 
+" ----------------------------------------------------------------
+
+" A wrapper function to restore the cursor position, window position,
+" and last search after running a command.
+function! Preserve(command)
+    " Save the last search
+    let last_search=@/
+    " Save the current cursor position
+    let save_cursor = getpos(".")
+    " Save the window position
+    normal H
+    let save_window = getpos(".")
+    call setpos('.', save_cursor)
+
+    " Do the business:
+    execute a:command
+
+    " Restore the last_search
+    let @/=last_search
+    " Restore the window position
+    call setpos('.', save_window)
+    normal zt
+    " Restore the cursor position
+    call setpos('.', save_cursor)
+endfunction
+
 " ---------------------------------------------------------------
 
 let g:ScreenImpl = "Tmux"
@@ -386,7 +412,6 @@ augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
 augroup END
 
-
 " ---------------------------------------------------------------
 
 " insert mode jump to head and
@@ -402,8 +427,8 @@ nmap B b
 nnoremap <F8> :GundoToggle<CR>
 
 " ------------------------------------------------------------
-nmap <C-c>w :w<CR>
-imap <C-c>w <ESC>:w<CR>a
+nmap <C-c>w :call Preserve("normal w")<CR>
+imap <C-c>w <ESC>:call Preserve("normal w")<CR>a
 
 nmap \l :TlistToggle<CR>
 nmap \o :set paste!<CR>
@@ -458,8 +483,10 @@ nnoremap <C-c>f :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <C-c>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-imap <leader>w <ESC>:w<CR>
-nmap <leader>w :w<CR>
+imap <leader>w <ESC>:call Preserve("normal w")<CR>
+nmap <leader>w :call Preserve("normal w")<CR>
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
+
+let python_highlight_all = 1
