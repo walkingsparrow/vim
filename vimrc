@@ -427,8 +427,8 @@ nmap B b
 nnoremap <F8> :GundoToggle<CR>
 
 " ------------------------------------------------------------
-nmap <C-c>w :call Preserve("normal w")<CR>
-imap <C-c>w <ESC>:call Preserve("normal w")<CR>a
+nmap <C-c>w :call Preserve("w")<CR>
+imap <C-c>w <ESC>:call Preserve("w")<CR>a
 
 nmap \l :TlistToggle<CR>
 nmap \o :set paste!<CR>
@@ -488,8 +488,8 @@ nnoremap <C-c>f :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <C-c>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-imap <leader>w <ESC>:call Preserve("normal w")<CR>
-nmap <leader>w :call Preserve("normal w")<CR>
+imap <leader>w <ESC>:call Preserve("w")<CR>
+nmap <leader>w :call Preserve("w")<CR>
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
