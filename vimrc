@@ -419,10 +419,10 @@ imap <C-a> <ESC>^i
 nmap <C-a> ^
 nmap <C-e> $
 imap <C-e> <ESC>$a
-" imap F <ESC>wa
-" imap B <ESC>bi
-" nmap F w
-" nmap B b
+imap F <ESC>wa
+imap B <ESC>bi
+nmap F w
+nmap B b
 
 nnoremap <F8> :GundoToggle<CR>
 
