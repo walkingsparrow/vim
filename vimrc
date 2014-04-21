@@ -451,8 +451,12 @@ vmap <C-c>= :Tabularize /=<CR>
 
 function! s:TabForIndent()
     " Don't strip on these filetypes
-    if &ft == 'python'
+    if &ft =~ 'python'
         imap <Tab> <C-t>
+        return
+    endif
+
+    if &ft =~ 'sql'
         return
     endif
 
