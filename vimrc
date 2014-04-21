@@ -438,10 +438,10 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 map <F6> :set wrap!<cr>
 
-nmap <F5> :w<CR>:SyntasticCheck<CR>
+"nmap <F5> :w<CR>:SyntasticCheck<CR>
 
 nmap <C-c>c :w<CR>:SyntasticCheck<CR>
-imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>a
+"imap <F5> <ESC>:w<CR>:SyntasticCheck<CR>a
 
 imap <C-c>c <ESC>:w<CR>:SyntasticCheck<CR>a
 nmap <C-c>C :SyntasticReset<CR>
@@ -490,3 +490,6 @@ nmap <leader>w :call Preserve("normal w")<CR>
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
 
 let python_highlight_all = 1
+
+let g:airline_exclude_preview = 1
+let g:ctrlspace_use_tabline = 1
