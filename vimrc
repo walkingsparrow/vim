@@ -112,7 +112,7 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-"nnoremap <F8> :GundoToggle<CR>
+nnoremap <F8> :GundoToggle<CR>
 set undodir=~/.vim-undo
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
@@ -193,7 +193,8 @@ imap <F2> <ESC>:BufExplorer<CR>
 
 "let g:indentLine_loaded = 0
 let g:indentLine_color_term = 236
-let g:indentLine_char = "╎"
+"let g:indentLine_char = "╎"
+let g:indentLine_char = '│'
 
 " align function arguments
 set cino+=(0
@@ -353,6 +354,8 @@ function! Goto_next_nonblank()
             return
         endif
     endfor
+    call cursor(cur, len(getline(cur)))
+    return
 endfunction
 
 nmap <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
