@@ -112,16 +112,12 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-"undotree
-"nnoremap <F5> :UndotreeToggle<cr>
-
 "nnoremap <F8> :GundoToggle<CR>
-"persistent undo
-"set undodir=~/.vim-undo
-"set undofile
-"set undolevels=1000 "maximum number of changes that can be undone
-"set undoreload=10000 "maximum number lines to save for undo on a buffer reload
-let g:gundo_disable = 1
+set undodir=~/.vim-undo
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+"let g:gundo_disable = 1
 
 command -nargs=* -complete=help H vertical belowright help <args>
 
