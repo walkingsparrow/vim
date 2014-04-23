@@ -134,7 +134,7 @@ let g:acp_behaviorKeywordLength = 3
 
 " highlight long lines
 augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=236 guibg=#003700
+    autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#003700
     autocmd BufEnter * match OverLength /\%67v.*/
 augroup END
 
@@ -171,16 +171,16 @@ set background=dark
 "highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
 "highlight PmenuSel ctermbg=34 ctermfg=16
 
-let g:kolor_italic=1                    " Enable italic. Default: 1
-let g:kolor_bold=1                      " Enable bold. Default: 1
-let g:kolor_underlined=0                " Enable underline. Default: 0
-let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-colorscheme kolor
-highlight Comment gui=italic cterm=italic ctermfg=241
-highlight Normal ctermbg=235 ctermfg=188
-highlight LineNr ctermbg=236 ctermfg=240
-highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
-highlight PmenuSel ctermbg=34 ctermfg=16
+"let g:kolor_italic=1                    " Enable italic. Default: 1
+"let g:kolor_bold=1                      " Enable bold. Default: 1
+"let g:kolor_underlined=0                " Enable underline. Default: 0
+"let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
+colorscheme solarized
+highlight Comment gui=italic cterm=italic ctermfg=240
+"highlight Normal ctermbg=235 ctermfg=188
+"highlight LineNr ctermbg=236 ctermfg=240
+"highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
+"highlight PmenuSel ctermbg=34 ctermfg=16
 
 "colorscheme robinhood
 " highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
@@ -203,7 +203,7 @@ noremap <silent> <F2> :BufExplorer<CR>
 imap <F2> <ESC>:BufExplorer<CR>
 
 "let g:indentLine_loaded = 0
-let g:indentLine_color_term = 236
+let g:indentLine_color_term = 234
 "let g:indentLine_char = "╎"
 let g:indentLine_char = '│'
 
