@@ -163,10 +163,21 @@ if &term =~ '^xterm'
 endif
 
 set background=dark
-colorscheme myzenburn
-highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
-highlight Comment gui=italic cterm=italic
-highlight Normal ctermbg=235 ctermfg=253
+"colorscheme myzenburn
+"highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
+"highlight Comment gui=italic cterm=italic
+"highlight Normal ctermbg=235 ctermfg=253
+"highlight LineNr ctermbg=236 ctermfg=240
+"highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
+"highlight PmenuSel ctermbg=34 ctermfg=16
+
+let g:kolor_italic=1                    " Enable italic. Default: 1
+let g:kolor_bold=1                      " Enable bold. Default: 1
+let g:kolor_underlined=0                " Enable underline. Default: 0
+let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
+colorscheme kolor
+highlight Comment gui=italic cterm=italic ctermfg=241
+highlight Normal ctermbg=235 ctermfg=188
 highlight LineNr ctermbg=236 ctermfg=240
 highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
 highlight PmenuSel ctermbg=34 ctermfg=16
