@@ -84,7 +84,8 @@ nmap <F7> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 "let g:airline_powerline_fonts = 1
-let g:airline_theme="bubblegum"
+"let g:airline_theme="bubblegum"
+let g:airline_theme="solarized"
 
 "let g:headlights_smart_menus = 1
 
@@ -175,6 +176,14 @@ set background=dark
 "let g:kolor_bold=1                      " Enable bold. Default: 1
 "let g:kolor_underlined=0                " Enable underline. Default: 0
 "let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
+
+let g:solarized_termcolors= 256
+let g:solarized_termtrans = 1
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+let g:solarized_contrast = "normal"
+let g:solarized_visibility= "normal"
 colorscheme solarized
 highlight Comment gui=italic cterm=italic ctermfg=240
 "highlight Normal ctermbg=235 ctermfg=188
