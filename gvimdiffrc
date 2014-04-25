@@ -1,18 +1,18 @@
 "set guifont=Monaco:h12
 "set guifont=Consolas:h13
 "highlight Normal guibg=wheat1
-set lines=999 columns=999
-autocmd VimResized * wincmd =
-set lsp=2
-set transparency=2
-set guifont=Monaco:h11
-set number
+"set lines=999 columns=999
+"autocmd VimResized * wincmd =
+"set lsp=2
+"set transparency=2
+"set guifont=Monaco:h11
+"set number
 "colorscheme github
 "colorscheme seoul256
-highlight LineNr guibg=gray27 guifg=gray47
-highlight Normal guibg=gray25
-highlight Comment gui=italic guifg=gray61
-set linespace=4
+"highlight LineNr guibg=gray27 guifg=gray47
+"highlight Normal guibg=gray25
+"highlight Comment gui=italic guifg=gray61
+"set linespace=4
 "au GuiEnter * vnew
 "highlight Cursor guibg=lightskyblue1 guifg=deepskyblue4
 noremap q :<C-u>qa<CR>
