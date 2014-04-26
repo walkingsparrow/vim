@@ -135,7 +135,7 @@ let g:acp_behaviorKeywordLength = 3
 
 " highlight long lines
 augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=255 guibg=#003700
+    autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#003700
     autocmd BufEnter * match OverLength /\%67v.*/
 augroup END
 
@@ -163,7 +163,7 @@ if &term =~ '^xterm'
   " 6 -> solid vertical bar
 endif
 
-set background=light
+set background=dark
 "colorscheme myzenburn
 "highlight MatchParen cterm=bold ctermfg=235 ctermbg=darkgreen
 "highlight Comment gui=italic cterm=italic
@@ -185,7 +185,7 @@ let g:solarized_italic = 1
 let g:solarized_contrast = "normal"
 let g:solarized_visibility= "normal"
 colorscheme solarized
-highlight Comment gui=italic cterm=italic ctermfg=248
+highlight Comment gui=italic cterm=italic ctermfg=023
 "highlight Normal ctermbg=235 ctermfg=188
 "highlight LineNr ctermbg=236 ctermfg=240
 "highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
@@ -212,9 +212,9 @@ noremap <silent> <F2> :BufExplorer<CR>
 imap <F2> <ESC>:BufExplorer<CR>
 
 "let g:indentLine_loaded = 0
-let g:indentLine_color_term = 254
+let g:indentLine_color_term = 235
 "let g:indentLine_char = "╎"
-let g:indentLine_char = '│'
+"let g:indentLine_char = '│'
 
 " align function arguments
 "set cino+=(0
