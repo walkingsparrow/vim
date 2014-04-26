@@ -106,9 +106,9 @@ let g:atp_folding =1
 autocmd BufWritePre * :%s/\s\+$//e
 
 "rainbow_parentheses.vim
-"au VimEnter * RainbowParenthesesToggle
-au FileType clojure RainbowParenthesesToggle
-au FileType lisp RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggle
+"au FileType clojure RainbowParenthesesToggle
+"au FileType lisp RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
@@ -235,6 +235,8 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 
 set nostartofline
 
+"hi Visual term=reverse cterm=reverse ctermfg=None guibg=LightGrey
+
 " ----------------------------------------------------------------------
 
 nmap <F3> :TagbarToggle<CR>
@@ -314,6 +316,9 @@ let g:tagbar_type_go = {
 autocmd Filetype scala set softtabstop=2
 autocmd Filetype scala set sw=2
 autocmd Filetype scala set ts=2
+let g:scala_sort_across_groups=1
+au BufEnter *.scala setl formatprg=java\ -jar\ /Users/qianh1/.local/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
+"nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
 
 set fillchars+=stl:\ ,stlnc:\
 
@@ -510,6 +515,9 @@ nnoremap <C-c>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 imap <leader>w <ESC>:call Preserve("w")<CR>
 nmap <leader>w :call Preserve("w")<CR>
+
+" ZoomWin
+nmap <leader>o <c-w>o
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
