@@ -519,6 +519,11 @@ nmap <leader>w :call Preserve("w")<CR>
 " ZoomWin
 nmap <leader>o <c-w>o
 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 1)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 1)<CR>
+"noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 2)<CR>
+"noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 2)<CR>
+
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
 
