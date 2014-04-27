@@ -475,25 +475,33 @@ imap <C-c>C <ESC>:SyntasticReset<CR>a
 
 vmap <C-c>= :Tabularize /=<CR>
 
-function! s:TabForIndent()
-    " Don't strip on these filetypes
-    if &ft == 'python'
-        imap <Tab> <C-t>
-        return
-    endif
+"function! s:TabForIndent()
+"    " Don't strip on these filetypes
+"    if &ft == 'python'
+"        imap <Tab> <Space><Space><Space><Space>
+"        return
+"    endif
+"
+"    if &ft == 'sql'
+"        imap <Tab> <Space><Space><Space><Space>
+"        return
+"    endif
+"
+"    " use TAB for indentation in insert-mode
+"    set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
+"    set indentkeys=!<Tab>,o,O
+"    map <Tab> i<Tab><Esc>^
+"endfunction
 
-    if &ft == 'sql'
-        imap <Tab> <Space><Space><Space><Space>
-        return
-    endif
+"autocmd BufEnter * call <SID>TabForIndent()
 
-    " use TAB for indentation in insert-mode
-    set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
-    set indentkeys=!<Tab>,o,O
-    map <Tab> i<Tab><Esc>^
-endfunction
-
-autocmd BufEnter * call <SID>TabForIndent()
+" use TAB for indentation in insert-mode
+"set cinkeys=0{,0},0),0#,!<S-Tab>,;,:,o,O,e
+"set indentkeys=!<S-Tab>,o,O
+"map <S-Tab> i<S-Tab><Esc>^
+nmap <leader><tab> ==
+imap <leader><tab> <ESC>==a
+"vmap <leader><tab> =<ESC>a
 
 nmap <C-t> a<C-t><ESC>
 nmap <C-d> a<C-d><ESC>
@@ -531,9 +539,17 @@ let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:
 "imap <C-j> <Plug>snipMateNextOrTrigger
 "smap <C-j> <Plug>snipMateNextOrTrigger
 
+" Ultisnips options
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+
+" YouCompleteMe options
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 
 let python_highlight_all = 1
 
@@ -555,3 +571,4 @@ let g:airline_right_alt_sep     = ''
 let g:airline_branch_prefix     = ''
 let g:airline_readonly_symbol   = ''
 let g:airline_linecolumn_prefix = ''
+
