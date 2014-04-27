@@ -131,7 +131,8 @@ set linespace=6
 
 let g:atp_tab_map=1
 
-let g:acp_behaviorKeywordLength = 3
+"let g:acp_behaviorKeywordLength = 3
+"let g:acp_behaviorSnipmateLength = 1
 
 " highlight long lines
 augroup vimrc_autocmds
@@ -526,6 +527,13 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 1)<CR>
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
+
+"imap <C-j> <Plug>snipMateNextOrTrigger
+"smap <C-j> <Plug>snipMateNextOrTrigger
+
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-n>"
+let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 
 let python_highlight_all = 1
 
