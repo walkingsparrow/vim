@@ -317,7 +317,7 @@ autocmd Filetype scala set softtabstop=2
 autocmd Filetype scala set sw=2
 autocmd Filetype scala set ts=2
 let g:scala_sort_across_groups=1
-au BufEnter *.scala setl formatprg=java\ -jar\ /Users/qianh1/.local/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
+au BufEnter *.scala setl formatprg=java\ -jar\ $HOME/.vim/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
 "nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
 
 set fillchars+=stl:\ ,stlnc:\
