@@ -337,7 +337,7 @@ inoremap {<cr> {<cr>}<Tab><c-o><s-o>
 " GNU style indent
 "set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 
-autocmd FileType * setlocal indentkeys+=!<Tab>
+"autocmd FileType * setlocal indentkeys+=!<Tab>
 
 " ----------------------------------------------------------------
 
@@ -548,8 +548,9 @@ let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
+let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_invoke_completion = '<C-Space>'
 
 let python_highlight_all = 1
 
