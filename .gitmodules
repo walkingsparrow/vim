@@ -148,3 +148,13 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "bundle/vimerl"]
+	path = bundle/vimerl
+	url = https://github.com/jimenezrick/vimerl.git
+[submodule "bundle/vim-clojure-highlight"]
+	path = bundle/vim-clojure-highlight
+        url = https://github.com/guns/vim-clojure-highlight.git
+        ignore = dirty
+[submodule "bundle/vim-elixir"]
+	path = bundle/vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
