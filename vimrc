@@ -501,6 +501,8 @@ vmap <C-c>= :Tabularize /=<CR>
 "map <S-Tab> i<S-Tab><Esc>^
 nmap <leader><tab> ==
 imap <leader><tab> <ESC>==a
+nmap <leader>= ==
+imap <leader>= <ESC>==a
 "vmap <leader><tab> =<ESC>a
 
 nmap <C-t> a<C-t><ESC>
@@ -573,3 +575,4 @@ let g:airline_branch_prefix     = ''
 let g:airline_readonly_symbol   = ''
 let g:airline_linecolumn_prefix = ''
 
+let g:tex_conceal = ''
