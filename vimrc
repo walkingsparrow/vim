@@ -236,7 +236,7 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 
 set nostartofline
 
-"hi Visual term=reverse cterm=reverse ctermfg=None guibg=LightGrey
+hi Visual cterm=None ctermbg=236 ctermfg=None guibg=LightGrey
 
 " ----------------------------------------------------------------------
 
@@ -505,12 +505,12 @@ nmap <leader>= ==
 imap <leader>= <ESC>==a
 "vmap <leader><tab> =<ESC>a
 
-nmap <C-t> a<C-t><ESC>
-nmap <C-d> a<C-d><ESC>
+"nmap <C-t> a<C-t><ESC>
+"nmap <C-d> a<C-d><ESC>
 imap <C-c>. <C-t>
 imap <C-c>, <C-d>
-nmap <C-c>. <C-t>
-nmap <C-c>, <C-d>
+nmap <C-c>. a<C-t><ESC>
+nmap <C-c>, a<C-d><ESC>
 
 imap <C-p> <ESC>pa
 
@@ -576,3 +576,6 @@ let g:airline_readonly_symbol   = ''
 let g:airline_linecolumn_prefix = ''
 
 let g:tex_conceal = ''
+
+autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
+set title
