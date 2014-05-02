@@ -577,5 +577,5 @@ let g:airline_linecolumn_prefix = ''
 
 let g:tex_conceal = ''
 
-autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
+autocmd BufEnter * let &titlestring = '' . expand("%:t")
 set title
