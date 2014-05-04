@@ -544,7 +544,7 @@ let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:
 " Ultisnips options
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
-let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+let g:UltiSnipsJumpBackwardTrigger=""
 
 " YouCompleteMe options
 let g:ycm_complete_in_comments = 1
