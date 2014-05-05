@@ -68,10 +68,6 @@
 [submodule "bundle/vim-notes"]
 	path = bundle/vim-notes
 	url = https://github.com/xolox/vim-notes.git
-[submodule "bundle/slimv.vim"]
-	path = bundle/slimv.vim
-        url = https://github.com/vim-scripts/slimv.vim.git
-        ignore = dirty
 [submodule "bundle/LargeFile"]
 	path = bundle/LargeFile
         url = https://github.com/vim-scripts/LargeFile.git
