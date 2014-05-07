@@ -579,3 +579,8 @@ let g:tex_conceal = ''
 
 autocmd BufEnter * let &titlestring = '' . expand("%:t")
 set title
+
+" Make sure VIM do not lose track of syntax colors while scolling
+"autocmd BufEnter * syntax sync fromstart
+nmap <silent> i :syntax sync fromstart<cr>:startinsert<cr>
+imap <silent> <esc> <C-[>:syntax sync fromstart<cr>
