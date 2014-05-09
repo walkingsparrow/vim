@@ -21,7 +21,7 @@ let ConqueTerm_CWInsert = 1
 let ConqueTerm_Color = 0
 let ConqueTerm_ReadUnfocused = 1
 
-set linespace=5
+"set linespace=5
 
 " imap <F2> <Plug>RESendMBlock
 " nmap <F2> <Plug>RESendMBlock
@@ -124,7 +124,7 @@ command -nargs=* -complete=help H vertical belowright help <args>
 
 map <F4> :setlocal spell! spelllang=en_us<CR>
 
-set guifont=Consolas:h16
+"set guifont=Consolas:h16
 set lines=40 columns=100
 set lsp=2
 set linespace=6
@@ -136,7 +136,7 @@ let g:atp_tab_map=1
 
 " highlight long lines
 augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#003700
+    autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#303030
     autocmd BufEnter * match OverLength /\%67v.*/
 augroup END
 
@@ -236,7 +236,7 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 
 set nostartofline
 
-hi Visual cterm=None ctermbg=236 ctermfg=None guibg=LightGrey
+hi Visual cterm=None ctermbg=236 ctermfg=None
 
 " ----------------------------------------------------------------------
 

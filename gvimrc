@@ -1,22 +1,22 @@
 "set guifont=Consolas:h16
 ""set guifont=Monaco:h14
-set guifont=Source\ Code\ Pro:h16
+set guifont=Source\ Code\ Pro\ for\ Powerline:h18
 "set lines=40 columns=100
 "set lsp=2
 ""set transparency=2
 "highlight Comment gui=italic
-"set linespace=6
+set linespace=1
 
 ""set background=light
-""set background=dark
+set background=dark
 ""colorscheme zenburn
-colorscheme robinhood
+"colorscheme robinhood
 ""colorscheme seoul256
-""colorscheme solarized
+colorscheme solarized
 ""colorscheme grape "robinhood
 ""highlight LineNr guibg=gray27 guifg=gray47
 ""highlight Normal guibg=gray25
-highlight Comment gui=italic
+highlight Comment gui=italic guifg=#005f5f
 
 ""let g:solarized_bold=1 " 1|0 show bold fonts
 ""let g:solarized_italic=1 " 1|0 show italic fonts
@@ -26,8 +26,15 @@ highlight Comment gui=italic
 ""hi Normal guifg=black
 
 "let g:atp_tab_map=1
-highlight Pmenu guibg=gray36 guifg=gray
+"highlight Pmenu guibg=gray36 guifg=gray
 "set paste
 set ttymouse=xterm
 
-let g:indentLine_color_gui = '#003700'
+"let g:indentLine_color_gui = '#003700'
+let g:indentLine_color_gui = '#303030'
+
+hi Visual gui=NONE guibg='#3a3a30' guifg=NONE
+
+set guioptions+=LlRrb
+set guioptions-=LlRrb
+
