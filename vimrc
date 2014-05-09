@@ -460,7 +460,7 @@ nmap \l :TlistToggle<CR>
 nmap \o :set paste!<CR>
 
 " Make double-<Esc> clear search highlights
-nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
 
 map <F6> :set wrap!<cr>
 
