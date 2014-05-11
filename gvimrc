@@ -1,6 +1,6 @@
 "set guifont=Consolas:h16
 ""set guifont=Monaco:h14
-set guifont=Source\ Code\ Pro\ for\ Powerline:h18
+"set guifont=Source\ Code\ Pro\ for\ Powerline:h18
 "set lines=40 columns=100
 "set lsp=2
 ""set transparency=2
@@ -15,8 +15,8 @@ set background=dark
 colorscheme solarized
 ""colorscheme grape "robinhood
 ""highlight LineNr guibg=gray27 guifg=gray47
-""highlight Normal guibg=gray25
-highlight Comment gui=italic guifg=#005f5f
+highlight Normal font='Source Code Pro for Powerline:h18'
+highlight Comment gui=italic,bold guifg=#005f5f font='Consolas:h18'
 
 ""let g:solarized_bold=1 " 1|0 show bold fonts
 ""let g:solarized_italic=1 " 1|0 show italic fonts

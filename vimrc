@@ -186,7 +186,7 @@ let g:solarized_italic = 1
 let g:solarized_contrast = "normal"
 let g:solarized_visibility= "normal"
 colorscheme solarized
-highlight Comment gui=italic cterm=italic ctermfg=023
+highlight Comment cterm=italic ctermfg=023
 "highlight Normal ctermbg=235 ctermfg=188
 "highlight LineNr ctermbg=236 ctermfg=240
 "highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
@@ -210,7 +210,7 @@ nnoremap Q <nop>
 set showbreak=↪
 
 noremap <silent> <F2> :BufExplorer<CR>
-imap <F2> <ESC>:BufExplorer<CR>
+imap <silent> <F2> <ESC>:BufExplorer<CR>
 
 "let g:indentLine_loaded = 0
 let g:indentLine_color_term = 235
@@ -240,7 +240,7 @@ hi Visual cterm=None ctermbg=236 ctermfg=None
 
 " ----------------------------------------------------------------------
 
-nmap <F3> :TagbarToggle<CR>
+nmap <silent> <F3> :TagbarToggle<CR>
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',
@@ -384,22 +384,22 @@ function! Goto_next_nonblank()
     return
 endfunction
 
-nmap <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
-imap <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
-vmap <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+nmap <silent> <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+imap <silent> <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
-nmap <C-c>% :ScreenShell!<CR>
-imap <C-c>% <ESC>:ScreenShell!<CR>a
-nmap <C-c>" :ScreenShell<CR>
-imap <C-c>" :ScreenShell<CR>a
+nmap <silent> <C-c>% :ScreenShell!<CR>
+imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
+nmap <silent> <C-c>" :ScreenShell<CR>
+imap <silent> <C-c>" :ScreenShell<CR>a
 
 function! s:ScreenShellListener()
     if g:ScreenShellActive
-        nmap <C-c>q :ScreenQuit<CR>
-        imap <C-c>q <ESC>:ScreenQuit<CR>
+        nmap <silent> <C-c>q :ScreenQuit<CR>
+        imap <silent> <C-c>q <ESC>:ScreenQuit<CR>
     else
-        nmap <C-c>q :wq<CR>
-        imap <C-c>q <ESC>:wq<CR>
+        nmap <silent> <C-c>q :wq<CR>
+        imap <silent> <C-c>q <ESC>:wq<CR>
     endif
 endfunction
 
