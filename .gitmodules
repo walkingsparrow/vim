@@ -120,9 +120,6 @@
 	path = bundle/ctrlp-funky
 	url = https://github.com/tacahiroy/ctrlp-funky.git
         ignore = dirty
-[submodule "bundle/vim-ctrlspace"]
-	path = bundle/vim-ctrlspace
-	url = https://github.com/szw/vim-ctrlspace.git
 [submodule "bundle/vim-kolor"]
 	path = bundle/vim-kolor
 	url = https://github.com/zeis/vim-kolor.git
