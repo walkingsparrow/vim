@@ -59,6 +59,13 @@ au BufNewFile,BufRead *.sql_in setlocal ft=sql
 au BufNewFile,BufRead *.py_in setlocal ft=python
 au BufNewFile,BufRead *.notes setlocal ft=notes
 
+au BufNewFile,BufRead *.erl imap -- <space>-><space>
+"au BufNewFile,BufRead *.erl imap __ _
+au BufNewFile,BufRead *.ex imap -- <space>-><space>
+"au BufNewFile,BufRead *.ex imap __ _
+au BufNewFile,BufRead *.exs imap -- <space>-><space>
+"au BufNewFile,BufRead *.exs imap __ _
+
 " ------------------------------------------------------
 "  http://statico.github.io/vim.html settings
 
