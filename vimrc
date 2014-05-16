@@ -634,4 +634,4 @@ set title
 "nmap <silent> i :syntax sync fromstart<cr>:startinsert<cr>
 imap <silent> <esc> <C-[>:syntax sync fromstart<cr>
 
-imap <leader>- <space><C-o>60i-<esc>a<cr>
+imap <leader>- <space><C-o>60i-<esc>a<cr><cr>
