@@ -65,6 +65,9 @@ au BufNewFile,BufRead *.ex imap -- <space>-><space>
 "au BufNewFile,BufRead *.ex imap __ _
 au BufNewFile,BufRead *.exs imap -- <space>-><space>
 "au BufNewFile,BufRead *.exs imap __ _
+au BufNewFile,BufRead *.erl imap __ <space><-<space>
+au BufNewFile,BufRead *.ex imap __ <space><-<space>
+au BufNewFile,BufRead *exs imap __ <space><-<space>
 
 " ------------------------------------------------------
 "  http://statico.github.io/vim.html settings
@@ -186,7 +189,7 @@ let g:atp_tab_map=1
 " highlight long lines
 augroup vimrc_autocmds
     autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#303030
-    autocmd BufEnter * match OverLength /\%67v.*/
+    autocmd BufEnter * match OverLength /\%64v.*/
 augroup END
 
 se nostartofline
@@ -635,3 +638,5 @@ set title
 imap <silent> <esc> <C-[>:syntax sync fromstart<cr>
 
 imap <leader>- <space><C-o>60i-<esc>a<cr><cr>
+
+let erlang_show_errors = 0
