@@ -605,6 +605,10 @@ let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let python_highlight_all = 1
 
@@ -637,6 +641,6 @@ set title
 "nmap <silent> i :syntax sync fromstart<cr>:startinsert<cr>
 imap <silent> <esc> <C-[>:syntax sync fromstart<cr>
 
-imap <leader>- <space><C-o>60i-<esc>a<cr><cr>
+imap <leader>- <space><C-o>60i-<esc>a
 
 let erlang_show_errors = 0
