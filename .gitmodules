@@ -37,7 +37,8 @@
         ignore = dirty
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
+        url = https://github.com/bling/vim-airline.git
+        ignore = dirty
 [submodule "bundle/vim-expand-region"]
 	path = bundle/vim-expand-region
         url = https://github.com/terryma/vim-expand-region.git
@@ -51,7 +52,8 @@
 	url = https://github.com/xolox/vim-misc.git
 [submodule "bundle/vim-easymotion"]
 	path = bundle/vim-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
+        url = https://github.com/Lokaltog/vim-easymotion.git
+        ignore = dirty
 [submodule "bundle/rainbow_parentheses.vim"]
 	path = bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
@@ -67,7 +69,8 @@
 	url = https://github.com/rking/ag.vim.git
 [submodule "bundle/vim-notes"]
 	path = bundle/vim-notes
-	url = https://github.com/xolox/vim-notes.git
+        url = https://github.com/xolox/vim-notes.git
+        ignore = dirty
 [submodule "bundle/LargeFile"]
 	path = bundle/LargeFile
         url = https://github.com/vim-scripts/LargeFile.git
@@ -154,10 +157,12 @@
 	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule "bundle/julia-vim"]
 	path = bundle/julia-vim
-	url = https://github.com/JuliaLang/julia-vim.git
+        url = https://github.com/JuliaLang/julia-vim.git
+        ignore = dirty
 [submodule "bundle/vim-golang"]
 	path = bundle/vim-golang
-	url = https://github.com/jnwhiteh/vim-golang.git
+        url = https://github.com/jnwhiteh/vim-golang.git
+        ignore = dirty
 [submodule "bundle/vim-javascript-syntax"]
 	path = bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
