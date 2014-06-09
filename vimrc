@@ -366,9 +366,9 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-autocmd Filetype scala set softtabstop=2
-autocmd Filetype scala set sw=2
-autocmd Filetype scala set ts=2
+" autocmd Filetype scala set softtabstop=2
+" autocmd Filetype scala set sw=2
+" autocmd Filetype scala set ts=2
 let g:scala_sort_across_groups=1
 au BufEnter *.scala setl formatprg=java\ -jar\ $HOME/.vim/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
 "nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
@@ -609,7 +609,7 @@ let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0}
+let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0, 'c': 0}
 
 let python_highlight_all = 1
 
