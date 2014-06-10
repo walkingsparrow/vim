@@ -645,3 +645,40 @@ imap <silent> <esc> <C-[>:syntax sync fromstart<cr>
 imap <leader>- <space><C-o>60i-<esc>a
 
 let erlang_show_errors = 0
+
+"let g:ctrlp_user_command = 'ag %s --files-with-matches --hidden -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+
+" ag is fast enough that CtrlP doesn't need to cache
+" let g:ctrlp_use_caching = 0
+"
+" " let g:ctrlp_user_command = {
+" "   \ 'types': {
+" "     \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
+" "     \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+" "     \ },
+" "   \ 'fallback': 'find %s -type f'
+" "   \ }
+"
+"
+" let g:ctrlp_custom_ignore = {
+"             \ 'dir': '\v[\/]\.(git|hg|svn)$',
+"             \ 'file': '\v\.(exe|so|dll|dat|DS_Store)$',
+"             \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"             \ }
+"
+"
+" " let g:ctrlp_custom_ignore = {
+" "   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
+" "   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+" "   \ }
