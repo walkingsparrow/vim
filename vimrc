@@ -49,8 +49,8 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm"
-let vimpager_use_gvim = 1
+"let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm"
+"let vimpager_use_gvim = 1
 
 set number
 hi LineNr ctermfg=243 ctermbg=253
