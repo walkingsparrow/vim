@@ -175,3 +175,7 @@
 [submodule "bundle/rainbow"]
 	path = bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "bundle/Conque-Shell"]
+	path = bundle/Conque-Shell
+        url = https://github.com/oplatek/Conque-Shell.git
+        ignore = dirty

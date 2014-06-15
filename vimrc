@@ -682,3 +682,5 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 " "   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
 " "   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
 " "   \ }
+
+let g:ConqueTerm_StartMessages = 0
