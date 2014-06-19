@@ -179,3 +179,6 @@
 	path = bundle/Conque-Shell
         url = https://github.com/oplatek/Conque-Shell.git
         ignore = dirty
+[submodule "bundle/gitv"]
+	path = bundle/gitv
+	url = https://github.com/gregsexton/gitv.git
