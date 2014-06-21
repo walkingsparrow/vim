@@ -684,3 +684,5 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 " "   \ }
 
 let g:ConqueTerm_StartMessages = 0
+
+set rtp+=~/.fzf
