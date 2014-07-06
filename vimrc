@@ -196,7 +196,14 @@ se nostartofline
 
 set clipboard=unnamedplus,unnamed,autoselect
 
-if &term =~ '^xterm'
+
+if has("autocmd") && has('GUI_GTK')
+    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+    au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+endif
+
+if &term =~ '^xterm' && $SSH_CONN == "yes"
    "use an orange cursor in insert mode
   "let &t_SI = "\<Esc>]12;orange\x7"
    "use a red cursor otherwise
@@ -215,6 +222,7 @@ if &term =~ '^xterm'
   " 5 -> blinking vertical bar
   " 6 -> solid vertical bar
 endif
+
 
 set background=dark
 "colorscheme myzenburn
@@ -259,7 +267,7 @@ set autoread " auto-update the file if it is changed by other editors
 
 nnoremap Q <nop>
 
-set showbreak=↪
+"set showbreak=↪
 
 noremap <silent> <F2> :BufExplorer<CR>
 imap <silent> <F2> <ESC>:BufExplorer<CR>
