@@ -196,7 +196,14 @@ se nostartofline
 
 set clipboard=unnamedplus,unnamed,autoselect
 
-if &term =~ '^xterm'
+if has("autocmd") && has('GUI_GTK')
+    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+            au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+                au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+            endif
+
+
+if &term =~ '^xterm' && $SSH_CONN == "yes"
    "use an orange cursor in insert mode
   "let &t_SI = "\<Esc>]12;orange\x7"
    "use a red cursor otherwise
@@ -259,7 +266,7 @@ set autoread " auto-update the file if it is changed by other editors
 
 nnoremap Q <nop>
 
-set showbreak=↪
+"set showbreak=↪
 
 noremap <silent> <F2> :BufExplorer<CR>
 imap <silent> <F2> <ESC>:BufExplorer<CR>
@@ -281,8 +288,8 @@ let g:syntastic_python_checkers=['pylint']
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_error_symbol = 'x'
+let g:syntastic_warning_symbol = 'c'
 let g:syntastic_enable_balloons = 1
 let g:syntastic_mode_map = { 'mode': 'passive' }
 
