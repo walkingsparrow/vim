@@ -694,3 +694,7 @@ let g:ConqueTerm_StartMessages = 0
 
 set rtp+=~/.fzf
 nmap <leader>z :FZF<cr>
+
+" Color name (:help cterm-colors) or ANSI code
+" let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
