@@ -187,9 +187,16 @@ let g:atp_tab_map=1
 "let g:acp_behaviorSnipmateLength = 1
 
 " highlight long lines
+" augroup vimrc_autocmds
+"     "autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#303030
+"     autocmd BufEnter * highlight OverLength cterm=underline ctermbg=None ctermfg=None gui=underline
+"     autocmd BufEnter * match OverLength /\%64v.*/
+" augroup END
+
 augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=234 guibg=#303030
-    autocmd BufEnter * match OverLength /\%64v.*/
+    autocmd BufEnter * highlight Overlength ctermbg=234 ctermfg=None
+    "call matchadd('ColorColumn1', '\%65v', 100)
+    autocmd BufEnter * match OverLength /\%65v/
 augroup END
 
 se nostartofline
@@ -239,6 +246,8 @@ let g:solarized_contrast = "normal"
 let g:solarized_visibility= "normal"
 colorscheme solarized
 highlight Comment cterm=italic ctermfg=023
+highlight scalaMultilineComment cterm=italic ctermfg=023
+highlight scalaTrailingComment cterm=italic ctermfg=023
 "highlight Normal ctermbg=235 ctermfg=188
 "highlight LineNr ctermbg=236 ctermfg=240
 "highlight Pmenu guibg=gray40 guifg=gray32 ctermbg=240 ctermfg=250
@@ -586,6 +595,16 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 1)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 1)<CR>
 "noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 2)<CR>
 "noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 2)<CR>
+
+function! g:ToggleColorColumn()
+    if &colorcolumn != ''
+        setlocal colorcolumn&
+    else
+        setlocal colorcolumn=65
+    endif
+endfunction
+
+nnoremap <silent> <f10> :call g:ToggleColorColumn()<CR>
 
 " SQLite
 let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
