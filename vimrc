@@ -633,7 +633,7 @@ let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0, 'c': 0}
+let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0, 'c': 0, 'python': 0}
 
 let python_highlight_all = 1
 
