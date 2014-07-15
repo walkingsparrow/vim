@@ -38,3 +38,4 @@
 --langmap=Lisp:+.clj
 
 --langmap=python:+.py_in
+--langmap=sql:+.sql_in
