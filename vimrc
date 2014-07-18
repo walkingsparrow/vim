@@ -754,9 +754,6 @@ au FileType python let b:did_ftplugin = 1
 " Vim-jedi settings
 let g:jedi#popup_on_dot = 0
 
-let g:neocomplete#enable_prefetch = 1
-let g:neocomplete#sources#min_pattern_lenth = 0
-
 let g:marching_enable_neocomplete = 1
 
 if !exists('g:neocomplete#force_omni_input_patterns')
