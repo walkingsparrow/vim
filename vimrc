@@ -740,3 +740,28 @@ let g:neocomplete#cursor_hold_i_time = 150
 let g:neocomplete#enable_prefetch = 1
 let g:neocomplete#sources#min_pattern_lenth = 1
 
+let g:neocomplcache_force_overwrite_completefunc = 1
+if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+set ofu=syntaxcomplete#Complete
+au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python let b:did_ftplugin = 1
+" Vim-jedi settings
+let g:jedi#popup_on_dot = 0
+
+let g:neocomplete#enable_prefetch = 1
+let g:neocomplete#sources#min_pattern_lenth = 0
+
+let g:marching_enable_neocomplete = 1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
