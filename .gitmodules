@@ -199,3 +199,6 @@
 [submodule "bundle/jedi-vim"]
 	path = bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "bundle/repmo.vim"]
+	path = bundle/repmo.vim
+	url = https://github.com/vim-scripts/repmo.vim.git

@@ -731,8 +731,13 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 "let g:neocomplete#lock_iminsert = 1
 let g:neocomplete#enable_cursor_hold_i = 1
 let g:neocomplete#cursor_hold_i_time = 200
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+
+"inoremap <expr><C-.> pumvisible() ? "\<C-n>" : "\<C-.>"
+"inoremap <expr><C-,> pumvisible() ? "\<C-p>" : "\<C-,>"
+inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 
 let g:neocomplete#enable_prefetch = 1
 "let g:neocomplete#sources#min_pattern_lenth = 0
@@ -760,3 +765,13 @@ au FileType python let b:did_ftplugin = 1
 " Vim-jedi settings
 let g:jedi#popup_on_dot = 0
 
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
