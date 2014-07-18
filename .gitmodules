@@ -200,3 +200,6 @@
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/repmo.vim"]
+	path = bundle/repmo.vim
+	url = https://github.com/vim-scripts/repmo.vim.git
