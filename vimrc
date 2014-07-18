@@ -727,17 +727,17 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
 " let g:neocomplete#lock_iminsert = 1
 let g:neocomplete#enable_cursor_hold_i = 1
-let g:neocomplete#cursor_hold_i_time = 150
+let g:neocomplete#cursor_hold_i_time = 200
 "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
 "inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
 
 let g:neocomplete#enable_prefetch = 1
-let g:neocomplete#sources#min_pattern_lenth = 1
+"let g:neocomplete#sources#min_pattern_lenth = 1
 
 let g:neocomplcache_force_overwrite_completefunc = 1
 if !exists('g:neocomplcache_omni_functions')
