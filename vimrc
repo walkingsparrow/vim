@@ -201,32 +201,32 @@ se nostartofline
 
 set clipboard=unnamedplus,unnamed,autoselect
 
-if has("autocmd") && has('GUI_GTK')
-    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-            au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-                au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-            endif
-
-
-if &term =~ '^xterm' && $SSH_CONN == "yes"
-   "use an orange cursor in insert mode
-  "let &t_SI = "\<Esc>]12;orange\x7"
-   "use a red cursor otherwise
-  "let &t_EI = "\<Esc>]12;red\x7"
-  "silent !echo -ne "\033]12;red\007"
-   "reset cursor when vim exits
-  "autocmd VimLeave * silent !echo -ne "\033]112\007"
-   "use \003]12;gray\007 for gnome-terminal
-  " solid underscore
-  let &t_SI .= "\<Esc>[6 q"
-  " solid block
-  let &t_EI .= "\<Esc>[2 q"
-  " 1 or 0 -> blinking block
-  " 3 -> blinking underscore
-  " Recent versions of xterm (282 or above) also support
-  " 5 -> blinking vertical bar
-  " 6 -> solid vertical bar
-endif
+" if has("autocmd") && has('GUI_GTK')
+"     au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+"             au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+"                 au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+"             endif
+"
+"
+" if &term =~ '^xterm' && $SSH_CONN == "yes"
+"    "use an orange cursor in insert mode
+"   "let &t_SI = "\<Esc>]12;orange\x7"
+"    "use a red cursor otherwise
+"   "let &t_EI = "\<Esc>]12;red\x7"
+"   "silent !echo -ne "\033]12;red\007"
+"    "reset cursor when vim exits
+"   "autocmd VimLeave * silent !echo -ne "\033]112\007"
+"    "use \003]12;gray\007 for gnome-terminal
+"   " solid underscore
+"   let &t_SI .= "\<Esc>[6 q"
+"   " solid block
+"   let &t_EI .= "\<Esc>[2 q"
+"   " 1 or 0 -> blinking block
+"   " 3 -> blinking underscore
+"   " Recent versions of xterm (282 or above) also support
+"   " 5 -> blinking vertical bar
+"   " 6 -> solid vertical bar
+" endif
 
 set background=dark
 "colorscheme myzenburn
@@ -267,7 +267,7 @@ highlight scalaTrailingComment cterm=italic ctermfg=023
 set nonumber
 "highlight LineNr ctermfg=240
 
-set ttymouse=sgr " make mouse work in Tagbar
+"set ttymouse=sgr " make mouse work in Tagbar
 
 set autoread " auto-update the file if it is changed by other editors
 
@@ -622,18 +622,18 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger=""
 
-" YouCompleteMe options
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0, 'c': 0, 'python': 0}
+" " YouCompleteMe options
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+" let g:ycm_key_list_select_completion = ['<Down>']
+" let g:ycm_key_list_previous_completion = ['<Up>']
+" let g:ycm_key_invoke_completion = '<C-Space>'
+" let g:ycm_min_num_of_chars_for_completion = 3
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0, 'c': 0, 'python': 0}
 
 let python_highlight_all = 1
 
@@ -719,22 +719,16 @@ let g:limelight_conceal_ctermfg = 240
 " ------------------------------------------------------------
 
 let g:acp_enableAtStartup = 0
-" Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
 let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-"inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-"inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-
-" let g:neocomplete#lock_iminsert = 1
-let g:neocomplete#enable_cursor_hold_i = 1
 let g:neocomplete#cursor_hold_i_time = 200
 inoremap <expr><Up>  neocomplete#close_popup() . "\<Up>"
 inoremap <expr><Down> neocomplete#close_popup() . "\<Down>"
+inoremap <expr><Right>  neocomplete#close_popup() . "\<Right>"
+inoremap <expr><Left> neocomplete#close_popup() . "\<Left>"
 
 let g:neocomplete#enable_prefetch = 1
 "let g:neocomplete#sources#min_pattern_lenth = 1
@@ -751,7 +745,6 @@ let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
 set ofu=syntaxcomplete#Complete
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python let b:did_ftplugin = 1
-" Vim-jedi settings
 let g:jedi#popup_on_dot = 0
 
 let g:marching_enable_neocomplete = 1
@@ -762,13 +755,13 @@ endif
 
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ neocomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" " <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+"             \ <SID>check_back_space() ? "\<TAB>" :
+"             \ neocomplete#start_manual_complete()
+" function! s:check_back_space() "{{{
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction"}}}
+"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
