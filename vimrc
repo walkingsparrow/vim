@@ -17,6 +17,8 @@ set smartindent
 set autoindent
 set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 
+set cinoptions+=g2,h2
+
 let ConqueTerm_CWInsert = 1
 let ConqueTerm_Color = 0
 let ConqueTerm_ReadUnfocused = 1
@@ -45,9 +47,9 @@ filetype on
 let g:pyflakes_use_quickfix = 0
 let g:pep8_map='<leader>8'
 
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest,preview
 
 let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm"
 let vimpager_use_gvim = 1
@@ -518,7 +520,7 @@ nmap <C-c>w :call Preserve("w")<CR>
 imap <C-c>w <ESC>:call Preserve("w")<CR>a
 
 nmap \l :TlistToggle<CR>
-nmap \o :set paste!<CR>
+nmap \p :set paste!<CR>
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
@@ -722,6 +724,8 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
+"let g:neocomplete#auto_completion_start_length = 0
+
 "inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 "inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
@@ -730,7 +734,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 "let g:neocomplete#lock_iminsert = 1
 "let g:neocomplete#enable_cursor_hold_i = 1
-let g:neocomplete#cursor_hold_i_time = 1000
+"let g:neocomplete#cursor_hold_i_time = 400
 
 let g:neocomplete#enable_auto_select = 0
 
@@ -775,3 +779,6 @@ let g:jedi#popup_on_dot = 0
 " endfunction"}}}
 "
 " inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+nmap <leader>o :ZoomWin<cr>
+imap <leader>o <esc>:ZoomWin<cr>a
