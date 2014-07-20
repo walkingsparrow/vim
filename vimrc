@@ -17,6 +17,8 @@ set smartindent
 set autoindent
 set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 
+set cinoptions+=g2,h2
+
 let ConqueTerm_CWInsert = 1
 let ConqueTerm_Color = 0
 let ConqueTerm_ReadUnfocused = 1
@@ -523,7 +525,7 @@ nmap <C-c>w :call Preserve("w")<CR>
 imap <C-c>w <ESC>:call Preserve("w")<CR>a
 
 nmap \l :TlistToggle<CR>
-nmap \o :set paste!<CR>
+nmap \p :set paste!<CR>
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
