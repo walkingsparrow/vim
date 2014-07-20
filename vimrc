@@ -47,9 +47,9 @@ filetype on
 let g:pyflakes_use_quickfix = 0
 let g:pep8_map='<leader>8'
 
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+" au FileType python set omnifunc=pythoncomplete#Complete
+" let g:SuperTabDefaultCompletionType = "context"
+" set completeopt=menuone,longest,preview
 
 "let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm"
 "let vimpager_use_gvim = 1
