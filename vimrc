@@ -526,6 +526,7 @@ imap <C-c>w <ESC>:call Preserve("w")<CR>a
 
 nmap \l :TlistToggle<CR>
 nmap \p :set paste!<CR>
+imap \p <esc>:set paste!<cr>a
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
@@ -727,13 +728,12 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 let g:neocomplete#cursor_hold_i_time = 200
-inoremap <expr><Up>  neocomplete#close_popup() . "\<Up>"
-inoremap <expr><Down> neocomplete#close_popup() . "\<Down>"
-inoremap <expr><Right>  neocomplete#close_popup() . "\<Right>"
-inoremap <expr><Left> neocomplete#close_popup() . "\<Left>"
+inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
 let g:neocomplete#enable_prefetch = 1
-"let g:neocomplete#sources#min_pattern_lenth = 1
+
+let g:neocomplete#enable_insert_char_pre = 1
 
 let g:neocomplcache_force_overwrite_completefunc = 1
 if !exists('g:neocomplcache_omni_functions')
@@ -757,13 +757,3 @@ endif
 
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
-" " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"             \ <SID>check_back_space() ? "\<TAB>" :
-"             \ neocomplete#start_manual_complete()
-" function! s:check_back_space() "{{{
-"     let col = col('.') - 1
-"     return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction"}}}
-"
-" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
