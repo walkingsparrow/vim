@@ -753,3 +753,4 @@ au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python let b:did_ftplugin = 1
 let g:jedi#popup_on_dot = 0
 
+set pumheight=10
