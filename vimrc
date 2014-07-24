@@ -269,7 +269,7 @@ highlight scalaTrailingComment cterm=italic ctermfg=023
 set nonumber
 "highlight LineNr ctermfg=240
 
-"set ttymouse=sgr " make mouse work in Tagbar
+set ttymouse=sgr " make mouse work in Tagbar
 
 set autoread " auto-update the file if it is changed by other editors
 
@@ -755,7 +755,7 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 set pumheight=10
 
