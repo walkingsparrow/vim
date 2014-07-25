@@ -504,15 +504,15 @@ augroup END
 
 " ---------------------------------------------------------------
 
-" insert mode jump to head and
-imap <C-a> <ESC>^i
-nmap <C-a> ^
-nmap <C-e> $
-imap <C-e> <ESC>$a
-imap F <ESC>wa
-imap B <ESC>bi
-nmap F w
-nmap B b
+" " insert mode jump to head and
+" imap <C-a> <ESC>^i
+" nmap <C-a> ^
+" nmap <C-e> $
+" imap <C-e> <ESC>$a
+ imap F <ESC>wa
+ imap B <ESC>bi
+ nmap F w
+ nmap B b
 
 
 " ------------------------------------------------------------
@@ -715,42 +715,58 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" let g:acp_enableAtStartup = 0
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"
+"
+" inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+" inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"
+" let g:neocomplete#enable_auto_select = 0
+"
+" let g:neocomplete#enable_insert_char_pre = 1
+"
+" let g:neocomplete#enable_prefetch = 1
+"
+" let g:marching_enable_neocomplete = 1
+"
+" if !exists('g:neocomplete#force_omni_input_patterns')
+" "    let g:neocomplete#force_omni_input_patterns = {}
+" endif
+"
+" let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"
+" let g:neocomplcache_force_overwrite_completefunc = 1
+" if !exists('g:neocomplcache_omni_functions')
+" "    let g:neocomplcache_omni_functions = {}
+" endif
+" if !exists('g:neocomplcache_force_omni_patterns')
+" "    let g:neocomplcache_force_omni_patterns = {}
+" endif
+" let g:neocomplcache_force_overwrite_completefunc = 1
+" let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+" set ofu=syntaxcomplete#Complete
+" au FileType python set omnifunc=pythoncomplete#Complete
+" au FileType python let b:did_ftplugin = 1
+" let g:jedi#popup_on_dot = 0
+"
+" set pumheight=10
 
+" ------------------------------------------------------------
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery =
+            \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
+let g:SuperTabMappingTabLiteral = '<Tab>'
 
 inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
-let g:neocomplete#enable_auto_select = 0
-
-let g:neocomplete#enable_insert_char_pre = 1
-
-let g:neocomplete#enable_prefetch = 1
-
-let g:marching_enable_neocomplete = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-let g:neocomplcache_force_overwrite_completefunc = 1
-if !exists('g:neocomplcache_omni_functions')
-    let g:neocomplcache_omni_functions = {}
-endif
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-set ofu=syntaxcomplete#Complete
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python let b:did_ftplugin = 1
-let g:jedi#popup_on_dot = 0
-
-set pumheight=10
