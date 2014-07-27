@@ -457,6 +457,10 @@ nmap <silent> <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
 imap <silent> <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
 vmap <silent> <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
+nmap <silent> <C-e><C-e> <S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>
+imap <silent> <C-e><C-e> <ESC><S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-e><C-e> <f9><CR><C-w><C-p>:'><CR>:call Goto_next_nonblank()<CR>
+
 nmap <silent> <C-c>% :ScreenShell!<CR>
 imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
 nmap <silent> <C-c>" :ScreenShell<CR>
@@ -511,10 +515,10 @@ augroup END
 " ---------------------------------------------------------------
 
 " insert mode jump to head and
-imap <C-a> <ESC>^i
-nmap <C-a> ^
-nmap <C-e> $
-imap <C-e> <ESC>$a
+" imap <C-a> <ESC>^i
+" nmap <C-a> ^
+" nmap <C-e> $
+" imap <C-e> <ESC>$a
 imap F <ESC>wa
 imap B <ESC>bi
 nmap F w
@@ -766,10 +770,32 @@ let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 let g:SuperTabContextDiscoverDiscovery =
             \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'
+let g:SuperTabMappingForward = '<S-Tab>'
+let g:SuperTabMappingBackward = '<leader><space>'
 let g:SuperTabMappingTabLiteral = '<Tab>'
+
+autocmd FileType *
+            \ if &omnifunc != '' |
+            \ call SuperTabChain(&omnifunc, "<c-p>") |
+            \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+            \ endif
 
 inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
+set conceallevel=2
+set concealcursor=vin
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+" The single one that works with clang_complete
+let g:clang_snippets_engine='clang_complete'
+
+" Complete options (disable preview scratch window, longest removed to aways
+" show menu)
+set completeopt=menu,menuone
+
+" Limit popup menu height
+set pumheight=20
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
