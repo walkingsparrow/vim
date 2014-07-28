@@ -451,6 +451,10 @@ nmap <silent> <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
 imap <silent> <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
 vmap <silent> <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
 
+nmap <silent> <C-e><C-e> <S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>
+imap <silent> <C-e><C-e> <ESC><S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-e><C-e> <f9><CR><C-w><C-p>:'><CR>:call Goto_next_nonblank()<CR>
+
 nmap <silent> <C-c>% :ScreenShell!<CR>
 imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
 nmap <silent> <C-c>" :ScreenShell<CR>
@@ -749,7 +753,6 @@ let g:limelight_conceal_ctermfg = 240
 " let g:neocomplcache_force_overwrite_completefunc = 1
 " let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
 " set ofu=syntaxcomplete#Complete
-" au FileType python set omnifunc=pythoncomplete#Complete
 " au FileType python let b:did_ftplugin = 1
 " let g:jedi#popup_on_dot = 0
 "
@@ -758,15 +761,41 @@ let g:limelight_conceal_ctermfg = 240
 " ------------------------------------------------------------
 
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-let g:SuperTabContextDiscoverDiscovery =
-            \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'
+" let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+" let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+" let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+" let g:SuperTabContextDiscoverDiscovery =
+"             \ ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
+let g:SuperTabMappingForward = '<S-tab>'
+let g:SuperTabMappingBackward = '<leader><space>'
 let g:SuperTabMappingTabLiteral = '<Tab>'
+
+imap <f5> <S-tab>
+
+autocmd FileType *
+            \ if &omnifunc != '' |
+            \ call SuperTabChain(&omnifunc, "<c-p>") |
+            \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+            \ endif
+
+" au FileType python set omnifunc=pythoncomplete#Complete
 
 inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
+set conceallevel=2
+set concealcursor=vin
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+" The single one that works with clang_complete
+let g:clang_snippets_engine='clang_complete'
+
+" Complete options (disable preview scratch window, longest removed to aways
+" show menu)
+set completeopt=menu,menuone
+
+" Limit popup menu height
+set pumheight=10
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
