@@ -244,8 +244,8 @@ let g:solarized_termtrans = 1
 let g:solarized_bold = 1
 let g:solarized_underline = 1
 let g:solarized_italic = 1
-let g:solarized_contrast = "normal"
-let g:solarized_visibility= "normal"
+let g:solarized_contrast = "high"
+let g:solarized_visibility= "high"
 colorscheme solarized
 highlight Comment cterm=italic ctermfg=023
 highlight scalaMultilineComment cterm=italic ctermfg=023
@@ -623,18 +623,19 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger=""
 
-" " YouCompleteMe options
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-" let g:ycm_key_list_select_completion = ['<Down>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
-" let g:ycm_key_invoke_completion = '<C-Space>'
-" let g:ycm_min_num_of_chars_for_completion = 3
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_filetype_specific_completion_to_disable = {'cpp': 0, 'c': 0}
+" YouCompleteMe options
+let g:ycm_auto_trigger = 0
+let g:ycm_complete_in_comments = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
 
 let python_highlight_all = 1
 
@@ -724,11 +725,12 @@ let g:limelight_conceal_ctermfg = 240
 " let g:neocomplete#enable_smart_case = 1
 " let g:neocomplete#sources#syntax#min_keyword_length = 3
 " let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" "
+" "
+" " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+" " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 "
-"
-" inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-" inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-"
+" let g:neocomplete#disable_auto_complete = 1
 " let g:neocomplete#enable_auto_select = 0
 "
 " let g:neocomplete#enable_insert_char_pre = 1
@@ -760,7 +762,9 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 
+" autocmd BufEnter * let b:SuperTabDisabled = 1
 let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 " let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 " let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']

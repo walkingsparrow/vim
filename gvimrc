@@ -5,7 +5,7 @@
 "set lsp=2
 ""set transparency=2
 "highlight Comment gui=italic
-set linespace=1
+set linespace=4
 
 ""set background=light
 set background=dark
@@ -15,8 +15,8 @@ set background=dark
 colorscheme solarized
 ""colorscheme grape "robinhood
 ""highlight LineNr guibg=gray27 guifg=gray47
-set gfn=Sauce\ Code\ Powerline\ Light:h16
-highlight Comment gui=italic,bold guifg=#005f5f font='Consolas:h18'
+set gfn=Source\ Code\ Pro\ for\ Powerline:h18
+highlight Comment gui=italic,bold guifg=#005f5f
 
 ""let g:solarized_bold=1 " 1|0 show bold fonts
 ""let g:solarized_italic=1 " 1|0 show italic fonts
