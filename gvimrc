@@ -5,7 +5,7 @@
 "set lsp=2
 ""set transparency=2
 "highlight Comment gui=italic
-set linespace=1
+set linespace=5
 
 ""set background=light
 set background=dark
@@ -15,8 +15,9 @@ set background=dark
 colorscheme solarized
 ""colorscheme grape "robinhood
 ""highlight LineNr guibg=gray27 guifg=gray47
-set gfn=Sauce\ Code\ Powerline\ Light:h18
-highlight Comment gui=italic,bold guifg=#005f5f font='Consolas:h18'
+"set gfn=Sauce\ Code\ Powerline\ Light:h18
+set guifont=source\ Code\ Pro\ for\ Powerline\ SemiBold\ 18
+highlight Comment gui=italic guifg=#005f5f
 
 ""let g:solarized_bold=1 " 1|0 show bold fonts
 ""let g:solarized_italic=1 " 1|0 show italic fonts
@@ -28,13 +29,23 @@ highlight Comment gui=italic,bold guifg=#005f5f font='Consolas:h18'
 "let g:atp_tab_map=1
 "highlight Pmenu guibg=gray36 guifg=gray
 "set paste
-set ttymouse=xterm
+set ttymouse=sgr
 
 "let g:indentLine_color_gui = '#003700'
 let g:indentLine_color_gui = '#303030'
 
 hi Visual gui=NONE guibg='#3a3a30' guifg=NONE
 
-set guioptions+=LlRrb
-set guioptions-=LlRrb
+"set guioptions+=LlRrb
+"set guioptions-=LlRrbmT
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
+"set number
+
+let g:solarized_contrast = "high"
+let g:solarized_visibility = "high"
 
