@@ -207,6 +207,10 @@ let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_StartMessages = 0
 
+nmap <silent> <C-e><C-e> <S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>
+imap <silent> <C-e><C-e> <ESC><S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-e><C-e> <f9><CR><C-w><C-p>:'><CR>:call Goto_next_nonblank()<CR>
+
 " ------------------------------------------------------------
 "  Tex
 let g:tex_flavor='latex'
@@ -509,10 +513,6 @@ endfunction
 nmap <silent> <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
 imap <silent> <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
 vmap <silent> <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
-
-nmap <silent> <C-e><C-e> <S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>
-imap <silent> <C-e><C-e> <ESC><S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>a
-vmap <silent> <C-e><C-e> <f9><CR><C-w><C-p>:'><CR>:call Goto_next_nonblank()<CR>
 
 nmap <silent> <C-c>% :ScreenShell!<CR>
 imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
