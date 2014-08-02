@@ -630,6 +630,7 @@ let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger=""
 
 " YouCompleteMe options
+let g:loaded_youcompleteme = 1
 let g:ycm_auto_trigger = 0
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -637,7 +638,7 @@ let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -726,6 +727,7 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 
+let g:loaded_neocomplete = 1
 " let g:acp_enableAtStartup = 0
 " let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_smart_case = 1
@@ -783,6 +785,7 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabMappingForward = '<S-Tab>'
 let g:SuperTabMappingBackward = '<leader><space>'
 let g:SuperTabMappingTabLiteral = '<Tab>'
+let g:SuperTabLongestEnhanced = 1
 
 inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
@@ -802,7 +805,10 @@ autocmd FileType *
 
 " Complete options (disable preview scratch window, longest removed to aways
 " show menu)
-set completeopt=menu,menuone
+"set completeopt=longest,menu,menuone
+
+let g:jedi#popup_select_first = 0
+set completeopt=longest,menuone
 
 " Limit popup menu height
 set pumheight=10
