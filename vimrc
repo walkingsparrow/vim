@@ -631,6 +631,7 @@ let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger=""
 
 " YouCompleteMe options
+let g:loaded_youcompleteme = 1
 let g:ycm_auto_trigger = 0
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -727,6 +728,7 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 
+let g:loaded_neocomplete = 1
 " let g:acp_enableAtStartup = 0
 " let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_smart_case = 1
