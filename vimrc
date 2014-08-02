@@ -19,9 +19,13 @@ set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 
 set cinoptions+=g2,h2
 
-let ConqueTerm_CWInsert = 1
-let ConqueTerm_Color = 0
-let ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_CWInsert = 1
+"let ConqueTerm_Color = 0
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_TERM = 'xterm'
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_InsertOnEnter = 1
+
 
 "set linespace=5
 

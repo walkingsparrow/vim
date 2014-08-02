@@ -1,0 +1,599 @@
+" VIM configuration
+" ------------------------------------------------------------
+
+"  General
+set nocompatible
+syntax enable
+filetype on
+filetype plugin on
+filetype indent on
+
+set ruler
+set ai sw=4
+set mouse=a
+set ttymouse=sgr
+
+set backspace=indent,eol,start
+
+set cindent
+set smartindent
+set autoindent
+set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
+
+set grepprg=grep\ -nH\ $*
+
+set foldmethod=indent
+set foldlevel=99
+
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nmap \q :nohlsearch<CR>
+
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
+" Auto-trailing white spaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+" try to preserve the cursor column position
+set nostartofline
+
+set clipboard=unnamedplus,unnamed,autoselect
+
+" auto insert a new line after {
+inoremap {<cr> {<cr>}<c-o><s-o>
+
+" set paste mode
+nmap \p :set paste!<CR>
+
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
+
+map <F6> :set wrap!<cr>
+
+" Manually indent
+nmap <leader><tab> ==
+imap <leader><tab> <ESC>==a
+nmap <leader>= ==
+imap <leader>= <ESC>==a
+
+" indent/un-indent
+imap <C-c>. <C-t>
+imap <C-c>, <C-d>
+nmap <C-c>. a<C-t><ESC>
+nmap <C-c>, a<C-d><ESC>
+
+" paste in Insert-mode
+imap <C-p> <ESC>pa
+
+autocmd BufEnter * let &titlestring = '' . expand("%:t")
+set title
+
+imap <leader>- <space><C-o>60i-<esc>a
+
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+" ------------------------------------------------------------
+"  Pathogen
+execute pathogen#infect()
+
+" ------------------------------------------------------------
+"  C++ class public, protected and private indent
+set cinoptions+=g2,h2
+
+" ------------------------------------------------------------
+"  Auto-complete
+set ofu=syntaxcomplete#Complete
+
+" Ultisnips options
+let g:UltiSnipsExpandTrigger="<C-c>s"
+let g:UltiSnipsJumpForwardTrigger="<C-c>n"
+let g:UltiSnipsJumpBackwardTrigger="<C-c>p"
+
+" YouCompleteMe ----------------------
+let g:loaded_youcompleteme = 1 " disabled
+let g:ycm_auto_trigger = 0
+let g:ycm_complete_in_comments = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
+
+" neocomplete ----------------------------------
+let g:loaded_neocomplete = 1 " disabled
+" let g:acp_enableAtStartup = 0
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" "
+" "
+" " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+" " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"
+" let g:neocomplete#disable_auto_complete = 1
+" let g:neocomplete#enable_auto_select = 0
+"
+" let g:neocomplete#enable_insert_char_pre = 1
+"
+" let g:neocomplete#enable_prefetch = 1
+"
+" let g:marching_enable_neocomplete = 1
+"
+" if !exists('g:neocomplete#force_omni_input_patterns')
+" "    let g:neocomplete#force_omni_input_patterns = {}
+" endif
+"
+" let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"
+" let g:neocomplcache_force_overwrite_completefunc = 1
+" if !exists('g:neocomplcache_omni_functions')
+" "    let g:neocomplcache_omni_functions = {}
+" endif
+" if !exists('g:neocomplcache_force_omni_patterns')
+" "    let g:neocomplcache_force_omni_patterns = {}
+" endif
+" let g:neocomplcache_force_overwrite_completefunc = 1
+" let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+" set ofu=syntaxcomplete#Complete
+" au FileType python let b:did_ftplugin = 1
+" let g:jedi#popup_on_dot = 0
+"
+" set pumheight=10
+
+" Supertab ------------------------------
+" autocmd BufEnter * let b:SuperTabDisabled = 1
+let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
+" let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+" let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+" let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+" let g:SuperTabContextDiscoverDiscovery =
+"             \ ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
+let g:SuperTabMappingForward = '<S-tab>'
+let g:SuperTabMappingBackward = '<leader><space>'
+let g:SuperTabMappingTabLiteral = '<Tab>'
+let g:SuperTabLongestEnhanced = 1
+
+imap <f5> <S-tab>
+
+autocmd FileType *
+            \ if &omnifunc != '' |
+            \ call SuperTabChain(&omnifunc, "<c-p>") |
+            \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+            \ endif
+
+" au FileType python set omnifunc=pythoncomplete#Complete
+
+inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+
+set conceallevel=2
+set concealcursor=vin
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+" The single one that works with clang_complete
+let g:clang_snippets_engine='clang_complete'
+
+" Complete options (disable preview scratch window,
+" longest removed to aways show menu)
+let g:jedi#popup_select_first = 0
+set completeopt=longest,menuone
+
+" Limit popup menu height
+set pumheight=10
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" ------------------------------------------------------------
+"  Conque-Shell
+" can use C-w to switch window in Insert-mode
+let g:ConqueTerm_CWInsert = 1
+" continue to update the display when not focused
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_TERM = 'xterm'
+" close the buffer when the app exits
+let g:ConqueTerm_CloseOnEnd = 1
+" enter Insert-mode when focused
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_StartMessages = 0
+
+" ------------------------------------------------------------
+"  Tex
+let g:tex_flavor='latex'
+let g:Tex_CompileRule_dvi = 'latex -src-specials -interaction=nonstopmode $*'
+let g:atp_folding =1
+let g:atp_tab_map=1
+let g:tex_conceal = ''
+
+" ------------------------------------------------------------
+"  tagList
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+nmap \l :TlistToggle<CR>
+
+" ------------------------------------------------------------
+"  Python support
+let g:pyflakes_use_quickfix = 0
+let g:pep8_map='<leader>8'
+let python_highlight_all = 1
+
+" ------------------------------------------------------------
+"  Line number
+" set number
+hi LineNr ctermfg=243 ctermbg=253
+set nonumber
+
+" ------------------------------------------------------------
+"  File types
+au BufNewFile,BufRead *.sql_in setlocal ft=sql
+au BufNewFile,BufRead *.py_in setlocal ft=python
+au BufNewFile,BufRead *.notes setlocal ft=notes
+
+au BufNewFile,BufRead *.erl imap -- <space>-><space>
+au BufNewFile,BufRead *.ex imap -- <space>-><space>
+au BufNewFile,BufRead *.exs imap -- <space>-><space>
+au BufNewFile,BufRead *.erl imap __ <space><-<space>
+au BufNewFile,BufRead *.ex imap __ <space><-<space>
+au BufNewFile,BufRead *exs imap __ <space><-<space>
+
+" ------------------------------------------------------------
+"  nerdtree
+nmap <F7> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" ------------------------------------------------------------
+"  vim-airline
+let g:airline_theme="solarized"
+let g:airline_exclude_preview = 1
+let g:ctrlspace_use_tabline = 1
+
+let g:airline_enable_branch     = 1
+let g:airline_enable_syntastic  = 1
+
+" vim-powerline symbols
+let g:airline_left_sep          = ''
+let g:airline_left_alt_sep      = ''
+let g:airline_right_sep         = ''
+let g:airline_right_alt_sep     = ''
+let g:airline_branch_prefix     = ''
+let g:airline_readonly_symbol   = ''
+let g:airline_linecolumn_prefix = ''
+
+" ------------------------------------------------------------
+"  vim-move
+let g:move_key_modifier = 'M'
+
+" ------------------------------------------------------------
+"  Open file at last edit position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" ------------------------------------------------------------
+"  Auto line breaks for text and latex files
+au BufEnter *.txt setl ts=4 sw=4 tw=70 "fo=aw2q
+au BufEnter *.tex setl ts=4 sw=4 tw=70 "fo=aw2tq
+au FileType ruby setl sw=2 sts=2 et
+au FileType notes setl ts=4 sw=4 tw=70 "fo=aw2tq
+
+" ------------------------------------------------------------
+"  rainbow
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'ctermfgs': ['darkred', 'brown', 'darkblue', 'darkgray', 'darkgreen', 'darkcyan', 'red', 'darkmagenta', 'darkcyan'],
+\   'operators': '_,_',
+\   'parentheses': [['(',')'], ['\[','\]'], ['{','}']],
+\   'separately': {
+\       '*': {},
+\       'lisp': {
+\           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\           'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan', 'darkred', 'darkgreen'],
+\       },
+\       'html': {
+\           'parentheses': [['(',')'], ['\[','\]'], ['{','}'], ['<\a[^>]*[^/]>\|<\a>','</[^>]*>']],
+\       },
+\       'tex': {
+\           'operators': '',
+\           'parentheses': [['(',')'], ['\[','\]']],
+\       },
+\   }
+\}
+
+" ------------------------------------------------------------
+"  gundo.vim
+nnoremap <F8> :GundoToggle<CR>
+set undodir=~/.vim-undo
+set undofile
+set undolevels=100 "maximum number of changes that can be undone
+set undoreload=1000 "maximum number lines to save for undo on a buffer reload
+"let g:gundo_disable = 1
+
+" ------------------------------------------------------------
+"  Spell-checking
+map <F4> :setlocal spell! spelllang=en_us<CR>
+
+" ------------------------------------------------------------
+"  Highlight long lines
+augroup vimrc_autocmds
+    autocmd BufEnter * highlight Overlength ctermbg=234 ctermfg=None
+    "call matchadd('ColorColumn1', '\%65v', 100)
+    autocmd BufEnter * match OverLength /\%65v/
+augroup END
+
+function! g:ToggleColorColumn()
+    if &colorcolumn != ''
+        setlocal colorcolumn&
+    else
+        setlocal colorcolumn=65
+    endif
+endfunction
+
+nnoremap <silent> <f10> :call g:ToggleColorColumn()<CR>
+
+" ------------------------------------------------------------
+"  Color scheme
+set background=dark
+
+let g:solarized_termcolors= 256
+let g:solarized_termtrans = 1
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+let g:solarized_contrast = "high"
+let g:solarized_visibility= "high"
+colorscheme solarized
+highlight Comment cterm=italic ctermfg=023
+highlight scalaMultilineComment cterm=italic ctermfg=023
+highlight scalaTrailingComment cterm=italic ctermfg=023
+" visual mode background
+hi Visual cterm=None ctermbg=236 ctermfg=None
+
+" ------------------------------------------------------------
+"  Auto-read file if changed externally
+"  reload when executing any command, but not automatically
+set autoread
+" reload when entering the buffer or gaining focus
+au FocusGained,BufEnter * :silent! !
+" save when exiting the buffer or losing focus
+au FocusLost,WinLeave * :silent! w
+
+" ------------------------------------------------------------
+"  Not really useful
+
+" nnoremap Q <nop>
+" set showbreak=↪
+
+" ------------------------------------------------------------
+"  bufexplorer
+noremap <silent> <F2> :BufExplorer<CR>
+imap <silent> <F2> <ESC>:BufExplorer<CR>
+
+" ------------------------------------------------------------
+"  indentLine
+let g:indentLine_color_term = 235
+
+" ------------------------------------------------------------
+"  Vim-R-plugin
+autocmd FileType r setlocal formatoptions=cq
+let vimrplugin_applescript = 0
+
+" ------------------------------------------------------------
+"  syntastic
+let g:syntastic_python_checkers=['pylint']
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_enable_balloons = 1
+let g:syntastic_mode_map = { 'mode': 'passive' }
+
+nmap <C-c>c :w<CR>:SyntasticCheck<CR>
+imap <C-c>c <ESC>:w<CR>:SyntasticCheck<CR>a
+nmap <C-c>C :SyntasticReset<CR>
+imap <C-c>C <ESC>:SyntasticReset<CR>a
+
+" ------------------------------------------------------------
+"  tagbar
+nmap <silent> <F3> :TagbarToggle<CR>
+
+let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'Scala',
+    \ 'kinds'     : [
+        \ 'p:packages:1',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types',
+        \ 't:traits',
+        \ 'o:objects',
+        \ 'a:aclasses',
+        \ 'c:classes',
+        \ 'r:cclasses',
+        \ 'm:methods'
+    \ ]
+\ }
+
+let g:tagbar_type_r = {
+    \ 'ctagstype' : 'r',
+    \ 'kinds'     : [
+        \ 'f:Functions',
+        \ 'g:GlobalVariables',
+        \ 'v:FunctionVariables',
+    \ ]
+\ }
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
+
+let g:tagbar_type_puppet = {
+    \ 'ctagstype': 'puppet',
+    \ 'kinds': [
+        \'c:class',
+        \'s:site',
+        \'n:node',
+        \'d:definition'
+      \]
+\}
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" ------------------------------------------------------------
+"  Scala
+" let g:scala_sort_across_groups=1
+" au BufEnter *.scala setl formatprg=java\ -jar\ $HOME/.vim/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
+"nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
+
+set fillchars+=stl:\ ,stlnc:\
+
+au BufNewFile,BufRead *.sbt setlocal ft=sbt
+
+" ------------------------------------------------------------
+"  screen
+let g:ScreenImpl = "Tmux"
+let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellAttachTargetCurrent = 1
+
+function! Goto_next_nonblank()
+    let cur = line(".")
+    let end = line("$")
+    for i in range(cur+1, end+1)
+        if (len(getline(i)) > 0)
+            call cursor(i, 1)
+            return
+        endif
+    endfor
+    call cursor(cur, len(getline(cur)))
+    return
+endfunction
+
+nmap <silent> <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+imap <silent> <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+
+nmap <silent> <C-e><C-e> <S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>
+imap <silent> <C-e><C-e> <ESC><S-v><f9><CR><C-w><C-p>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-e><C-e> <f9><CR><C-w><C-p>:'><CR>:call Goto_next_nonblank()<CR>
+
+nmap <silent> <C-c>% :ScreenShell!<CR>
+imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
+nmap <silent> <C-c>" :ScreenShell<CR>
+imap <silent> <C-c>" :ScreenShell<CR>a
+
+function! s:ScreenShellListener()
+    if g:ScreenShellActive
+        nmap <silent> <C-c>q :ScreenQuit<CR>
+        imap <silent> <C-c>q <ESC>:ScreenQuit<CR>
+    else
+        nmap <silent> <C-c>q :wq<CR>
+        imap <silent> <C-c>q <ESC>:wq<CR>
+    endif
+endfunction
+
+function! s:ScreenShortcutForPython()
+    nmap <buffer> <C-c>% :IPython!<CR>
+    imap <buffer> <C-c>% <ESC>:IPython!<CR>a
+    nmap <buffer> <C-c>" :IPython<CR>
+    imap <buffer> <C-c>" :IPython<CR>a
+endfunction
+
+autocmd FileType python call <SID>ScreenShortcutForPython()
+
+augroup ScreenShellEnter
+    autocmd User * call <SID>ScreenShellListener()
+augroup END
+augroup ScreenShellExit
+    autocmd User * call <SID>ScreenShellListener()
+augroup END
+
+" ------------------------------------------------------------
+"  Use Alt-<arrow> to jump around
+imap F <ESC>wa
+imap B <ESC>bi
+nmap F w
+nmap B b
+
+" ------------------------------------------------------------
+"  tabular
+vmap <C-c>= :Tabularize /=<CR>
+
+" ------------------------------------------------------------
+"  ctrlp
+nmap <C-c>x :CtrlPCmdPalette<CR>
+imap <C-c>x <ESC>:CtrlPCmdPalette<CR>a
+
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_syntax_highlight = 1
+nnoremap <C-c>f :CtrlPFunky<Cr>
+
+" narrow the list down with a word under cursor
+nnoremap <C-c>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+
+" ------------------------------------------------------------
+"  dbext
+" let g:dbext_default_profile_PG = 'type=PGSQL:passwd=:host=localhost:user=qianh1:dbname=madlib'
+
+" ------------------------------------------------------------
+" erlang
+let erlang_show_errors = 0
+
+" ------------------------------------------------------------
+"  fzf
+"set rtp+=~/.fzf
+"nmap <leader>z :FZF<cr>
+
+" ------------------------------------------------------------
+"  limelight
+let g:limelight_conceal_ctermfg = 240
+
+" ------------------------------------------------------------
+"  unknown
+command -nargs=* -complete=help H vertical belowright help <args>
+
