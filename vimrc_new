@@ -159,7 +159,7 @@ let g:neocomplcache_force_overwrite_completefunc = 1
 " set pumheight=10
 
 " Supertab ------------------------------
-"let loaded_supertab = 1
+let loaded_supertab = 1
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
