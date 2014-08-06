@@ -58,6 +58,8 @@ nmap <leader><tab> ==
 imap <leader><tab> <ESC>==a
 nmap <leader>= ==
 imap <leader>= <ESC>==a
+nmap <C-c><tab> ==
+imap <C-c><tab> <ESC>==a
 
 " indent/un-indent
 imap <C-c>. <C-t>
@@ -68,8 +70,8 @@ nmap <C-c>, a<C-d><ESC>
 " paste in Insert-mode
 imap <C-p> <ESC>pa
 
-autocmd BufEnter * let &titlestring = '' . expand("%:t")
-set title
+"autocmd BufEnter * let &titlestring = '' . expand("%:t")
+"set title
 
 imap <leader>- <space><C-o>60i-<esc>a
 
@@ -97,15 +99,16 @@ let g:UltiSnipsExpandTrigger="<C-c>s"
 let g:UltiSnipsJumpForwardTrigger="<C-c>n"
 let g:UltiSnipsJumpBackwardTrigger="<C-c>p"
 
+let g:jedi#popup_select_first = 0
 " YouCompleteMe ----------------------
 let g:loaded_youcompleteme = 1 " disabled
-let g:ycm_auto_trigger = 0
+let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_key_invoke_completion = '<C-Space>'
+"let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -113,49 +116,50 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
 
 " neocomplete ----------------------------------
-let g:loaded_neocomplete = 1 " disabled
-" let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"let g:loaded_neocomplete = 1 " disabled
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#auto_completion_start_length = 2
+" " "
+" " "
+" " " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+" " " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 " "
-" "
-" " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-" " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-"
-" let g:neocomplete#disable_auto_complete = 1
-" let g:neocomplete#enable_auto_select = 0
-"
-" let g:neocomplete#enable_insert_char_pre = 1
-"
-" let g:neocomplete#enable_prefetch = 1
-"
-" let g:marching_enable_neocomplete = 1
-"
-" if !exists('g:neocomplete#force_omni_input_patterns')
-" "    let g:neocomplete#force_omni_input_patterns = {}
-" endif
-"
-" let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-"
-" let g:neocomplcache_force_overwrite_completefunc = 1
-" if !exists('g:neocomplcache_omni_functions')
-" "    let g:neocomplcache_omni_functions = {}
-" endif
-" if !exists('g:neocomplcache_force_omni_patterns')
-" "    let g:neocomplcache_force_omni_patterns = {}
-" endif
-" let g:neocomplcache_force_overwrite_completefunc = 1
-" let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-" set ofu=syntaxcomplete#Complete
-" au FileType python let b:did_ftplugin = 1
-" let g:jedi#popup_on_dot = 0
+" " let g:neocomplete#disable_auto_complete = 1
+let g:neocomplete#enable_auto_select = 0
+
+let g:neocomplete#enable_insert_char_pre = 1
+
+let g:neocomplete#enable_prefetch = 1
+
+let g:marching_enable_neocomplete = 1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+let g:neocomplcache_force_overwrite_completefunc = 1
+if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+" " let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+" " set ofu=syntaxcomplete#Complete
+" " au FileType python let b:did_ftplugin = 1
+" " let g:jedi#popup_on_dot = 0
 "
 " set pumheight=10
 
 " Supertab ------------------------------
-" autocmd BufEnter * let b:SuperTabDisabled = 1
+let loaded_supertab = 1
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
@@ -168,13 +172,14 @@ let g:SuperTabMappingBackward = '<leader><space>'
 let g:SuperTabMappingTabLiteral = '<Tab>'
 let g:SuperTabLongestEnhanced = 1
 
-imap <f5> <S-tab>
+"imap <f5> <S-tab>
+imap <C-c><space> <S-tab>
 
-autocmd FileType *
-            \ if &omnifunc != '' |
-            \ call SuperTabChain(&omnifunc, "<c-p>") |
-            \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
-            \ endif
+" autocmd FileType *
+"             \ if &omnifunc != '' |
+"             \ call SuperTabChain(&omnifunc, "<c-p>") |
+"             \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+"             \ endif
 
 " au FileType python set omnifunc=pythoncomplete#Complete
 
@@ -226,8 +231,16 @@ let g:tex_conceal = ''
 
 " ------------------------------------------------------------
 "  tagList
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-nmap \l :TlistToggle<CR>
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+"let Tlist_Use_Right_Window = 1
+"let Tlist_Use_Horiz_Window = 1
+let Tlist_Use_SingleClick = 1
+let Tlist_Show_One_File = 1
+let Tlist_Close_On_Select = 1
+"let Tlist_Display_Tag_Scope = 0
+nmap \l :let Tlist_Use_Right_Window = 0<CR>:let Tlist_Use_Horiz_Window = 1<CR>:TlistToggle<CR>
+nmap <f5> :let Tlist_Use_Right_Window = 0<CR>:let Tlist_Use_Horiz_Window = 1<CR>:TlistToggle<CR>
+nmap \lr :let Tlist_Use_Horiz_Window = 0<CR>:let Tlist_Use_Right_Window = 1<CR>:TlistToggle<CR>
 
 " ------------------------------------------------------------
 "  Python support
@@ -261,6 +274,8 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " ------------------------------------------------------------
 "  vim-airline
+let g:loaded_airline = 1 " disabled
+
 let g:airline_theme="solarized"
 let g:airline_exclude_preview = 1
 let g:ctrlspace_use_tabline = 1
@@ -279,7 +294,7 @@ let g:airline_linecolumn_prefix = ''
 
 " ------------------------------------------------------------
 "  vim-move
-let g:move_key_modifier = 'M'
+let g:move_key_modifier = 'C'
 
 " ------------------------------------------------------------
 "  Open file at last edit position
@@ -331,17 +346,17 @@ map <F4> :setlocal spell! spelllang=en_us<CR>
 
 " ------------------------------------------------------------
 "  Highlight long lines
-augroup vimrc_autocmds
-    autocmd BufEnter * highlight Overlength ctermbg=234 ctermfg=None
-    "call matchadd('ColorColumn1', '\%65v', 100)
-    autocmd BufEnter * match OverLength /\%65v/
-augroup END
+" augroup vimrc_autocmds
+"     autocmd BufEnter * highlight Overlength ctermbg=234 ctermfg=None
+"     "call matchadd('ColorColumn1', '\%65v', 100)
+"     autocmd BufEnter * match OverLength /\%65v/
+" augroup END
 
 function! g:ToggleColorColumn()
     if &colorcolumn != ''
         setlocal colorcolumn&
     else
-        setlocal colorcolumn=65
+        setlocal colorcolumn=64
     endif
 endfunction
 
@@ -364,6 +379,7 @@ highlight scalaMultilineComment cterm=italic ctermfg=023
 highlight scalaTrailingComment cterm=italic ctermfg=023
 " visual mode background
 hi Visual cterm=None ctermbg=236 ctermfg=None
+hi StatusLine ctermbg=233 ctermfg=24
 
 " ------------------------------------------------------------
 "  Auto-read file if changed externally
@@ -413,6 +429,7 @@ imap <C-c>C <ESC>:SyntasticReset<CR>a
 " ------------------------------------------------------------
 "  tagbar
 nmap <silent> <F3> :TagbarToggle<CR>
+let g:tagbar_singleclick = 1
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',
@@ -515,9 +532,13 @@ function! Goto_next_nonblank()
     return
 endfunction
 
-nmap <silent> <C-c><C-c> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
-imap <silent> <C-c><C-c> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
-vmap <silent> <C-c><C-c> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+nmap <silent> <C-c><C-n> <S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>
+imap <silent> <C-c><C-n> <ESC><S-v>:ScreenSend<CR>:call Goto_next_nonblank()<CR>a
+vmap <silent> <C-c><C-n> :ScreenSend<CR>:'><CR>:call Goto_next_nonblank()<CR>
+
+nmap <silent> <C-c><C-c> vip<C-c><C-n>
+imap <silent> <C-c><C-c> <ESC>vip<C-c><C-n>a
+vmap <silent> <C-c><C-c> <C-c><C-n>
 
 nmap <silent> <C-c>% :ScreenShell!<CR>
 imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
