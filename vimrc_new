@@ -388,7 +388,7 @@ hi StatusLine ctermbg=233 ctermfg=24
 "  reload when executing any command, but not automatically
 set autoread
 " reload when entering the buffer or gaining focus
-au FocusGained,BufEnter * :silent! !
+au FocusGained,BufEnter * :silent! redraw!
 " save when exiting the buffer or losing focus
 au FocusLost,WinLeave * :silent! w
 
@@ -623,5 +623,5 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 "  unknown
-command -nargs=* -complete=help H vertical belowright help <args>
+"command -nargs=* -complete=help H vertical belowright help <args>
 
