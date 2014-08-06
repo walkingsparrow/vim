@@ -193,6 +193,7 @@
 [submodule "bundle/vim-marching"]
 	path = bundle/vim-marching
 	url = https://github.com/osyo-manga/vim-marching.git
+        ignore = dirty
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
