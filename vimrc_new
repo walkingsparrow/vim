@@ -101,7 +101,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-c>p"
 
 let g:jedi#popup_select_first = 0
 " YouCompleteMe ----------------------
-"let g:loaded_youcompleteme = 1 " disabled
+let g:loaded_youcompleteme = 1 " disabled
 let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -116,13 +116,14 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
 
 " neocomplete ----------------------------------
-let g:loaded_neocomplete = 1 " disabled
+"let g:loaded_neocomplete = 1 " disabled
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#auto_completion_start_length = 2
+let g:neocomplete#enable_fuzzy_completion = 1
 " " "
 " " "
 " " " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
@@ -386,7 +387,7 @@ hi StatusLine ctermbg=233 ctermfg=24
 "  reload when executing any command, but not automatically
 set autoread
 " reload when entering the buffer or gaining focus
-au FocusGained,BufEnter * :silent! !
+au FocusGained,BufEnter * :silent! redraw!
 " save when exiting the buffer or losing focus
 au FocusLost,WinLeave * :silent! w
 
