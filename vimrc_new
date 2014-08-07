@@ -102,7 +102,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-c>p"
 let g:jedi#popup_select_first = 0
 " YouCompleteMe ----------------------
 let g:loaded_youcompleteme = 1 " disabled
-let g:ycm_auto_trigger = 1
+"let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
@@ -123,12 +123,14 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#auto_completion_start_length = 2
+let g:neocomplete#enable_fuzzy_completion = 1
+
 " " "
 " " "
 " " " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 " " " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 " "
-" " let g:neocomplete#disable_auto_complete = 1
+let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#enable_auto_select = 0
 
 let g:neocomplete#enable_insert_char_pre = 1
@@ -153,20 +155,21 @@ endif
 let g:neocomplcache_force_overwrite_completefunc = 1
 " " let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
 " " set ofu=syntaxcomplete#Complete
-" " au FileType python let b:did_ftplugin = 1
-" " let g:jedi#popup_on_dot = 0
-"
+let g:jedi#auto_initialization = 1
+au FileType python let b:did_ftplugin = 1
+let g:jedi#show_all_signatures= 0
+"let g:jedi#popup_on_dot = 0
 " set pumheight=10
 
 " Supertab ------------------------------
-let loaded_supertab = 1
+"let loaded_supertab = 1
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
-" let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
-" let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-" let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-" let g:SuperTabContextDiscoverDiscovery =
-"             \ ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery =
+            \ ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
 let g:SuperTabMappingForward = '<S-tab>'
 let g:SuperTabMappingBackward = '<leader><space>'
 let g:SuperTabMappingTabLiteral = '<Tab>'
@@ -174,6 +177,7 @@ let g:SuperTabLongestEnhanced = 1
 
 "imap <f5> <S-tab>
 imap <C-c><space> <S-tab>
+imap <C-@> <S-tab>
 
 " autocmd FileType *
 "             \ if &omnifunc != '' |
@@ -196,8 +200,8 @@ let g:clang_snippets_engine='clang_complete'
 " Complete options (disable preview scratch window,
 " longest removed to aways show menu)
 let g:jedi#popup_select_first = 0
-set completeopt=longest,menuone
-
+set completeopt=longest,menuone,preview
+"set completeopt=menu,preview
 " Limit popup menu height
 set pumheight=10
 
@@ -384,11 +388,14 @@ hi StatusLine ctermbg=233 ctermfg=24
 " ------------------------------------------------------------
 "  Auto-read file if changed externally
 "  reload when executing any command, but not automatically
-set autoread
-" reload when entering the buffer or gaining focus
-au FocusGained,BufEnter * :silent! !
-" save when exiting the buffer or losing focus
-au FocusLost,WinLeave * :silent! w
+" set autoread
+" au CursorHold * checktime
+
+" set autoread
+" " reload when entering the buffer or gaining focus
+" au FocusGained,BufEnter * :silent! redraw!
+" " save when exiting the buffer or losing focus
+" au FocusLost,WinLeave * :silent! w
 
 " ------------------------------------------------------------
 "  Not really useful
@@ -430,6 +437,7 @@ imap <C-c>C <ESC>:SyntasticReset<CR>a
 "  tagbar
 nmap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_singleclick = 1
+let g:tagbar_sort = 0
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',
@@ -621,5 +629,5 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 "  unknown
-command -nargs=* -complete=help H vertical belowright help <args>
+"command -nargs=* -complete=help H vertical belowright help <args>
 
