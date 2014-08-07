@@ -15,8 +15,8 @@ set background=dark
 colorscheme solarized
 ""colorscheme grape "robinhood
 ""highlight LineNr guibg=gray27 guifg=gray47
-"set gfn=Sauce\ Code\ Powerline\ Light:h18
-set guifont=source\ Code\ Pro\ for\ Powerline\ SemiBold\ 18
+set gfn=source\ Code\ Pro\ 14
+"set guifont=source\ Code\ Pro\ for\ Powerline\ SemiBold\ 18
 highlight Comment gui=italic guifg=#005f5f
 
 ""let g:solarized_bold=1 " 1|0 show bold fonts

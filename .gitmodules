@@ -156,10 +156,6 @@
 	path = bundle/julia-vim
         url = https://github.com/JuliaLang/julia-vim.git
         ignore = dirty
-[submodule "bundle/vim-golang"]
-	path = bundle/vim-golang
-        url = https://github.com/jnwhiteh/vim-golang.git
-        ignore = dirty
 [submodule "bundle/vim-javascript-syntax"]
 	path = bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
@@ -216,3 +212,6 @@
 [submodule "bundle/vim-speeddating"]
 	path = bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
