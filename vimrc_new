@@ -101,11 +101,11 @@ let g:UltiSnipsJumpBackwardTrigger="<C-c>p"
 
 let g:jedi#popup_select_first = 0
 " YouCompleteMe ----------------------
-let g:loaded_youcompleteme = 1 " disabled
+"let g:loaded_youcompleteme = 1 " disabled
 "let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 "let g:ycm_key_invoke_completion = '<C-Space>'
@@ -116,7 +116,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
 
 " neocomplete ----------------------------------
-"let g:loaded_neocomplete = 1 " disabled
+let g:loaded_neocomplete = 1 " disabled
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -162,7 +162,7 @@ let g:jedi#show_all_signatures= 0
 " set pumheight=10
 
 " Supertab ------------------------------
-"let loaded_supertab = 1
+let loaded_supertab = 1
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
