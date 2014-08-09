@@ -95,11 +95,11 @@ set cinoptions+=g2,h2
 set ofu=syntaxcomplete#Complete
 
 " Ultisnips options
-let g:UltiSnipsExpandTrigger="<C-c>s"
-let g:UltiSnipsJumpForwardTrigger="<C-c>n"
-let g:UltiSnipsJumpBackwardTrigger="<C-c>p"
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
-let g:jedi#popup_select_first = 0
+"let g:jedi#popup_select_first = 0
 " YouCompleteMe ----------------------
 "let g:loaded_youcompleteme = 1 " disabled
 let g:ycm_auto_trigger = 1
@@ -113,80 +113,80 @@ let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
+"let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
 
 " neocomplete ----------------------------------
 let g:loaded_neocomplete = 1 " disabled
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#auto_completion_start_length = 2
-let g:neocomplete#enable_fuzzy_completion = 1
-
-" " "
-" " "
-" " " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-" " " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-" "
-let g:neocomplete#disable_auto_complete = 1
-let g:neocomplete#enable_auto_select = 0
-
-let g:neocomplete#enable_insert_char_pre = 1
-
-let g:neocomplete#enable_prefetch = 1
-
-let g:marching_enable_neocomplete = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-let g:neocomplcache_force_overwrite_completefunc = 1
-if !exists('g:neocomplcache_omni_functions')
-    let g:neocomplcache_omni_functions = {}
-endif
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_overwrite_completefunc = 1
-" " let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-" " set ofu=syntaxcomplete#Complete
-let g:jedi#auto_initialization = 1
-au FileType python let b:did_ftplugin = 1
-let g:jedi#show_all_signatures= 0
-"let g:jedi#popup_on_dot = 0
-" set pumheight=10
+"" let g:acp_enableAtStartup = 0
+"" let g:neocomplete#enable_at_startup = 1
+"" let g:neocomplete#enable_smart_case = 1
+"" let g:neocomplete#sources#syntax#min_keyword_length = 3
+"" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"" let g:neocomplete#auto_completion_start_length = 2
+"" let g:neocomplete#enable_fuzzy_completion = 1
+""
+"" " " "
+"" " " "
+"" " " " inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+"" " " " inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"" " "
+"" let g:neocomplete#disable_auto_complete = 1
+"" let g:neocomplete#enable_auto_select = 0
+""
+"" let g:neocomplete#enable_insert_char_pre = 1
+""
+"" let g:neocomplete#enable_prefetch = 1
+""
+"" let g:marching_enable_neocomplete = 1
+""
+"" if !exists('g:neocomplete#force_omni_input_patterns')
+""     let g:neocomplete#force_omni_input_patterns = {}
+"" endif
+""
+"" let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+""
+"" let g:neocomplcache_force_overwrite_completefunc = 1
+"" if !exists('g:neocomplcache_omni_functions')
+""     let g:neocomplcache_omni_functions = {}
+"" endif
+"" if !exists('g:neocomplcache_force_omni_patterns')
+""     let g:neocomplcache_force_omni_patterns = {}
+"" endif
+"" let g:neocomplcache_force_overwrite_completefunc = 1
+"" " " let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+"" " " set ofu=syntaxcomplete#Complete
+"" let g:jedi#auto_initialization = 1
+"" au FileType python let b:did_ftplugin = 1
+"" let g:jedi#show_all_signatures= 0
+"" "let g:jedi#popup_on_dot = 0
+"" " set pumheight=10
 
 " Supertab ------------------------------
 let loaded_supertab = 1
-let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-let g:SuperTabContextDiscoverDiscovery =
-            \ ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
-let g:SuperTabMappingForward = '<S-tab>'
-let g:SuperTabMappingBackward = '<leader><space>'
-let g:SuperTabMappingTabLiteral = '<Tab>'
-let g:SuperTabLongestEnhanced = 1
-
-"imap <f5> <S-tab>
-imap <C-c><space> <S-tab>
-" It seems that I have to use C-@ to stand for C-space, weird
-imap <C-@> <S-tab>
-
-" autocmd FileType *
-"             \ if &omnifunc != '' |
-"             \ call SuperTabChain(&omnifunc, "<c-p>") |
-"             \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
-"             \ endif
-
-" au FileType python set omnifunc=pythoncomplete#Complete
+"" let g:SuperTabDefaultCompletionType = "context"
+"" "let g:SuperTabDefaultCompletionType = "<C-x><C-u>"
+"" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+"" let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+"" let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+"" let g:SuperTabContextDiscoverDiscovery =
+""             \ ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
+"" let g:SuperTabMappingForward = '<S-tab>'
+"" let g:SuperTabMappingBackward = '<leader><space>'
+"" let g:SuperTabMappingTabLiteral = '<Tab>'
+"" let g:SuperTabLongestEnhanced = 1
+""
+"" "imap <f5> <S-tab>
+"" imap <C-c><space> <S-tab>
+"" " It seems that I have to use C-@ to stand for C-space, weird
+"" imap <C-@> <S-tab>
+""
+"" " autocmd FileType *
+"" "             \ if &omnifunc != '' |
+"" "             \ call SuperTabChain(&omnifunc, "<c-p>") |
+"" "             \ call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+"" "             \ endif
+""
+"" " au FileType python set omnifunc=pythoncomplete#Complete
 
 inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
@@ -200,7 +200,7 @@ let g:clang_snippets_engine='clang_complete'
 
 " Complete options (disable preview scratch window,
 " longest removed to aways show menu)
-let g:jedi#popup_select_first = 0
+"let g:jedi#popup_select_first = 0
 set completeopt=longest,menuone,preview
 "set completeopt=menu,preview
 " Limit popup menu height
@@ -361,7 +361,7 @@ function! g:ToggleColorColumn()
     if &colorcolumn != ''
         setlocal colorcolumn&
     else
-        setlocal colorcolumn=64
+        setlocal colorcolumn=71
     endif
 endfunction
 
@@ -385,6 +385,7 @@ highlight scalaTrailingComment cterm=italic ctermfg=023
 " visual mode background
 hi Visual cterm=None ctermbg=236 ctermfg=None
 hi StatusLine ctermbg=233 ctermfg=24
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
 
 " ------------------------------------------------------------
 "  Auto-read file if changed externally
