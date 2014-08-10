@@ -68,7 +68,7 @@ nmap <C-c>. a<C-t><ESC>
 nmap <C-c>, a<C-d><ESC>
 
 " paste in Insert-mode
-imap <C-p> <ESC>pa
+"imap <C-p> <ESC>pa
 
 "autocmd BufEnter * let &titlestring = '' . expand("%:t")
 "set title
@@ -96,18 +96,19 @@ set ofu=syntaxcomplete#Complete
 " . for current buffer, b for all loaded buffers,
 " u for all un-loaded buffers, ] for tag files,
 " w for open windows
-set complete=.,b,u,],w
+set dictionary+=/usr/share/dict/words
+set complete=.,b,u,],w,k
 
 " let g:jedi#popup_select_first = 0
 " let g:jedi#auto_vim_configuration = 0
 " au FileType python setlocal completeopt-=preview
-set completeopt=longest,menuone,preview
 "let g:loaded_jedi = 1
 " YouCompleteMe ----------------------
 "let g:loaded_youcompleteme = 1 " disabled
 "let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
@@ -198,8 +199,8 @@ let loaded_supertab = 1
 ""
 "" " au FileType python set omnifunc=pythoncomplete#Complete
 
-inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"" inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+"" inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
 set conceallevel=2
 set concealcursor=vin
@@ -211,8 +212,10 @@ let g:clang_snippets_engine='clang_complete'
 " Limit popup menu height
 set pumheight=10
 
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"set completeopt-=longest,menuone,preview completeopt+=longest,menuone,preview
+
+"" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " ------------------------------------------------------------
 "  Conque-Shell
@@ -371,6 +374,7 @@ function! g:ToggleColorColumn()
 endfunction
 
 nnoremap <silent> <f10> :call g:ToggleColorColumn()<CR>
+imap <silent> <f10> <esc>:call g:ToggleColorColumn()<cr>a
 
 " ------------------------------------------------------------
 "  Color scheme
