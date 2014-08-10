@@ -72,7 +72,7 @@ nmap <C-c>. a<C-t><ESC>
 nmap <C-c>, a<C-d><ESC>
 
 " paste in Insert-mode
-imap <C-p> <ESC>pa
+"imap <C-p> <ESC>pa
 
 "autocmd BufEnter * let &titlestring = '' . expand("%:t")
 "set title
@@ -98,6 +98,9 @@ set cinoptions+=g2,h2
 "  Auto-complete
 set ofu=syntaxcomplete#Complete
 
+set dictionary+=/usr/share/dict/words
+set complete=.,b,u,],w,k
+
 " Ultisnips options
 let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -115,10 +118,12 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 "let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
 let g:ycm_global_ycm_extra_conf = '/home/gpadmin/.vim/bundle/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 " neocomplete ----------------------------------
 let g:loaded_neocomplete = 1 " disabled
@@ -192,8 +197,8 @@ let loaded_supertab = 1
 ""
 "" " au FileType python set omnifunc=pythoncomplete#Complete
 
-inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
 set conceallevel=2
 set concealcursor=vin
@@ -205,13 +210,13 @@ let g:clang_snippets_engine='clang_complete'
 " Complete options (disable preview scratch window,
 " longest removed to aways show menu)
 "let g:jedi#popup_select_first = 0
-set completeopt=longest,menuone,preview
+"set completeopt=longest,menuone,preview
 "set completeopt=menu,preview
 " Limit popup menu height
 set pumheight=10
 
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " ------------------------------------------------------------
 "  Conque-Shell
@@ -370,6 +375,7 @@ function! g:ToggleColorColumn()
 endfunction
 
 nnoremap <silent> <f10> :call g:ToggleColorColumn()<CR>
+imap <silent> <f10> <esc>:call g:ToggleColorColumn()<cr>a
 
 " ------------------------------------------------------------
 "  Color scheme
