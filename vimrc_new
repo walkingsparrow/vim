@@ -35,7 +35,20 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " Auto-trailing white spaces
-autocmd BufWritePre * :%s/\s\+$//e
+fun! <SID>StripTrailingWhitespaces()
+    " Save the current search and cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Strip the whitespace
+    "silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//e'
+    %s/\s\+$//e
+    " Restore the saved search and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " try to preserve the cursor column position
 set nostartofline
@@ -55,11 +68,11 @@ map <F6> :set wrap!<cr>
 
 " Manually indent
 nmap <leader><tab> ==
-imap <leader><tab> <ESC>==a
+imap <leader><tab> <C-o>==
 nmap <leader>= ==
-imap <leader>= <ESC>==a
+imap <leader>= <C-o>==
 nmap <C-c><tab> ==
-imap <C-c><tab> <ESC>==a
+imap <C-c><tab> <C-o>==
 
 " indent/un-indent
 imap <C-c>. <C-t>
@@ -374,7 +387,7 @@ function! g:ToggleColorColumn()
 endfunction
 
 nnoremap <silent> <f10> :call g:ToggleColorColumn()<CR>
-imap <silent> <f10> <esc>:call g:ToggleColorColumn()<cr>a
+imap <silent> <f10> <C-o>:call g:ToggleColorColumn()<cr>
 
 " ------------------------------------------------------------
 "  Color scheme
@@ -416,7 +429,7 @@ hi StatusLine ctermbg=233 ctermfg=24
 " ------------------------------------------------------------
 "  bufexplorer
 noremap <silent> <F2> :BufExplorer<CR>
-imap <silent> <F2> <ESC>:BufExplorer<CR>
+imap <silent> <F2> <ESC>:w<cr>:BufExplorer<CR>
 
 " ------------------------------------------------------------
 "  indentLine
@@ -559,9 +572,9 @@ imap <silent> <C-c><C-c> <ESC>vip<C-c><C-n>a
 vmap <silent> <C-c><C-c> <C-c><C-n>
 
 nmap <silent> <C-c>% :ScreenShell!<CR>
-imap <silent> <C-c>% <ESC>:ScreenShell!<CR>a
+imap <silent> <C-c>% <C-o>:ScreenShell!<CR>
 nmap <silent> <C-c>" :ScreenShell<CR>
-imap <silent> <C-c>" :ScreenShell<CR>a
+imap <silent> <C-c>" <C-o>:ScreenShell<CR>
 
 function! s:ScreenShellListener()
     if g:ScreenShellActive
@@ -575,9 +588,9 @@ endfunction
 
 function! s:ScreenShortcutForPython()
     nmap <buffer> <C-c>% :IPython!<CR>
-    imap <buffer> <C-c>% <ESC>:IPython!<CR>a
+    imap <buffer> <C-c>% <C-o>:IPython!<CR>
     nmap <buffer> <C-c>" :IPython<CR>
-    imap <buffer> <C-c>" :IPython<CR>a
+    imap <buffer> <C-c>" <C-o>:IPython<CR>
 endfunction
 
 autocmd FileType python call <SID>ScreenShortcutForPython()
@@ -591,9 +604,9 @@ augroup END
 
 " ------------------------------------------------------------
 "  Use Alt-<arrow> to jump around
-imap F <ESC>wa
-imap B <ESC>bi
-nmap F w
+imap f <C-o>w
+imap B <C-o>b
+nmap f w
 nmap B b
 
 " ------------------------------------------------------------
@@ -603,7 +616,7 @@ vmap <C-c>= :Tabularize /=<CR>
 " ------------------------------------------------------------
 "  ctrlp
 nmap <C-c>x :CtrlPCmdPalette<CR>
-imap <C-c>x <ESC>:CtrlPCmdPalette<CR>a
+imap <C-c>x <C-o>:CtrlPCmdPalette<CR>
 
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_syntax_highlight = 1
