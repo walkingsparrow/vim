@@ -20,6 +20,9 @@ set smartindent
 set autoindent
 set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 
+" use normal tab instead of spaces in Go
+autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
+
 set grepprg=grep\ -nH\ $*
 
 set foldmethod=indent
