@@ -98,8 +98,8 @@ imap <leader>- <space><C-o>60i-<esc>a
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Improve scrolling speed for long lines
-set ttyfast " u got a fast terminal
-set ttyscroll=3
+"" set ttyfast " u got a fast terminal
+"" set ttyscroll=3
 set lazyredraw " to avoid scrolling problems
 
 " ------------------------------------------------------------
