@@ -31,7 +31,7 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-nmap \q :nohlsearch<CR>
+nmap <silent> <leader>q :nohlsearch<CR>
 
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -652,5 +652,8 @@ let g:limelight_conceal_ctermfg = 240
 
 " ------------------------------------------------------------
 "  unknown
-"command -nargs=* -complete=help H vertical belowright help <args>
+command -nargs=* -complete=help H vertical belowright help <args>
 
+" ------------------------------------------------------------
+"  ag.vim
+"let g:aghighlight=1
