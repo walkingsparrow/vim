@@ -71,10 +71,7 @@ map <F6> :set wrap!<cr>
 " Manually indent
 nmap <leader><tab> ==
 imap <leader><tab> <C-o>==
-nmap <leader>= ==
-imap <leader>= <C-o>==
-nmap <C-c><tab> ==
-imap <C-c><tab> <C-o>==
+vmap <leader><tab> =
 
 " indent/un-indent
 imap <C-c>. <C-t>
@@ -571,10 +568,61 @@ nmap <silent> <C-c><C-c> vip<C-c><C-n>
 imap <silent> <C-c><C-c> <ESC>vip<C-c><C-n>a
 vmap <silent> <C-c><C-c> <C-c><C-n>
 
-nmap <silent> <C-c>% :ScreenShell!<CR>
-imap <silent> <C-c>% <C-o>:ScreenShell!<CR>
-nmap <silent> <C-c>" :ScreenShell<CR>
-imap <silent> <C-c>" <C-o>:ScreenShell<CR>
+" generate random number at end of current line
+function! Random()
+    python from random import randint
+    python from vim import command
+    python command("return %d" % randint(0,1000))
+endfun
+
+function! Start_screenShell_v()
+    if $TMUX == ''
+        echoerr '****** You need to start tmux first! ******'
+        return
+    endif
+    let r = Random()
+    let title = 'Scrn' . r
+    ScreenShell!
+    call system("tmux rename-window " . title)
+endfunction
+
+function! Start_screenShell_s()
+    if $TMUX == ''
+        echoerr '****** You need to start tmux first! ******'
+        return
+    endif
+    let r = Random()
+    let title = 'Scrn' . r
+    ScreenShell
+    call system("tmux rename-window " . title)
+endfunction
+
+function! Start_screenIPython_v()
+    if $TMUX == ''
+        echoerr '****** You need to start tmux first! ******'
+        return
+    endif
+    let r = Random()
+    let title = 'Scrn' . r
+    IPython!
+    call system("tmux rename-window " . title)
+endfunction
+
+function! Start_screenIPython_s()
+    if $TMUX == ''
+        echoerr '****** You need to start tmux first! ******'
+        return
+    endif
+    let r = Random()
+    let title = 'Scrn' . r
+    IPython
+    call system("tmux rename-window " . title)
+endfunction
+
+nmap <silent> <C-c>% :call Start_screenShell_v()<CR>
+imap <silent> <C-c>% <C-o>:call Start_screenShell_v()<CR>
+nmap <silent> <C-c>" :call Start_screenShell_s()<CR>
+imap <silent> <C-c>" <C-o>:call Start_screenShell_s()<CR>
 
 function! s:ScreenShellListener()
     if g:ScreenShellActive
@@ -587,10 +635,10 @@ function! s:ScreenShellListener()
 endfunction
 
 function! s:ScreenShortcutForPython()
-    nmap <buffer> <C-c>% :IPython!<CR>
-    imap <buffer> <C-c>% <C-o>:IPython!<CR>
-    nmap <buffer> <C-c>" :IPython<CR>
-    imap <buffer> <C-c>" <C-o>:IPython<CR>
+    nmap <buffer> <C-c>% :call Start_screenIPython_v()<CR>
+    imap <buffer> <C-c>% <C-o>:call Start_screenIPython_v()<CR>
+    nmap <buffer> <C-c>" :call Start_screenIPython_s()<CR>
+    imap <buffer> <C-c>" <C-o>:call Start_screenIPython_s()<CR>
 endfunction
 
 autocmd FileType python call <SID>ScreenShortcutForPython()
