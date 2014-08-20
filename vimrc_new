@@ -707,3 +707,20 @@ command -nargs=* -complete=help H vertical belowright help <args>
 " ------------------------------------------------------------
 "  ag.vim
 "let g:aghighlight=1
+
+" ------------------------------------------------------------
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>o :ZoomToggle<CR>
+
