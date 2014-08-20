@@ -82,6 +82,8 @@ flags = [
 #'./tests/gmock',
 #'-isystem',
 #'./tests/gmock/include',
+'-I',
+'/usr/local/Cellar/r/3.1.1/R.framework/Versions/3.1/Resources/include',
 '-isystem',
 '/usr/include/c++/4.2.1',
 '-isystem',
