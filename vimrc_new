@@ -299,6 +299,7 @@ au BufNewFile,BufRead *exs imap __ <space><-<space>
 "  nerdtree
 nmap <F7> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup = 0
+let NERDTreeMouseMode = 2
 
 " ------------------------------------------------------------
 "  vim-airline
@@ -460,6 +461,10 @@ imap <C-c>C <ESC>:SyntasticReset<CR>a
 
 " ------------------------------------------------------------
 "  tagbar
+
+" use this to speed up cursor movement
+autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+
 nmap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_singleclick = 1
 let g:tagbar_sort = 0
