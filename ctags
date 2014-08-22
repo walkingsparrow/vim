@@ -38,9 +38,9 @@
 
 --langdef=pgsql
 --langmap=pgsql:.sql_in
---regex-pgsql=/^[ \t]*([cC][rR][eE][aA][tT][eE])([ \t\n]+[oO][rR])([ \t\n]+[rR][eE][pP][lL][aA][cC][eE])([ \t\n]+[fF][uU][nN][cC][tT][iI][oO][nN])[ \t\n]+([a-zA-Z0-9_\.]+)/\5/f,Functions/
---regex-pgsql=/^[ \t]*([cC][rR][eE][aA][tT][eE])([ \t\n]+[aA][gG][gG][rR][eE][gG][aA][tT][eE])[ \t\n]+([a-zA-Z0-9_\.]+)/\3/a,Aggregates/
---regex-pgsql=/^[ \t]*([cC][rR][eE][aA][tT][eE])([ \t\n]+[tT][yY][pP][eE])[ \t\n]+([a-zA-Z0-9_\.]+)/\3/t,Types/
+--regex-pgsql=/^[ \t]*([cC][rR][eE][aA][tT][eE])([ \t\n]+[oO][rR])([ \t\n]+[rR][eE][pP][lL][aA][cC][eE])([ \t\n]+[fF][uU][nN][cC][tT][iI][oO][nN])[ \t\n]+([a-zA-Z0-9_]+\.)?([a-zA-Z0-9_]+)/\6/f,Functions/
+--regex-pgsql=/^[ \t]*([cC][rR][eE][aA][tT][eE])([ \t\n]+[aA][gG][gG][rR][eE][gG][aA][tT][eE])[ \t\n]+([a-zA-Z0-9_]+\.)?([a-zA-Z0-9_]+)/\4/a,Aggregates/
+--regex-pgsql=/^[ \t]*([cC][rR][eE][aA][tT][eE])([ \t\n]+[tT][yY][pP][eE])[ \t\n]+([a-zA-Z0-9_]+\.)?([a-zA-Z0-9_]+)/\4/t,Types/
 
 --langmap=Lisp:+.clj
 
