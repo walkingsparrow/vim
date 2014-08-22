@@ -37,6 +37,7 @@ nmap <silent> <leader>q :nohlsearch<CR>
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+" ------------------------------------------------------------
 " Auto-trailing white spaces
 fun! <SID>StripTrailingWhitespaces()
     " Save the current search and cursor position
@@ -50,9 +51,40 @@ fun! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+fun! <SID>W_func()
+    call <SID>StripTrailingWhitespaces()
+    w
+endfun
+
+fun! <SID>WQ_func()
+    call <SID>W_func()
+    q
+endfun
+
+fun! <SID>WA_func()
+    call <SID>StripTrailingWhitespaces()
+    wa
+endfun
+
+fun! <SID>WQA_func()
+    call <SID>WA_func()
+    q
+endfun
+
+command -nargs=0 W call <SID>W_func()
+command -nargs=0 WQ call <SID>WQ_func()
+command -nargs=0 WA call <SID>WA_func()
+command -nargs=0 WQA call <SID>WQA_func()
+command Wq WQ
+command Wa WA
+command Wqa WQA
+command WQa WQA
+command WqA WQA
+"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "autocmd BufWritePre * :%s/\s\+$//e
 
+" ------------------------------------------------------------
 " try to preserve the cursor column position
 set nostartofline
 
@@ -94,6 +126,8 @@ imap <leader>- <space><C-o>60i-<esc>a
 
 nmap <leader>w :w<cr>
 imap <leader>w <C-o>:w<cr>
+nmap <leader>W :W<cr>
+imap <leader>W <C-o>:W<cr>
 
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
