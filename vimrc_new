@@ -474,15 +474,16 @@ let g:tagbar_sort = 0
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',
     \ 'kinds'     : [
-        \ 'p:packages:1',
+        \ 'p:packages',
         \ 'V:values',
         \ 'v:variables',
         \ 'T:types',
         \ 't:traits',
         \ 'o:objects',
+        \ 'O:case objects',
         \ 'a:aclasses',
         \ 'c:classes',
-        \ 'r:cclasses',
+        \ 'C:case classes',
         \ 'm:methods'
     \ ]
 \ }
@@ -542,6 +543,15 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+let g:tagbar_type_sql = {
+            \ 'ctagstype' : 'pgsql',
+            \ 'kinds' : [
+            \ 'f:Functions',
+            \ 'a:Aggregates',
+            \ 't:Types'
+            \]
+            \ }
 
 " ------------------------------------------------------------
 "  Scala
