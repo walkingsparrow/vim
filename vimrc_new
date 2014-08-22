@@ -87,6 +87,9 @@ nmap <C-c>, a<C-d><ESC>
 
 imap <leader>- <space><C-o>60i-<esc>a
 
+nmap <leader>w :w<cr>
+imap <leader>w <C-o>:w<cr>
+
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Improve scrolling speed for long lines
