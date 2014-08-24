@@ -23,6 +23,14 @@ set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 " use normal tab instead of spaces in Go
 autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
 
+set wildmenu " a really cool feature
+set pastetoggle=<F9> "pt: useful so auto-indenting doesn't mess up code when pasting
+set virtualedit=block "ve: let cursor move past the last char in <C-V> mode
+set nostartofline "sol: avoid moving cursor to BOL when jumping around
+set cryptmethod=blowfish "cm: use (much) stronger blowfish encryption
+set ignorecase "ic: ignores case when pattern matching
+set smartcase "scs: ignores ignorecase when pattern contains uppercase characters
+
 set grepprg=grep\ -nH\ $*
 
 set foldmethod=indent
@@ -81,6 +89,9 @@ command Wa WA
 command Wqa WQA
 command WQa WQA
 command WqA WQA
+command Q q
+command QA qa
+command Qa qa
 "autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "autocmd BufWritePre * :%s/\s\+$//e
 
@@ -96,9 +107,6 @@ endif
 
 " auto insert a new line after {
 inoremap {<cr> {<cr>}<c-o><s-o>
-
-" set paste mode
-nmap \p :set paste!<CR>
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
