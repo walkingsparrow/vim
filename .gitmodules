@@ -215,3 +215,6 @@
 	path = bundle/vim-latex
 	url = https://github.com/lervag/vim-latex.git
         ignore = dirty
+[submodule "bundle/vim-r-plugin"]
+	path = bundle/vim-r-plugin
+	url = https://github.com/jcfaria/Vim-R-plugin.git
