@@ -1,5 +1,44 @@
 " VIM configuration
 " ------------------------------------------------------------
+"
+" Key Shortcut List
+"
+" <f1> help
+" <f2> buffer explorer
+" <f3> tagbar
+" <f4> spelling check
+" <f5> taglist window horizentally
+" <f6> toggle line wrap
+" <f7> nerdtree
+" <f8> gundo
+" <f9> screen send region
+" <f10> toggle limit vertical line
+" <f12> toggle paste
+"
+" :W write and remove trailing white spaces
+" <esc><esc> remove search highlight and re-arrange syntax color
+" \<tab> indent the line or region
+" <C-c>. <C-c>, move the line a tab
+" \- draw a separate line
+" \w same as :w
+" \W same as :W
+" <C-c><C-e> ConqueTerm send line or region
+" \l open taglist window horizentally
+" \lr open taglist window vertically
+" <C-c>c let syntastic do syntax check
+" <C-c>C un-highlight the error message of syntastic
+" <C-c><C-n> screen executes a line and go to the next
+" <C-c><C-c> screen execute a paragraph and go to the next
+" <C-c>% start screen and split window vertically
+" <C-c>" start screen and split window horizentally
+" <C-c>q quit screen splitted window; save and quit
+" <C-c>= tabularize according to '='
+" <C-c>x search commands
+" <C-c>f search for functions in current buffer
+" <C-c>F narrow the function list down with a word under cursor
+" \o toggle window zoom
+"
+" ------------------------------------------------------------ 
 
 "  General
 set nocompatible
@@ -23,7 +62,7 @@ set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
 
 set wildmenu " a really cool feature
-set pastetoggle=<F9> "pt: useful so auto-indenting doesn't mess up code when pasting
+set pastetoggle=<F12> "pt: useful so auto-indenting doesn't mess up code when pasting
 set virtualedit=block "ve: let cursor move past the last char in <C-V> mode
 set nostartofline "sol: avoid moving cursor to BOL when jumping around
 set cryptmethod=blowfish "cm: use (much) stronger blowfish encryption
