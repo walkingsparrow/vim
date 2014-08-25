@@ -43,10 +43,6 @@
 	path = bundle/vim-expand-region
         url = https://github.com/terryma/vim-expand-region.git
         ignore = dirty
-[submodule "bundle/atp-vim"]
-	path = bundle/atp-vim
-        url = git://git.code.sf.net/p/atp-vim/code
-        ignore = dirty
 [submodule "bundle/vim-misc"]
 	path = bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
@@ -218,3 +214,6 @@
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
         ignore = dirty
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = https://github.com/lervag/vim-latex.git
