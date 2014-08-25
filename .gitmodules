@@ -215,3 +215,4 @@
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = https://github.com/lervag/vim-latex.git
+        ignore = dirty

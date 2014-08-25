@@ -334,11 +334,13 @@ vmap <silent> <C-e><C-e> <f9><CR><C-w><C-p>:'><CR>:call Goto_next_nonblank()<CR>
 
 " ------------------------------------------------------------
 "  Tex
-let g:tex_flavor='latex'
-let g:Tex_CompileRule_dvi = 'latex -src-specials -interaction=nonstopmode $*'
-let g:atp_folding =1
-let g:atp_tab_map=1
-let g:tex_conceal = ''
+
+"" " atp
+"" let g:tex_flavor='latex'
+"" let g:Tex_CompileRule_dvi = 'latex -src-specials -interaction=nonstopmode $*'
+"" let g:atp_folding =1
+"" let g:atp_tab_map=1
+"" let g:tex_conceal = ''
 
 " ------------------------------------------------------------
 "  tagList
