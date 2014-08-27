@@ -575,6 +575,9 @@ let g:tagbar_type_r = {
         \ 'f:Functions',
         \ 'g:GlobalVariables',
         \ 'v:FunctionVariables',
+        \ 'm:Methods',
+        \ 'G:Generics',
+        \ 'c:Classes'
     \ ]
 \ }
 
