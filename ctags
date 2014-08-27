@@ -2,6 +2,7 @@
 --tag-relative=yes
 --exclude=.git
 --python-kinds=-i
+--fields=+S
 
 --langdef=scala
 --langmap=scala:.scala
@@ -16,12 +17,14 @@
 --regex-scala=/^[ \t]*(private|protected)?(\[[a-zA-Z0-9_]+\])?[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*var[ \t]+([a-zA-Z0-9_]+)/\5/v,variables/
 --regex-scala=/^[ \t]*package[ \t]+([a-zA-Z0-9_.]+)/\1/p,packages/
 
-
 --langdef=R
 --langmap=r:.R.r
---regex-R=/^[ \t]*"?([.A-Za-z][.A-Za-z0-9_]*)"?[ \t]*<-[ \t]function/\1/f,Functions/
---regex-R=/^"?([.A-Za-z][.A-Za-z0-9_]*)"?[ \t]*<-[ \t][^f][^u][^n][^c][^t][^i][^o][^n]/\1/g,GlobalVars/
---regex-R=/[ \t]"?([.A-Za-z][.A-Za-z0-9_]*)"?[ \t]*<-[ \t][^f][^u][^n][^c][^t][^i][^o][^n]/\1/v,FunctionVariables/
+--regex-R=/^[ \t]*"?([^\"\(\)]+)"?[ \t]*<-[ \t]function/\1/f,Functions/
+--regex-R=/^"?([^\"\(\)]+)"?[ \t]*<-[ \t]*[^f][^u][^n][^c][^t][^i][^o][^n]/\1/g,GlobalVars/
+--regex-R=/[ \t]+"?([.A-Za-z][.A-Za-z0-9_]*)"?[ \t]*<-[ \t]*[^f][^u][^n][^c][^t][^i][^o][^n]/\1/v,FunctionVariables/
+--regex-R=/^[ \t]*setMethod[ \t\n]*\([ \t\n]*\"([^\"\(\)]+)\"[ \t\n]*,/\1/m,Methods/
+--regex-R=/^[ \t]*setGeneric[ \t\n]*\([ \t\n]*\"([^\"\(\)]+)\"/\1/G,Generics/
+--regex-R=/^[ \t]*(setClass|setClassUnion)[ \t\n]*\([ \t\n]*\"([.A-Za-z][.A-Za-z0-9_]*)\"/\2/c,classes/
 
 --langdef=markdown
 --langmap=markdown:.mkd
