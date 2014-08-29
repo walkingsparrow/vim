@@ -188,6 +188,13 @@ set cinoptions+=g2,h2
 
 " ------------------------------------------------------------
 "  Auto-complete
+
+" Disable completion warning messages
+try
+  set shortmess+=c
+catch /E539: Illegal character/
+endtry
+
 set ofu=syntaxcomplete#Complete
 
 set dictionary+=/usr/share/dict/words
@@ -825,4 +832,5 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <leader>o :ZoomToggle<CR>
+
 
