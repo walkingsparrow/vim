@@ -188,6 +188,13 @@ set cinoptions+=g2,h2
 
 " ------------------------------------------------------------
 "  Auto-complete
+
+" Disable completion warning messages
+try
+  set shortmess+=c
+catch /E539: Illegal character/
+endtry
+
 set ofu=syntaxcomplete#Complete
 " . for current buffer, b for all loaded buffers,
 " u for all un-loaded buffers, ] for tag files,
@@ -827,4 +834,5 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <leader>o :ZoomToggle<CR>
+
 
