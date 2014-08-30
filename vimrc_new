@@ -38,7 +38,7 @@
 " <C-c>F narrow the function list down with a word under cursor
 " \o toggle window zoom
 "
-" ------------------------------------------------------------ 
+" ------------------------------------------------------------
 
 "  General
 set nocompatible
@@ -96,6 +96,10 @@ fun! <SID>StripTrailingWhitespaces()
     " Restore the saved search and cursor position
     let @/=_s
     call cursor(l, c)
+    " if col(".") < c
+    "     let s:n = c - col(".") + 1
+    "     call feedkeys("i".repeat(" ", s:n)."\<esc>")
+    " endif
 endfun
 
 fun! <SID>W_func()
@@ -117,6 +121,8 @@ fun! <SID>WQA_func()
     call <SID>WA_func()
     q
 endfun
+
+inoremap <CR> <CR>.<BS>
 
 command -nargs=0 W call <SID>W_func()
 command -nargs=0 WQ call <SID>WQ_func()
@@ -170,6 +176,8 @@ nmap <leader>w :w<cr>
 imap <leader>w <C-o>:w<cr>
 nmap <leader>W :W<cr>
 imap <leader>W <C-o>:W<cr>
+nmap <leader>s :W<cr>
+imap <leader>s <C-o>:W<cr>
 
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
