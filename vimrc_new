@@ -119,6 +119,8 @@ fun! <SID>WQA_func()
     q
 endfun
 
+inoremap <CR> <CR>.<BS>
+
 command -nargs=0 W call <SID>W_func()
 command -nargs=0 WQ call <SID>WQ_func()
 command -nargs=0 WA call <SID>WA_func()
@@ -175,6 +177,8 @@ nmap <leader>w :w<cr>
 imap <leader>w <C-o>:w<cr>
 nmap <leader>W :W<cr>
 imap <leader>W <C-o>:W<cr>
+nmap <leader>s :W<cr>
+imap <leader>s <C-o>:W<cr>
 
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
