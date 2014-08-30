@@ -20,8 +20,8 @@
 " \<tab> indent the line or region
 " <C-c>. <C-c>, move the line a tab
 " \- draw a separate line
-" \w same as :w
-" \W same as :W
+" \w save
+" \s save with trailing white spaces
 " <C-c><C-e> ConqueTerm send line or region
 " \l open taglist window horizentally
 " \lr open taglist window vertically
@@ -96,10 +96,6 @@ fun! <SID>StripTrailingWhitespaces()
     " Restore the saved search and cursor position
     let @/=_s
     call cursor(l, c)
-    " if col(".") < c
-    "     let s:n = c - col(".") + 1
-    "     call feedkeys("i".repeat(" ", s:n)."\<esc>")
-    " endif
 endfun
 
 fun! <SID>W_func()
@@ -174,10 +170,8 @@ imap <leader>- <space><C-o>60i-<esc>a
 
 nmap <leader>w :w<cr>
 imap <leader>w <C-o>:w<cr>
-nmap <leader>W :W<cr>
-imap <leader>W <C-o>:W<cr>
 nmap <leader>s :W<cr>
-imap <leader>s <C-o>:W<cr>
+imap <leader>s .<C-o>:call <SID>StripTrailingWhitespaces()<cr><bs><C-o>:w<cr>
 
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
