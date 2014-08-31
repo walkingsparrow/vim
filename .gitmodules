@@ -215,3 +215,6 @@
 [submodule "bundle/vim-r-plugin"]
 	path = bundle/vim-r-plugin
 	url = https://github.com/jcfaria/Vim-R-plugin.git
+[submodule "bundle/vim-pandoc-syntax"]
+	path = bundle/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
