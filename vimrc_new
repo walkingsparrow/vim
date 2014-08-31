@@ -38,7 +38,7 @@
 " <C-c>F narrow the function list down with a word under cursor
 " \o toggle window zoom
 "
-" ------------------------------------------------------------ 
+" ------------------------------------------------------------
 
 "  General
 set nocompatible
@@ -835,4 +835,6 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <leader>o :ZoomToggle<CR>
 
-
+" ------------------------------------------------------------
+"  vim-pandoc
+au VimEnter * hi Conceal ctermbg=None ctermfg=DarkMagenta
