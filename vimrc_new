@@ -837,4 +837,7 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <leader>o :ZoomToggle<CR>
 
+" ------------------------------------------------------------
+"  vim-pandoc
+au VimEnter * hi Conceal ctermbg=None ctermfg=DarkMagenta
 
