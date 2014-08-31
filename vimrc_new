@@ -301,12 +301,12 @@ let loaded_supertab = 1
 "inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 "inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
-set conceallevel=2
-set concealcursor=vin
-let g:clang_snippets=1
-let g:clang_conceal_snippets=1
-" The single one that works with clang_complete
-let g:clang_snippets_engine='clang_complete'
+"" set conceallevel=2
+"" set concealcursor=vin
+"" let g:clang_snippets=1
+"" let g:clang_conceal_snippets=1
+"" " The single one that works with clang_complete
+"" let g:clang_snippets_engine='clang_complete'
 
 " Complete options (disable preview scratch window,
 " longest removed to aways show menu)
@@ -837,4 +837,4 @@ nnoremap <silent> <leader>o :ZoomToggle<CR>
 
 " ------------------------------------------------------------
 "  vim-pandoc
-au VimEnter * hi Conceal ctermbg=None ctermfg=DarkMagenta
+au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
