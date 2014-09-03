@@ -80,6 +80,7 @@ set ignorecase
 set smartcase
 set hlsearch
 nmap <silent> <leader>q :nohlsearch<CR>
+imap <silent> <leader>q <C-o>:nohlsearch<cr>
 
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
