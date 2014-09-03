@@ -499,7 +499,12 @@ highlight scalaTrailingComment cterm=italic ctermfg=023
 " visual mode background
 hi Visual cterm=None ctermbg=236 ctermfg=None
 hi StatusLine ctermbg=233 ctermfg=24
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
+set statusline=%F%m%r%h%w%=(%{&ff}/%y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
+
+" display a warning if &paste is set
+set statusline+=%#error#
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
 
 " ------------------------------------------------------------
 "  Auto-read file if changed externally
