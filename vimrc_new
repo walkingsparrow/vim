@@ -17,6 +17,7 @@
 "
 " :W write and remove trailing white spaces
 " <esc><esc> remove search highlight and re-arrange syntax color
+" <S-tab> <tab> for expanding snips
 " \<tab> indent the line or region
 " <C-c>. <C-c>, move the line a tab
 " \- draw a separate line
@@ -847,4 +848,8 @@ nnoremap <silent> <leader>o :ZoomToggle<CR>
 " ------------------------------------------------------------
 "  vim-pandoc
 au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
+
+" ------------------------------------------------------------
+"  Scheme indentation
+autocmd FileType lisp,scheme imap <cr> <cr>.<C-o>==<C-o>^<C-o>x
 
