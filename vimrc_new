@@ -144,7 +144,7 @@ set nostartofline
 set clipboard=unnamedplus,unnamed,autoselect
 
 " auto insert a new line after {
-inoremap {<cr> {<cr>}<c-o><s-o>
+inoremap {<cr> {<cr>}<c-o><s-o>.<bs>
 
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR>:syntax sync fromstart<cr><Esc>
