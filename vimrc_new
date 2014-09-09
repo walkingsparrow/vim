@@ -559,6 +559,8 @@ imap <C-c>c <ESC>:w<CR>:SyntasticCheck<CR>a
 nmap <C-c>C :SyntasticReset<CR>
 imap <C-c>C <ESC>:SyntasticReset<CR>a
 
+hi SignColumn ctermbg=0
+
 " ------------------------------------------------------------
 "  tagbar
 
