@@ -61,7 +61,10 @@ set autoindent
 set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 
 " use normal tab instead of spaces in Go
-autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
+augroup go_indent
+    autocmd!
+    autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
+augroup END
 
 set wildmenu " a really cool feature
 set pastetoggle=<f12> "pt: useful so auto-indenting doesn't mess up code when pasting
@@ -380,16 +383,19 @@ set nonumber
 
 " ------------------------------------------------------------
 "  File types
-au BufNewFile,BufRead *.sql_in setlocal ft=sql
-au BufNewFile,BufRead *.py_in setlocal ft=python
-au BufNewFile,BufRead *.notes setlocal ft=notes
+augroup file_settings
+    autocmd!
+    au BufNewFile,BufRead *.sql_in setlocal ft=sql
+    au BufNewFile,BufRead *.py_in setlocal ft=python
+    au BufNewFile,BufRead *.notes setlocal ft=notes
 
-au BufNewFile,BufRead *.erl imap -- <space>-><space>
-au BufNewFile,BufRead *.ex imap -- <space>-><space>
-au BufNewFile,BufRead *.exs imap -- <space>-><space>
-au BufNewFile,BufRead *.erl imap __ <space><-<space>
-au BufNewFile,BufRead *.ex imap __ <space><-<space>
-au BufNewFile,BufRead *exs imap __ <space><-<space>
+    au BufNewFile,BufRead *.erl imap -- <space>-><space>
+    au BufNewFile,BufRead *.ex imap -- <space>-><space>
+    au BufNewFile,BufRead *.exs imap -- <space>-><space>
+    au BufNewFile,BufRead *.erl imap __ <space><-<space>
+    au BufNewFile,BufRead *.ex imap __ <space><-<space>
+    au BufNewFile,BufRead *exs imap __ <space><-<space>
+augroup END
 
 " ------------------------------------------------------------
 "  nerdtree
@@ -423,14 +429,20 @@ let g:move_key_modifier = 'C'
 
 " ------------------------------------------------------------
 "  Open file at last edit position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup file_open
+    autocmd!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
 
 " ------------------------------------------------------------
 "  Auto line breaks for text and latex files
-au BufEnter *.txt setl ts=4 sw=4 tw=70 "fo=aw2q
-au BufEnter *.tex setl ts=4 sw=4 tw=70 "fo=aw2tq
-au FileType ruby setl sw=2 sts=2 et
-au FileType notes setl ts=4 sw=4 tw=70 "fo=aw2tq
+augroup line_break
+    autocmd!
+    au BufEnter *.txt setl ts=4 sw=4 tw=70 "fo=aw2q
+    au BufEnter *.tex setl ts=4 sw=4 tw=70 "fo=aw2tq
+    au FileType ruby setl sw=2 sts=2 et
+    au FileType notes setl ts=4 sw=4 tw=70 "fo=aw2tq
+augroup END
 
 " ------------------------------------------------------------
 "  rainbow
@@ -542,7 +554,11 @@ let g:indentLine_color_term = 235
 
 " ------------------------------------------------------------
 "  Vim-R-plugin
-autocmd FileType r setlocal formatoptions=cq
+augroup r_setting
+    autocmd!
+    autocmd FileType r setlocal formatoptions=cq
+augroup END
+
 let vimrplugin_applescript = 0
 
 " ------------------------------------------------------------
@@ -567,7 +583,10 @@ hi SignColumn ctermbg=0
 "  tagbar
 
 " use this to speed up cursor movement
-autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+augroup tagbar_setting
+    autocmd!
+    autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+augroup END
 
 nmap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_singleclick = 1
@@ -666,7 +685,10 @@ let g:tagbar_type_sql = {
 
 set fillchars+=stl:\ ,stlnc:\
 
-au BufNewFile,BufRead *.sbt setlocal ft=sbt
+augroup sbt_setting
+    autocmd!
+    au BufNewFile,BufRead *.sbt setlocal ft=sbt
+augroup END
 
 " ------------------------------------------------------------
 "  screen
@@ -768,12 +790,11 @@ function! s:ScreenShortcutForPython()
     imap <buffer> <C-c>" <C-o>:call Start_screenIPython_s()<CR>
 endfunction
 
-autocmd FileType python call <SID>ScreenShortcutForPython()
 
-augroup ScreenShellEnter
+augroup ScreenShell
+    autocmd!
+    autocmd FileType python call <SID>ScreenShortcutForPython()
     autocmd User * call <SID>ScreenShellListener()
-augroup END
-augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
 augroup END
 
@@ -851,11 +872,17 @@ nnoremap <silent> <leader>o :ZoomToggle<CR>
 
 " ------------------------------------------------------------
 "  vim-pandoc
-au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
+augroup pandoc_setting
+    autocmd!
+    au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
+augroup END
 
 " ------------------------------------------------------------
 "  Scheme indentation
-autocmd FileType lisp,scheme imap <cr> <cr>.<C-o>==<C-o>^<C-o>x
+augroup scheme_setting
+    autocmd!
+    autocmd FileType lisp,scheme imap <cr> <cr>.<C-o>==<C-o>^<C-o>x
+augroup END
 
 " ---------------------------------------------------------------
 "  vim-pencil
@@ -878,3 +905,6 @@ nmap <leader>cb <C-_>b
 imap <leader>cb <C-_>b
 vmap <leader>cb <C-_>b
 
+" ------------------------------------------------------------
+"  LargeFile
+" let g:LargeFile = 5
