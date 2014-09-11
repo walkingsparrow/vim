@@ -60,7 +60,10 @@ set smartindent
 set autoindent
 set tabstop=8 softtabstop=4 shiftwidth=4 expandtab smarttab
 
-autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
+augroup go_indent
+    autocmd!
+    autocmd filetype go setlocal tabstop=8 shiftwidth=8 noexpandtab
+augroup END
 
 set wildmenu " a really cool feature
 set pastetoggle=<F12> "pt: useful so auto-indenting doesn't mess up code when pasting
@@ -540,7 +543,11 @@ let g:indentLine_color_term = 235
 
 " ------------------------------------------------------------
 "  Vim-R-plugin
-autocmd FileType r setlocal formatoptions=cq
+augroup vimr
+    autocmd!
+    autocmd FileType r setlocal formatoptions=cq
+augroup END
+
 let vimrplugin_applescript = 0
 
 " ------------------------------------------------------------
@@ -565,7 +572,10 @@ hi SignColumn ctermbg=0
 "  tagbar
 
 " use this to speed up cursor movement
-autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+augroup tagbar_speedup
+    autocmd!
+    autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+augroup END
 
 nmap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_singleclick = 1
@@ -766,12 +776,11 @@ function! s:ScreenShortcutForPython()
     imap <buffer> <C-c>" <C-o>:call Start_screenIPython_s()<CR>
 endfunction
 
-autocmd FileType python call <SID>ScreenShortcutForPython()
 
-augroup ScreenShellEnter
+augroup ScreenShell
+    autocmd!
+    autocmd FileType python call <SID>ScreenShortcutForPython()
     autocmd User * call <SID>ScreenShellListener()
-augroup END
-augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
 augroup END
 
@@ -853,7 +862,10 @@ au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
 
 " ------------------------------------------------------------
 "  Scheme indentation
-autocmd FileType lisp,scheme imap <cr> <cr>.<C-o>==<C-o>^<C-o>x
+augroup scheme_indent
+    autocmd!
+    autocmd FileType lisp,scheme imap <cr> <cr>.<C-o>==<C-o>^<C-o>x
+augroup END
 
 " ---------------------------------------------------------------
 "  vim-pencil
