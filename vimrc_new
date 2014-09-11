@@ -177,7 +177,7 @@ imap <leader>- <space><C-o>60i-<esc>a
 
 nmap <leader>w :w<cr>
 imap <leader>w <C-o>:w<cr>
-nmap <leader>s :W<cr>
+nmap <leader>s :call <SID>StripTrailingWhitespaces()<cr>:w<cr>
 imap <leader>s .<C-o>:call <SID>StripTrailingWhitespaces()<cr><bs><C-o>:w<cr>
 
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
