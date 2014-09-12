@@ -37,6 +37,8 @@
 " <C-c>x search commands
 " <C-c>f search for functions in current buffer
 " <C-c>F narrow the function list down with a word under cursor
+" <C-c>b search for buffers
+" <C-c>r search for recent files
 " \o toggle window zoom
 "
 " ------------------------------------------------------------
@@ -817,6 +819,7 @@ imap <C-c>x <C-o>:CtrlPCmdPalette<CR>
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <C-c>f :CtrlPFunky<Cr>
+imap <C-c>f <C-o>:CtrlPFunky<cr>
 
 " narrow the list down with a word under cursor
 nnoremap <C-c>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
@@ -828,6 +831,15 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+
+nmap <C-c>b :CtrlPBuffer<cr>
+imap <C-c>b <esc>:CtrlPBuffer<cr>
+
+nmap <C-c>r :CtrlPMRUFiles<cr>
+imap <C-c>r <esc>:CtrlPMRUFiles<cr>
+
+nmap <C-c>p :CtrlP<cr>
+imap <C-c>p <esc>:CtrlP<cr>
 
 " ------------------------------------------------------------
 "  dbext
