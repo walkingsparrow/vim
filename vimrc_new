@@ -507,7 +507,7 @@ let g:solarized_bold = 1
 let g:solarized_underline = 1
 let g:solarized_italic = 1
 let g:solarized_contrast = "high"
-let g:solarized_visibility= "high"
+let g:solarized_visibility= "normal"
 colorscheme solarized
 highlight Comment cterm=italic ctermfg=023
 highlight scalaMultilineComment cterm=italic ctermfg=023
@@ -770,15 +770,8 @@ imap <silent> <C-c>% <C-o>:call Start_screenShell_v()<CR>
 nmap <silent> <C-c>" :call Start_screenShell_s()<CR>
 imap <silent> <C-c>" <C-o>:call Start_screenShell_s()<CR>
 
-function! s:ScreenShellListener()
-    if g:ScreenShellActive
-        nmap <silent> <C-c>q :ScreenQuit<CR>
-        imap <silent> <C-c>q <ESC>:ScreenQuit<CR>
-    else
-        nmap <silent> <C-c>q :wq<CR>
-        imap <silent> <C-c>q <ESC>:wq<CR>
-    endif
-endfunction
+nmap <silent> <C-c>q :ScreenQuit<CR>
+imap <silent> <C-c>q <ESC>:ScreenQuit<CR>
 
 function! s:ScreenShortcutForPython()
     nmap <buffer> <C-c>% :call Start_screenIPython_v()<CR>
@@ -791,8 +784,6 @@ endfunction
 augroup ScreenShell
     autocmd!
     autocmd FileType python call <SID>ScreenShortcutForPython()
-    autocmd User * call <SID>ScreenShellListener()
-    autocmd User * call <SID>ScreenShellListener()
 augroup END
 
 " ------------------------------------------------------------
