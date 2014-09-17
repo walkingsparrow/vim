@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/usr/local/bin/vim -S $HOME/.gvimdiffrc --cmd "let g:indentLine_loaded = 1" -d -f -R "$@"

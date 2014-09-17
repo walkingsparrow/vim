@@ -5,8 +5,10 @@
 	excludesfile = /home/gpadmin/.gitignore_global
         editor = /usr/local/bin/vim
 [diff]
-        tool = vimdiff
+        tool = mydiff
         ;external = vimdiff
+[difftool "mydiff"]
+        cmd = mydiff \"$LOCAL\" \"$REMOTE\"
 [color]
         ui = always
 [push]
