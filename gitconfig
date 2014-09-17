@@ -3,10 +3,12 @@
 	email = hqian@gopivotal.com
 [core]
 	excludesfile = /Users/hqian/.gitignore_global
-	editor = /usr/local/bin/vim
-[difftool "sourcetree"]
-	cmd = /Users/hqian/.local/bin/opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+        editor = /usr/local/bin/vim
+[diff]
+        tool = mydiff
+        ;external = vimdiff
+[difftool "mydiff"]
+        cmd = mydiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

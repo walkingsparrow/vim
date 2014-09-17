@@ -1,0 +1,4 @@
+#!/usr/local/bin/bash
+
+#/Applications/MacVim.app/Contents/MacOS/Vim -S $HOME/.gvimdiffrc -d -f -g -R "$@"
+/usr/local/bin/vim -S $HOME/.gvimdiffrc --cmd "let g:indentLine_loaded = 1" -d -f -R "$@"
