@@ -5,8 +5,10 @@
 	excludesfile = /home/hqian/.gitignore_global
         editor = /usr/bin/vim
 [diff]
-        tool = vimdiff
+        tool = mydiff
         ;external = vimdiff
+[difftool "mydiff"]
+        cmd = mydiff \"$LOCAL\" \"$REMOTE\"
 [color]
         ui = always
 [push]
