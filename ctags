@@ -12,7 +12,7 @@
 --regex-scala=/^[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*(private|protected)?(\[[a-zA-Z0-9_]+\])?[ \t]*case object[ \t]+([a-zA-Z0-9_]+)/\5/O,case objects/
 --regex-scala=/^[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*(private|protected)?(\[[a-zA-Z0-9_]+\])?[ \t]*trait[ \t]+([a-zA-Z0-9_]+)/\5/t,traits/
 --regex-scala=/^[ \t]*type[ \t]+([a-zA-Z0-9_]+)/\1/T,types/
---regex-scala=/^[ \t]*(private|protected)?(\[[a-zA-Z0-9_]+\])?[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*def[ \t]+([a-zA-Z0-9_]+)/\5/m,methods/
+--regex-scala=/^[ \t]*(private|protected|override)?(\[[a-zA-Z0-9_]+\])?[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*def[ \t]+([a-zA-Z0-9_]+)/\5/m,methods/
 --regex-scala=/^[ \t]*(private|protected)?(\[[a-zA-Z0-9_]+\])?[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*val[ \t]+([a-zA-Z0-9_]+)/\5/V,values/
 --regex-scala=/^[ \t]*(private|protected)?(\[[a-zA-Z0-9_]+\])?[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*var[ \t]+([a-zA-Z0-9_]+)/\5/v,variables/
 --regex-scala=/^[ \t]*package[ \t]+([a-zA-Z0-9_.]+)/\1/p,packages/
