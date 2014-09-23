@@ -1,0 +1,88 @@
+#!/usr/local/bin/zsh
+
+GPROOT=/home/gpadmin/greenplum
+VERSION=4.3.2.1
+GPHOME=$GPROOT/greenplum-db-$VERSION
+
+#alias python=$GPHOME/ext/python/bin/python
+
+# Replace with symlink path if it is present and correct
+if [ -h ${GPHOME}/../greenplum-db ]; then
+    GPHOME_BY_SYMLINK=`(cd ${GPHOME}/../greenplum-db/ && pwd -P)`
+    if [ x"${GPHOME_BY_SYMLINK}" = x"${GPHOME}" ]; then
+        GPHOME=`(cd ${GPHOME}/../greenplum-db/ && pwd -L)`/.
+    fi
+    unset GPHOME_BY_SYMLINK
+fi
+
+export GPHOME
+export GPDATA=$GPROOT/gpdb_data
+# export PATH=$PATH:$GPHOME/bin:$GPHOME/ext/python/bin
+export PATH=$GPHOME/bin:$GPHOME/ext/python/bin:$PATH
+export LD_LIBRARY_PATH=$GPHOME/lib:$GPHOME/ext/python/lib:$DYLD_LIBRARY_PATH
+export PYTHONPATH=$GPHOME/lib/python
+export PYTHONHOME=$GPHOME/ext/python
+export OPENSSL_CONF=$GPHOME/etc/openssl.cnf
+export LDAPCONF=$GPHOME/etc/ldap.conf
+
+export MASTER_DATA_DIRECTORY=$GPDATA/master/gpseg-1
+export MASTER_HOSTNAME=centos
+export PGPORT=16526
+
+export DBNAME=greenplum
+
+export USE_DATABASE="YES"
+
+export PGPASSWORD=
+
+#export CC=/opt/local/bin/gcc-apple-4.2
+#export CXX=/opt/local/bin/g++-apple-4.2
+
+export BUILD_PATH=$HOME/workspace/builds/madlib_gp
+
+#export JAVA_HOME="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
+
+#ln -sf ~/.odbc.configs/odbc.ini_gp423 ~/.odbc.ini
+
+#export ODBCINI=/Users/qianh1/qianh1_usenqianh1mbp2_3629/qianh1_usenqianh1mbp2_3629/gpdb_binary/greenplum-db-4.2.1.0/odbc.ini
+
+# n=1
+# for var in $@
+# do
+#     if [ $n -eq 1 ]
+#     then
+#         command="/Users/qianh1/greenplum-db-devel/bin/$1"
+#     else
+#         command="$command $var"
+#     fi
+#     n=$[n+1]
+# done
+
+# $command
+
+#. $GPROOT/greenplum-clients-4.2.3.0-build-1/greenplum_clients_path.sh
+#. $GPROOT/greenplum-loaders-4.2.3.0-build-1/greenplum_loaders_path.sh
+#. $GPROOT/greenplum-connectivity-4.2.3.0-build-1/greenplum_connectivity_path.sh
+
+#export PGOPTIONS='-c max_connections=50'
+
+command=$@
+if [ "$command" = 'start' ]
+then
+    gpstart -a
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Greenplum $VERSION 32bit with 2 segments in ~/gpdb, Port $PGPORT \x1b[00m"
+elif [ "$command" = 'stop' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Greenplum $VERSION 32bit with 2 segments in ~/gpdb, port $PGPORT \x1b[00m"
+    echo
+    gpstop -a
+elif [ "$command" = 'status' ] || [ "$command" = 'state' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Greenplum $VERSION 32bit with 2 segments in ~/gpdb, port $PGPORT \x1b[00m"
+    gpstate -Q
+else
+    echo -e "\x1b[1m \x1b[33m  -- Greenplum $VERSION 32bit with 2 segments in ~/gpdb, port $PGPORT \x1b[00m"
+    eval "$@"
+fi
+

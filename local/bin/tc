@@ -1,0 +1,36 @@
+#!/usr/local/bin/zsh
+
+P4ROOT=$HOME/p4
+ROOT=$HOME/workspace/
+
+CUR_DIR=`pwd`
+
+cd $P4ROOT/mppTools/main/qautils
+source qautils.sh
+
+cd $ROOT/tinc
+source tinc_env.sh
+
+cd $ROOT/tinc/tincrepo
+source $P4ROOT/tincrepo/main/tincrepo_env.sh
+
+export TINCREPOHOME=`pwd`
+
+cd madlib
+export PATH=$PATH:`pwd`
+
+# echo $PYTHONPATH
+
+# return to the original dir
+cd $CUR_DIR
+
+echo -e "\x1b[1m \x1b[31m  -- Tinc is a cross-team effort to revamp the entire GPDB test infrastructure \x1b[00m"
+
+cmd=$@
+
+if [ "$1" = 'gp' ] || [ "$1" = "gp41" ] || [ "$1" = "gp40" ]
+then
+    echo -e "\x1b[1m \x1b[31m ****** gp must be in front of tc ******\x1b[00m"
+else
+    eval $cmd
+fi

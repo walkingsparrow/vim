@@ -1,0 +1,165 @@
+#!/usr/local/bin/zsh
+VERSION=dev
+
+# MY_HAWQ_SRC_DIR=$HOME/workspace/hawq/madlib-hawq-echo
+
+export GPROOT=$HOME/hawq
+export GPHOME=$HOME/hawq/greenplum-db
+export GPDATA=$HOME/hawq/hawq_data
+
+if [ $OLD ] && [ $OLD = "t" ]
+then
+    export GPROOT=$HOME/hawq/tmp
+    export GPHOME=$HOME/hawq/tmp/greenplum-db-devel
+    #export GPDATA=$GPHOME-data
+fi
+
+export MASTER_DATA_DIRECTORY=$GPDATA/master/gpseg-1
+
+export HADOOP_DIR=$HOME/hawq/hadoop
+export PATH=$GPHOME/bin:$GPHOME/ext/python/bin:$HADOOP_DIR/bin:$HADOOP_DIR/sbin:$PATH
+
+#source $GPHOME/greenplum_path.sh
+export LD_LIBRARY_PATH=$GPHOME/lib:$GPHOME/ext/python/lib:$DYLD_LIBRARY_PATH
+export PYTHONPATH=$GPHOME/lib/python
+export PYTHONHOME=$GPHOME/ext/python
+export OPENSSL_CONF=$GPHOME/etc/openssl.cnf
+export LIBHDFS3_CONF=$GPHOME/etc/hdfs-client.xml
+
+export MASTER_HOSTNAME=centos
+export PGPORT=18526
+
+export DBNAME=hawq
+
+export USE_DATABASE="YES"
+
+export PGPASSWORD=
+
+export BUILD_PATH=$HOME/workspace/madlib_hq
+
+# export CC=/opt/local/bin/gcc-apple-4.2
+# export CXX=/opt/local/bin/g++-apple-4.2
+
+# Extra Java runtime options.  Empty by default.
+#export HADOOP_OPTS="-Djava.net.preferIPv4Stack=true"  -- old one
+# change to the following if encounter problem like: java[89885:1603] Unable to load realm mapping info from SCDynamicStore
+#export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
+export HADOOP_OPTS="-Djava.security.krb5.realm=-Djava.security.krb5.kdc="
+export JAVA_OPTS=-Xmx768m
+#alias java='java -Dapple.awt.UIElement="true"'
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0`
+
+
+# set an alternative sudo
+thesudo()
+{
+# back up the DYLD_* variables
+local BACK=$LD_LIBRARY_PATH
+# unset DYLD_*
+unset LD_LIBRARY_PATH
+# calling sudo
+/usr/bin/sudo "$@"
+# restore DYLD_* after sudo finished
+export DYLD_LIBRARY_PATH=$BACK
+}
+
+# redirect sudo
+#alias sudo=thesudo
+
+command=$@
+if [ "$command" = 'start' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Starting HDFS ... \x1b[00m"
+    start-dfs.sh
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Starting HAWQ $VERSION ... \x1b[00m"
+    gpstart -a
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+elif [ "$command" = 'stop' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Stopping HAWQ $VERSION ... \x1b[00m"
+    gpstop -a
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Stopping HDFS ... \x1b[00m"
+    stop-dfs.sh
+elif [ "$command" = 'format' ]
+then
+    echo -e "\x1b[1m \x1b[33m  * Formating HDFS * \x1b[00m"
+    hdfs namenode -format -clusterId gpsql
+elif [ "$command" = 'status' ] || [ "$command" = 'state' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    gpstate -Q
+elif [ "$1" = 'fs' ] || [ "$1" = "jar" ] || [[ "$1" == -* ]]
+then
+    echo -e "\x1b[1m \x1b[33m  -- HADOOP $VERSION in ~/hadoop \x1b[00m"
+    n=1
+    for var in $@
+    do
+        if [ $n -eq 1 ]
+        then
+            if [ "$1" = 'fs' ]
+            then
+                command="hdfs dfs"
+            elif [[ "$1" == -* ]]
+            then
+                command="hdfs dfs $1"
+            else
+                command="hadoop jar"
+            fi
+        else
+            command="$command $var"
+        fi
+        n=$[n+1]
+    done
+    if [ "$1" = 'fs' ] || [[ "$1" == -* ]]
+    then
+        eval $command
+    else
+        eval $command
+    fi
+elif [ "$command" = 'clean' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Clean up HAWQ build \x1b[00m"
+    pushd $MY_HAWQ_SRC_DIR
+    thesudo make clean_tools
+    thesudo make distclean
+    thesudo rm -rf /opt/releng
+    thesudo rm -rf ext/
+    rm -rf cdb-pg/src/backend/catalog/cdb_init.sql
+    popd
+elif [ "$command" = 'compile' ]
+then
+    export PATH=/usr/bin:$PATH
+    source /opt/gcc_env-osx106.sh
+    export BLD_ARCH=osx106_x86
+    export PATH=$GPHOME/bin:$GPHOME/ext/python/bin:$HADOOP_DIR/bin:$HADOOP_DIR/sbin:$PATH
+    echo -e "\x1b[1m \x1b[33m  -- Build HAWQ from source \x1b[00m"
+    pushd $MY_HAWQ_SRC_DIR
+    thesudo make sync_tools
+    make -j 3 HOME=$GPROOT dist
+    popd
+elif [ "$command" = 'init' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Initialize the HAWQ database \x1b[00m"
+    echo -e "\x1b[1m \x1b[33m  -- Cleaning up \x1b[00m"
+    pushd $GPDATA
+    rm -rf master/*
+    rm -rf p1/primary/*
+    rm -rf p2/primary/*
+    rm -rf p3/primary/*
+    rm -rf p4/primary/*
+    hdfs dfs -rm -r /gpsql
+    echo -e "\x1b[1m \x1b[33m  -- Initializing \x1b[00m"
+    #rm -rf $GPROOT/greenplum-db-devel/ext/python/lib/python2.6/site-packages/*
+    gpssh-exkeys -f hosts
+    gpinitsystem -c gpinitsystem_config
+    popd
+else
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    eval $@
+fi
+

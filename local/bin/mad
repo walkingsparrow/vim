@@ -1,0 +1,80 @@
+#!/bin/bash
+
+MADLIB_DIR=$HOME/workspace/madlib
+CURRENT_DIR=`pwd`
+
+TERM=xterm-256color
+
+#export PATH=/usr/local/bin:$PATH
+
+echo -e "\x1b[1m \x1b[33m  -- MADlib local repository directory    $MADLIB_DIR \x1b[00m"
+echo -e "\x1b[1m \x1b[33m  -- MADlib installation directory        $BUILD_PATH \x1b[00m"
+
+control_c()
+# run if user hits control-c
+{
+  echo -en "\n*** Ouch! Exiting ***\n"
+  mv $MADLIB_DIR/build $BUILD_PATH
+  cd $CURRENT_DIR
+  exit $?
+}
+
+# trap keyboard interrupt (control-c)
+trap control_c SIGINT
+
+if [ $BUILD_PATH ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]
+then
+if [ "$1" = "clean" ]
+then
+    echo -e "\x1b[1m \x1b[31m     -- Removing MADlib installation in $MADLIB_DIR/build & $BUILD_PATH ... \x1b[00m"
+    rm -rf $MADLIB_DIR/build/ $BUILD_PATH
+    echo -e "\x1b[1m \x1b[31m        DONE \x1b[00m"
+elif [ "$1" = "configure" ] || [ "$1" = "config" ]
+then
+    cd $MADLIB_DIR
+    rm -rf build
+    echo -e "\x1b[1m \x1b[34m     -- Configuring MADlib ... \x1b[00m"
+    if [ "$2" = "debug" ]
+    then
+        echo -e "\x1b[1m \x1b[34m     -- for debug build \x1b[00m"
+        ./configure -DCMAKE_BUILD_TYPE=Debug
+    else
+        echo -e "\x1b[1m \x1b[34m     -- for release build \x1b[00m"
+        ./configure -DCMAKE_BUILD_TYPE=Release
+    fi
+    rm -rf $BUILD_PATH
+    mv $MADLIB_DIR/build $BUILD_PATH
+    cd $CURRENT_DIR
+elif [ "$1" = "make" ]
+then
+    echo -e "\x1b[1m \x1b[34m     -- Building MADlib ... \x1b[00m"
+    rm -rf $MADLIB_DIR/build
+    mv $BUILD_PATH $MADLIB_DIR/build
+    cd $MADLIB_DIR/build
+    ln -sf ~/workspace/builds/3.2.2.tar.gz third_party/downloads
+    ln -sf ~/workspace/builds/boost_1_46_1.tar.gz third_party/downloads
+    ln -sf ~/workspace/builds/PyXB-1.2.3.tar.gz third_party/downloads
+    "$@"
+    cd ..
+    mv $MADLIB_DIR/build $BUILD_PATH
+    cd $CURRENT_DIR
+elif [ "$1" = "-h" ] || [ "$1" = "--help" ]
+then
+    echo -e "\x1b[1m \x1b[35m     Examples: \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad clean \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad config[ure] [debug] \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad make -j 4 \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad hqian install \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad hqian reinstall \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad hqian install-check \x1b[00m"
+    echo -e "\x1b[1m \x1b[35m     -- $ gp mad hqian install-check -t regress \x1b[00m"
+else
+    echo -e "\x1b[1m \x1b[32m     -- MADlib install ... \x1b[00m"
+    if [ -d $BUILD_PATH ]
+    then
+        yes | $BUILD_PATH/src/bin/madpack -p $DBNAME -c $USER@localhost:$PGPORT/$@
+    fi
+fi
+else
+    echo -e "\x1b[1m \x1b[31m *** Please specify the platform using gp, pg, hq, etc ! *** \x1b[00m"
+fi

@@ -1,0 +1,94 @@
+#!/usr/local/bin/zsh
+
+# export PYTHONHOME=/usr/local/Cellar/python/2.7.8/Frameworks/Python.framework/Versions/Current
+export PYTHONPATH=/usr/lib64/python2.7
+# alias python='/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/Current/bin/python'
+
+PGROOT=$HOME/postgres
+PGHOME=$PGROOT/postgres_bin
+
+export R_HOME=/usr
+export PATH=$PGHOME/bin:$HOME/.local/bin:$R_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$PGHOME/lib:/usr/lib64/python2.7/config:$R_HOME/lib:$DYLD_LIBRARY_PATH
+
+export POSTGRESQL_9_3_PG_CONFIG=$PGHOME/bin/pg_config
+
+export PG_INCLUDE_DIR=$PGHOME/include
+export PG_LIB_DIR=$PGHOME/lib
+
+export PGDATA=$PGROOT/postgres_data
+export PGLOG=$PGROOT/pg_log.txt
+export PGPORT=5333
+export PGVERSION="`pg_config --version`"
+
+export DBNAME=postgres
+
+export USE_DATABASE="YES"
+
+export PGPASSWORD=
+
+#export CC=/opt/local/bin/gcc-mp-4.8
+#export CXX=/opt/local/bin/g++-mp-4.8
+
+export BUILD_PATH=$HOME/workspace/builds/madlib_pg
+
+# n=1
+# for var in $@
+# do
+#     if [ $n -eq 1 ]
+#     then
+#         command="/opt/local/lib/postgresql92/bin/$1 -p 5433"
+#     else
+#         command="$command $var"
+#     fi
+#     n=$[n+1]
+# done
+#
+# $command
+
+if [ "$1" != 'mad' ]
+then
+    export GPHOME=$HOME/gpdb/greenplum-db-4.3.0.0
+    export PATH=$PATH:$GPHOME/bin
+fi
+
+command=$@
+if [ "$command" = 'start' ]
+then
+    nohup postgres >$PGLOG 2>&1 &
+    echo -e "\x1b[1m \x1b[33m  -- $PGVERSION 64bit has started."
+    echo -e "\x1b[1m \x1b[33m  -- Port $PGPORT"
+    echo -e "\x1b[1m \x1b[33m  -- Logfile $PGLOG \x1b[00m"
+elif [ "$command" = 'stop' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- $PGVERSION, port $PGPORT \x1b[00m"
+    pg_ctl stop
+elif [ "$command" = 'status' ] || [ "$command" = 'state' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- $PGVERSION 64bit, port $PGPORT \x1b[00m"
+    pg_ctl status
+elif [ "$command" = 'restart' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- $PGVERSION 64bit, port $PGPORT \x1b[00m"
+    pg_ctl restart -l $PGLOG
+elif [ "$1" = 'e' ]
+then
+    n=1
+    for var in $@
+    do
+        if [ $n -eq 1 ]
+        then
+            command="/Users/hqian/.local/bin/emacs"
+        elif [ $n -gt 1 ]
+        then
+            command="$command $var"
+        fi
+        n=$[n+1]
+    done
+    echo -e "\x1b[1m \x1b[33m  -- $PGVERSION 64bit, port $PGPORT \x1b[00m"
+    eval $command
+else
+    echo -e "\x1b[1m \x1b[33m  -- $PGVERSION, port $PGPORT \x1b[00m"
+    eval "$@"
+fi
+

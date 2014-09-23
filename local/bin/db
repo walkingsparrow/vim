@@ -1,0 +1,27 @@
+#!/usr/local/bin/zsh
+
+command=$@
+if [ "$command" = 'start' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Starting PostgreSQL ... \x1b[00m"
+    pg start
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Starting Greenplum ... \x1b[00m"
+    gp start
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Starting HAWQ ... \x1b[00m"
+    hq start
+elif [ "$command" = 'stop' ]
+then
+    echo -e "\x1b[1m \x1b[33m  -- Stopping PostgreSQL ... \x1b[00m"
+    pg stop
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Stopping Greenplum ... \x1b[00m"
+    gp stop
+    echo
+    echo -e "\x1b[1m \x1b[33m  -- Stopping HAWQ ... \x1b[00m"
+    hq stop
+else
+    echo -e "\x1b[1m \x1b[32m  -- Start or stop PostgreSQL, Greenplum and HAWQ databases together. \x1b[00m"
+fi
+
