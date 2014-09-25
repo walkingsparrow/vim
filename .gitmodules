@@ -14,10 +14,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/bufexplorer"]
-	path = bundle/bufexplorer
-        url = https://github.com/vim-scripts/bufexplorer.zip.git
-        ignore = dirty
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -232,3 +228,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-bufexplorer"]
+	path = bundle/vim-bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
