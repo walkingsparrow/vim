@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/local/bin/bash
 
 GPROOT=/home/gpadmin/greenplum
 VERSION=4.3.2.1
@@ -83,6 +83,6 @@ then
     gpstate -Q
 else
     echo -e "\x1b[1m \x1b[33m  -- Greenplum $VERSION 32bit with 2 segments in ~/gpdb, port $PGPORT \x1b[00m"
-    eval "$@"
+    eval ${command}
 fi
 

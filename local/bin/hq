@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/local/bin/bash
 VERSION=dev
 
 # MY_HAWQ_SRC_DIR=$HOME/workspace/hawq/madlib-hawq-echo
@@ -35,7 +35,7 @@ export USE_DATABASE="YES"
 
 export PGPASSWORD=
 
-export BUILD_PATH=$HOME/workspace/madlib_hq
+export BUILD_PATH=$HOME/workspace/builds/madlib_hq
 
 # export CC=/opt/local/bin/gcc-apple-4.2
 # export CXX=/opt/local/bin/g++-apple-4.2

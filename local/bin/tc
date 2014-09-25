@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/local/bin/bash
 
 P4ROOT=$HOME/p4
 ROOT=$HOME/workspace/
@@ -16,8 +16,7 @@ source $P4ROOT/tincrepo/main/tincrepo_env.sh
 
 export TINCREPOHOME=`pwd`
 
-cd madlib
-export PATH=$PATH:`pwd`
+export PYTHONPATH=$PYTHONPATH:`pwd`
 
 # echo $PYTHONPATH
 
@@ -32,5 +31,5 @@ if [ "$1" = 'gp' ] || [ "$1" = "gp41" ] || [ "$1" = "gp40" ]
 then
     echo -e "\x1b[1m \x1b[31m ****** gp must be in front of tc ******\x1b[00m"
 else
-    eval $cmd
+    eval ${cmd}
 fi
