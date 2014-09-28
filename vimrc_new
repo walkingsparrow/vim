@@ -216,7 +216,7 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
 "let g:jedi#popup_select_first = 0
 " YouCompleteMe ----------------------
-"let g:loaded_youcompleteme = 1 " disabled
+" let g:loaded_youcompleteme = 1 " disabled
 let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -902,3 +902,10 @@ vmap <leader>c<space> gc
 nmap <leader>cb <C-_>b
 imap <leader>cb <C-_>b
 vmap <leader>cb <C-_>b
+
+" ------------------------------------------------------------
+
+let g:EclimCompletionMethod = 'omnifunc'
+" autocmd Filetype java setlocal omnifunc=eclim#java#complete#CodeComplete
+" autocmd Filetype scala setlocal omnifunc=eclim#scala#complete#CodeComplete
+
