@@ -1,2 +1,5 @@
 *.swp
 *.pyc
+eclim/
+plugin/eclim.vim
+local/eclipse

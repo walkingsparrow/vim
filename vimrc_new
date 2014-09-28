@@ -911,3 +911,9 @@ vmap <leader>cb <C-_>b
 " ------------------------------------------------------------
 "  LargeFile
 " let g:LargeFile = 5
+
+" ------------------------------------------------------------
+
+let g:EclimCompletionMethod = 'omnifunc'
+" autocmd Filetype java setlocal omnifunc=eclim#java#complete#CodeComplete
+" autocmd Filetype scala setlocal omnifunc=eclim#scala#complete#CodeComplete

@@ -1,0 +1,14 @@
+#!/usr/local/bin/zsh
+
+pushd $HOME/.local/eclipse
+# pushd /Applications/eclipse
+
+if [ "$1" = "stop" ]
+then
+    ./eclim -command shutdown
+else
+    (./eclimd &> /dev/null &)
+fi
+
+popd
+
