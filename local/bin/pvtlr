@@ -1,0 +1,16 @@
+#!/usr/local/bin/zsh
+
+pushd $HOME/workspace/rwrapper/
+echo -e "\x1b[1m \x1b[30m  -- Assembling the PivotalR package \x1b[00m"
+rm -f PivotalR_*.tar.gz
+R CMD build --resave-data PivotalR 2>/dev/null
+echo
+pkg=`ls -lt *.gz | head -n 1 | awk '{ print $NF }'`
+if [ $@ ] && [ $@ = 'check' ]
+then
+    echo -e "\x1b[1m \x1b[30m  -- Checking the PivotalR package \x1b[00m"
+    R CMD check --as-cran $pkg
+fi
+echo -e "\x1b[1m \x1b[30m  -- Installing the PivotalR package \x1b[00m"
+R CMD INSTALL --install-tests $pkg
+popd

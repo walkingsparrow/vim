@@ -51,6 +51,7 @@ then
     rm -rf $MADLIB_DIR/build
     mv $BUILD_PATH $MADLIB_DIR/build
     cd $MADLIB_DIR/build
+    ln -sf ~/workspace/builds/3.1.2.tar.gz third_party/downloads
     ln -sf ~/workspace/builds/3.2.2.tar.gz third_party/downloads
     ln -sf ~/workspace/builds/boost_1_46_1.tar.gz third_party/downloads
     ln -sf ~/workspace/builds/PyXB-1.2.3.tar.gz third_party/downloads
