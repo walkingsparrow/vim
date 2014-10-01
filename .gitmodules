@@ -231,3 +231,9 @@
 [submodule "bundle/vim-bufexplorer"]
 	path = bundle/vim-bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
