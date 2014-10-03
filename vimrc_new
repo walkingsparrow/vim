@@ -875,8 +875,10 @@ nnoremap <silent> <leader>o :ZoomToggle<CR>
 "  vim-pandoc
 augroup pandoc_setting
     autocmd!
-    au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
+    au VimEnter *.md,*.mkd,*.slide hi Conceal ctermbg=None ctermfg=DarkMagenta
 augroup END
+
+let g:pandoc#syntax#conceal#use = 0
 
 " ------------------------------------------------------------
 "  Scheme indentation
