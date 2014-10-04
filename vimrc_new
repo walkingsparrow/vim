@@ -385,6 +385,7 @@ augroup file_setting
     au BufNewFile,BufRead *.sql_in setlocal ft=sql
     au BufNewFile,BufRead *.py_in setlocal ft=python
     au BufNewFile,BufRead *.notes setlocal ft=notes
+    au BufNewFile,BufRead *.slide setlocal ft=pandoc
 
     au BufNewFile,BufRead *.erl imap -- <space>-><space>
     au BufNewFile,BufRead *.ex imap -- <space>-><space>
@@ -872,8 +873,10 @@ nnoremap <silent> <leader>o :ZoomToggle<CR>
 "  vim-pandoc
 augroup pandoc_setting
     autocmd!
-    au VimEnter *.md hi Conceal ctermbg=None ctermfg=DarkMagenta
+    au VimEnter *.md,*.slide hi Conceal ctermbg=None ctermfg=DarkMagenta
 augroup END
+
+let g:pandoc#syntax#conceal#use = 0
 
 " ------------------------------------------------------------
 "  Scheme indentation
