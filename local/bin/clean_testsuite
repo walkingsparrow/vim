@@ -6,4 +6,8 @@ find . -type d -name "sql_*" | xargs rm -rf
 find . -type d -name "result_*" | xargs rm -rf
 find . -name "*.segment_logs" | xargs rm -rf
 find . -name "*.pyc" | xargs rm -rf
+cd datasets/sql
+rm -f *.gz
+ln -s ~/p4/analytics/madmarkdataset/main/*.gz .
+cd ../..
 popd
