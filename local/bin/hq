@@ -20,7 +20,7 @@ export HADOOP_DIR=$HOME/hawq/hadoop
 export PATH=$GPHOME/bin:$GPHOME/ext/python/bin:$HADOOP_DIR/bin:$HADOOP_DIR/sbin:$PATH
 
 #source $GPHOME/greenplum_path.sh
-export LD_LIBRARY_PATH=$GPHOME/lib:$GPHOME/ext/python/lib:$DYLD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$GPHOME/lib:$GPHOME/ext/python/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$GPHOME/lib/python
 export PYTHONHOME=$GPHOME/ext/python
 export OPENSSL_CONF=$GPHOME/etc/openssl.cnf

@@ -9,7 +9,7 @@ PGHOME=$PGROOT/postgres_bin
 
 export R_HOME=/usr
 export PATH=$PGHOME/bin:$HOME/.local/bin:$PATH
-export LD_LIBRARY_PATH=$PGHOME/lib:/usr/lib64/python2.7/config:$R_HOME/lib:$DYLD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$PGHOME/lib:/usr/lib64/python2.7/config:$R_HOME/lib:$LD_LIBRARY_PATH
 
 export POSTGRESQL_9_3_PG_CONFIG=$PGHOME/bin/pg_config
 

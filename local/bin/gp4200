@@ -1,8 +1,8 @@
 #!/usr/local/bin/bash
 
-GPROOT=/home/gpadmin/greenplum
-VERSION=4.3.2.1
-GPHOME=$GPROOT/greenplum-db-$VERSION
+GPROOT=/home/gpadmin/Downloads
+VERSION=4.2.0.0
+GPHOME=$GPROOT/gpdb4200
 
 #alias python=$GPHOME/ext/python/bin/python
 
@@ -16,7 +16,7 @@ if [ -h ${GPHOME}/../greenplum-db ]; then
 fi
 
 export GPHOME
-export GPDATA=$GPROOT/gpdb_data
+export GPDATA=$GPROOT/gpdb4200_data
 # export PATH=$PATH:$GPHOME/bin:$GPHOME/ext/python/bin
 export PATH=$GPHOME/bin:$GPHOME/ext/python/bin:$PATH
 export LD_LIBRARY_PATH=$GPHOME/lib:$GPHOME/ext/python/lib:$LD_LIBRARY_PATH
@@ -27,7 +27,7 @@ export LDAPCONF=$GPHOME/etc/ldap.conf
 
 export MASTER_DATA_DIRECTORY=$GPDATA/master/gpseg-1
 export MASTER_HOSTNAME=centos
-export PGPORT=16526
+export PGPORT=13526
 
 export DBNAME=greenplum
 
@@ -38,7 +38,7 @@ export PGPASSWORD=
 #export CC=/opt/local/bin/gcc-apple-4.2
 #export CXX=/opt/local/bin/g++-apple-4.2
 
-export BUILD_PATH=$HOME/workspace/builds/madlib_gp
+export BUILD_PATH=$HOME/workspace/builds/madlib_gp4200
 
 #export JAVA_HOME="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
 
