@@ -395,6 +395,7 @@ augroup file_settings
     au BufNewFile,BufRead *.sql_in setlocal ft=sql
     au BufNewFile,BufRead *.py_in setlocal ft=python
     au BufNewFile,BufRead *.notes setlocal ft=notes
+    au BufNewFile,BufRead *.slide setlocal ft=pandoc
 
     au BufNewFile,BufRead *.erl imap -- <space>-><space>
     au BufNewFile,BufRead *.ex imap -- <space>-><space>
