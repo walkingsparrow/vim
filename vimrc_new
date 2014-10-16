@@ -165,6 +165,8 @@ map <F6> :set wrap!<cr>
 nmap <leader><tab> ==
 imap <leader><tab> <C-o>==
 vmap <leader><tab> =
+nmap <tab> ==
+vmap <tab> =
 
 " indent/un-indent
 imap <C-c>. <C-t>
