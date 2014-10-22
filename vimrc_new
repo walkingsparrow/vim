@@ -621,8 +621,6 @@ let g:tagbar_type_r = {
     \ 'ctagstype' : 'r',
     \ 'kinds'     : [
         \ 'f:Functions',
-        \ 'g:GlobalVariables',
-        \ 'v:FunctionVariables',
         \ 'm:Methods',
         \ 'G:Generics',
         \ 'c:Classes'
@@ -921,3 +919,37 @@ vmap <leader>cb <C-_>b
 let g:EclimCompletionMethod = 'omnifunc'
 " autocmd Filetype java setlocal omnifunc=eclim#java#complete#CodeComplete
 " autocmd Filetype scala setlocal omnifunc=eclim#scala#complete#CodeComplete
+
+" ------------------------------------------------------------
+"  incsearch
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+let g:incsearch#consistent_n_direction = 1
+
+let g:incsearch#magic = '\v'
+
+let g:incsearch#highlight = {
+            \   'match' : {
+            \     'group' : 'IncSearchUnderline',
+            \     'priority' : '10'
+            \   },
+            \   'on_cursor' : {
+            \     'priority' : '100'
+            \   },
+            \   'cursor' : {
+            \     'group' : 'ErrorMsg',
+            \     'priority' : '1000'
+            \   }
+            \ }
