@@ -236,3 +236,6 @@
 [submodule "bundle/incsearch.vim"]
 	path = bundle/incsearch.vim
 	url = https://github.com/haya14busa/incsearch.vim.git
+[submodule "bundle/vim-node"]
+	path = bundle/vim-node
+	url = https://github.com/moll/vim-node.git
