@@ -685,6 +685,21 @@ let g:tagbar_type_sql = {
             \]
             \ }
 
+let g:tagbar_type_rust = {
+            \ 'ctagstype' : 'rust',
+            \ 'kinds' : [
+                \ 'f:Functions',
+                \ 'T:Types',
+                \ 'g:Enum',
+                \ 's:structures',
+                \ 'm:Modules',
+                \ 'c:Constants',
+                \ 't:traits',
+                \ 'i:Trait Implementations',
+                \ 'd:Macros'
+            \]
+            \ }
+
 " ------------------------------------------------------------
 "  Scala
 " let g:scala_sort_across_groups=1
