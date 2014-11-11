@@ -75,10 +75,10 @@ then
     echo -e "\x1b[1m \x1b[33m  -- Starting HAWQ $VERSION ... \x1b[00m"
     gpstart -a
     echo
-    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 2 segments, port $PGPORT \x1b[00m"
 elif [ "$command" = 'stop' ]
 then
-    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 2 segments, port $PGPORT \x1b[00m"
     echo
     echo -e "\x1b[1m \x1b[33m  -- Stopping HAWQ $VERSION ... \x1b[00m"
     gpstop -a
@@ -91,7 +91,7 @@ then
     hdfs namenode -format -clusterId gpsql
 elif [ "$command" = 'status' ] || [ "$command" = 'state' ]
 then
-    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 2 segments, port $PGPORT \x1b[00m"
     gpstate -Q
 elif [ "$1" = 'fs' ] || [ "$1" = "jar" ] || [[ "$1" == -* ]]
 then
@@ -159,7 +159,7 @@ then
     gpinitsystem -c gpinitsystem_config
     popd
 else
-    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 4 segments, port $PGPORT \x1b[00m"
+    echo -e "\x1b[1m \x1b[33m  -- HAWQ $VERSION with 2 segments, port $PGPORT \x1b[00m"
     eval $@
 fi
 
