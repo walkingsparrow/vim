@@ -459,14 +459,14 @@ augroup END
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\   'ctermfgs': ['darkred', 'brown', 'darkblue', 'darkgray', 'darkgreen', 'darkcyan', 'red', 'darkmagenta', 'darkcyan'],
+\   'ctermfgs': ['darkred', 'brown', 'darkblue', '125', 'darkgreen', 'darkcyan', 'red', 'darkmagenta', '92', '57'],
 \   'operators': '_,_',
 \   'parentheses': [['(',')'], ['\[','\]'], ['{','}']],
 \   'separately': {
 \       '*': {},
 \       'lisp': {
 \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\           'ctermfgs': ['darkgray', 'darkblue', 'darkmagenta', 'darkcyan', 'darkred', 'darkgreen'],
+\           'ctermfgs': ['darkred', 'brown', 'darkblue', '125', 'darkgreen', 'darkcyan', 'red', 'darkmagenta', '92', '57'],
 \       },
 \       'html': {
 \           'parentheses': [['(',')'], ['\[','\]'], ['{','}'], ['<\a[^>]*[^/]>\|<\a>','</[^>]*>']],
