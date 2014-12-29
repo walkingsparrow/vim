@@ -556,6 +556,7 @@ imap <silent> <F2> <esc>:w<cr>:BufExplorer<CR>
 " ------------------------------------------------------------
 "  indentLine
 let g:indentLine_color_term = 235
+let g:indentLine_faster = 1
 
 " ------------------------------------------------------------
 "  Vim-R-plugin
