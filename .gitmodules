@@ -241,3 +241,6 @@
 [submodule "bundle/pytest.vim"]
 	path = bundle/pytest.vim
 	url = https://github.com/alfredodeza/pytest.vim.git
+[submodule "bundle/vim-swoop"]
+	path = bundle/vim-swoop
+	url = https://github.com/pelodelfuego/vim-swoop.git
