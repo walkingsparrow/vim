@@ -227,7 +227,7 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 let g:ycm_auto_trigger = 1
 let g:ycm_complete_in_comments = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 "let g:ycm_key_invoke_completion = '<C-Space>'
@@ -520,6 +520,9 @@ colorscheme solarized
 highlight Comment cterm=italic ctermfg=023
 highlight scalaMultilineComment cterm=italic ctermfg=023
 highlight scalaTrailingComment cterm=italic ctermfg=023
+" highlight Comment ctermfg=023
+" highlight scalaMultilineComment ctermfg=023
+" highlight scalaTrailingComment ctermfg=023
 " visual mode background
 hi Visual cterm=None ctermbg=236 ctermfg=None
 hi StatusLine ctermbg=233 ctermfg=24
