@@ -1,6 +1,6 @@
 [user]
         name = Qian, Hai
-        email = hqian@gopivotal.com
+        email = hqian@google.com
 [core]
 	excludesfile = /home/hqian/.gitignore_global
         editor = /usr/bin/vim
