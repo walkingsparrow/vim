@@ -7,7 +7,7 @@
 "highlight Normal ctermbg=235 ctermfg=248
 "highlight LineNr ctermbg=236 ctermfg=240
 set mouse=a
-set number
+"set number
 set linespace=3
 map <F6> :set wrap!<cr>
 set noloadplugins
