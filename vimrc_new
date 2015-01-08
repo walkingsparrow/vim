@@ -218,26 +218,26 @@ set ofu=syntaxcomplete#Complete
 set dictionary+=/usr/share/dict/words
 set complete=.,b,u,],w,k
 
-" let g:jedi#popup_select_first = 0
-" let g:jedi#auto_vim_configuration = 0
-" au FileType python setlocal completeopt-=preview
-"let g:loaded_jedi = 1
-" YouCompleteMe ----------------------
-" let g:loaded_youcompleteme = 1 " disabled
-"let g:ycm_auto_trigger = 1
-let g:ycm_complete_in_comments = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-"let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-"let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
-let g:ycm_global_ycm_extra_conf = '/home/hqian/.vim/bundle/.ycm_extra_conf.py'
+" " let g:jedi#popup_select_first = 0
+" " let g:jedi#auto_vim_configuration = 0
+" " au FileType python setlocal completeopt-=preview
+" "let g:loaded_jedi = 1
+" " YouCompleteMe ----------------------
+" " let g:loaded_youcompleteme = 1 " disabled
+" "let g:ycm_auto_trigger = 1
+" let g:ycm_complete_in_comments = 2
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" let g:ycm_key_list_select_completion = ['<Down>']
+" let g:ycm_key_list_previous_completion = ['<Up>']
+" "let g:ycm_key_invoke_completion = '<C-Space>'
+" let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" "let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 0}
+" let g:ycm_global_ycm_extra_conf = '/home/hqian/.vim/bundle/.ycm_extra_conf.py'
 
 " Ultisnips options -------------------
 
@@ -572,7 +572,7 @@ let vimrplugin_applescript = 0
 
 " ------------------------------------------------------------
 "  syntastic
-let g:syntastic_python_checkers=['pylint']
+let g:syntastic_python_checkers=['gpylint']
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -985,3 +985,34 @@ let g:EclimCompletionMethod = 'omnifunc'
 "             \     'priority' : '1000'
 "             \   }
 "             \ }
+
+" ------------------------------------------------------------
+"  Google plugins
+
+" load Glug
+source /usr/share/vim/google/glug/bootstrap.vim
+
+" Google style
+source /usr/share/vim/google/google.vim
+
+Glug youcompleteme-google
+
+let g:ycm_complete_in_comments = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+Glug ultisnips-google
+
+" let g:UltiSnipsExpandTrigger = "<c-j>"
+" let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+Glug syntastic-google
