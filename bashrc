@@ -52,7 +52,7 @@ export GOPATH=$HOME/golang
 
 #export PATH="$HOME/.local/bin:$HOME/.rvm/bin:/Users/qianh1/.rvm/gems/ruby-2.1.1/bin:/Users/qianh1/.rvm/gems/ruby-2.1.1@global/bin:/Users/qianh1/.rvm/rubies/ruby-2.1.1/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/opt/local/libexec/gnubin/:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH:/usr/local/bin:/opt/local/libexec/perl5.12/sitebin:$HOME/mysql/local/bin:$GOPATH/bin"
 
-export PATH=$HOME/.local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
 export PAGER=vimpager
