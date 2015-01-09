@@ -8,7 +8,7 @@ fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 
-export PS1='\n\[\033[0;33m\][\[\033[0m\]\[\033[0;35m\]\u\[\033[0m\]@\[\033[1;32m\]\h: \[\033[0;31m\]\w\[\033[0;35m\]$(__git_ps1 " (%s)")\[\033[0;33m\]]\n\[\033[0;34m\]\$\[\033[0m\] '
+export PS1='\n\[\033[0;33m\][\[\033[0m\]\[\033[0;36m\]\u\[\033[0m\]@\[\033[1;35m\]\h: \[\033[0;31m\]\w\[\033[0;35m\]$(__git_ps1 " (%s)")\[\033[0;33m\]]\n\[\033[0;34m\]\$\[\033[0m\] '
 
 if [ "$INSIDE_EMACS" ]
 then
@@ -60,7 +60,7 @@ export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # alias zless=$PAGER
 
 alias less='less -R'
-export PAGER=less
+export PAGER='less -R'
 
 #export PYTHONPATH=/data/hai/local/lib/python2.7
 #export PYTHONHOME=/data/hai/local
