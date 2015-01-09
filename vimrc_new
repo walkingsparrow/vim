@@ -1016,3 +1016,14 @@ Glug ultisnips-google
 " let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 Glug syntastic-google
+
+nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+
+" \ff to format current line, \fb to format current buffer
+Glug clang-format plugin[mappings]
+
+" \r to open related file list
+Glug relatedfiles plugin[mappings]
+
+Glug outline-window
+nnoremap <leader>g :GoogleOutlineWindow<CR>

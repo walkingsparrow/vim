@@ -1,22 +1,24 @@
 [user]
-        name = Qian, Hai
-        email = hqian@google.com
+    name = Qian, Hai
+    email = hqian@google.com
 [core]
-	excludesfile = /home/hqian/.gitignore_global
-        editor = /usr/bin/vim
+    excludesfile = /home/hqian/.gitignore_global
+    editor = /usr/bin/vim
 [diff]
-        tool = mydiff
-        ;external = vimdiff
-[difftool "mydiff"]
-        cmd = mydiff \"$LOCAL\" \"$REMOTE\"
+    tool = default-diff
+    ;external = vimdiff
+;[difftool]
+;    prompt = false
+[difftool "default-diff"]
+    cmd = mydiff \"$LOCAL\" \"$REMOTE\"
 [color]
-        ui = always
+    ui = always
 [push]
-        default = matching
+    default = matching
 [credential]
-        helper = cache --timeout=10000000
+    helper = cache --timeout=10000000
 [url "https://"]
-        insteadOf = git://
+    insteadOf = git://
 [alias]
     st = status
     ci = commit
