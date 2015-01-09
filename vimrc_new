@@ -1009,14 +1009,14 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" Add Google specific snips
 Glug ultisnips-google
 
-" let g:UltiSnipsExpandTrigger = "<c-j>"
-" let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-
+" Add Google specific syntastic check
 Glug syntastic-google
+autocmd BufEnter *.cc,*.cpp,*.h,*.hpp let b:syntastic_checkers=['cpplint']
 
+" \e to open file in current file's folder
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 
 " \ff to format current line, \fb to format current buffer
@@ -1025,5 +1025,6 @@ Glug clang-format plugin[mappings]
 " \r to open related file list
 Glug relatedfiles plugin[mappings]
 
+" \g to open outline window
 Glug outline-window
 nnoremap <leader>g :GoogleOutlineWindow<CR>
