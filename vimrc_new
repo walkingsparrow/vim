@@ -48,7 +48,7 @@ set nocompatible
 syntax enable
 filetype on
 filetype plugin on
-filetype indent on
+" filetype indent on
 
 set ruler
 set ai sw=4
@@ -1022,9 +1022,27 @@ nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 " \ff to format current line, \fb to format current buffer
 Glug clang-format plugin[mappings]
 
+" \pf for piper to list all active (changed) files
+Glug piper plugin[mappings]
+
 " \r to open related file list
 Glug relatedfiles plugin[mappings]
 
 " \g to open outline window
 Glug outline-window
 nnoremap <leader>g :GoogleOutlineWindow<CR>
+
+" Automatically format BUILD file
+Glug codefmt-google auto_filetypes+=blazebuild
+
+" g4
+Glug g4
+
+" code search, may need web browser
+Glug corpweb
+noremap <unique> <leader>cs :CorpWebCs<Space>
+noremap <unique> <leader>cf :CorpWebCsFile<CR>
+
+" ------------------------------------------------------------
+"  Always the last line
+filetype indent on
