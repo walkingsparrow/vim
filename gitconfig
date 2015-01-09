@@ -6,6 +6,7 @@
     editor = /usr/bin/vim
 [diff]
     tool = default-diff
+    color = no
     ;external = vimdiff
 ;[difftool]
 ;    prompt = false
@@ -26,3 +27,4 @@
     br = branch
     unstage = reset HEAD --
     last = log -1 HEAD
+    d = difftool
