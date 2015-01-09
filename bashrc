@@ -96,3 +96,5 @@ export TERM=xterm-256color-italic
 
 # . /usr/local/Cellar/git/2.0.3/etc/bash_completion.d/git-completion.bash
 # . /usr/local/Cellar/bash-completion/1.3/etc/profile.d/bash_completion.sh
+
+alias p='ipython'
