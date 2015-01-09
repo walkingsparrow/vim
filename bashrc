@@ -55,9 +55,13 @@ export GOPATH=$HOME/golang
 export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
-export PAGER=vimpager
-alias less=$PAGER
-alias zless=$PAGER
+# export PAGER=vimpager
+# alias less=$PAGER
+# alias zless=$PAGER
+
+alias less='less -R'
+export PAGER=less
+
 #export PYTHONPATH=/data/hai/local/lib/python2.7
 #export PYTHONHOME=/data/hai/local
 #export LD_LIBRARY_PATH=/data/hai/local/lib/python2.7:$LD_LIBRARY_PATH
