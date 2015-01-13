@@ -30,16 +30,10 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias R='TERM=xterm-256color R'
-# alias brew='PATH=/usr/local/bin:$PATH brew'
-#alias gv='mvim'
-#alias gvim='/usr/local/bin/mvim'
-#alias vi='/usr/local/bin/vim'
-#alias vim='mvim'
-#alias vs='mvim --servername auto'
-# alias v='/usr/local/bin/vim'
-alias gv='gvim'
-alias t='tig --topo-order'
-alias g='tig --all --topo-order'
+
+# alias gv='gvim'
+# alias t='tig --topo-order'
+alias tg='tig --all --topo-order'
 
 #alias ipython='ipython --no-autoindent'
 
@@ -102,3 +96,18 @@ export TERM=xterm-256color-italic
 # . /usr/local/Cellar/bash-completion/1.3/etc/profile.d/bash_completion.sh
 
 alias p='ipython'
+
+# ------------------------------------------------------------
+# ranklab related alias
+
+alias rl='/google/data/ro/projects/quality/ranklab/tools/iranklab.par'
+
+pf() {
+  /google/data/ro/projects/quality/ranklab/tools/print_flatfile ${1} | less
+}
+
+update-display() {
+  good_display=$(netstat -an | /bin/grep 0\ [0-9,:,.]*:60..\  | awk '{print $4}' | tail -n 1)
+  good_display=${good_display: -2}
+  export DISPLAY=localhost:${good_display}.0
+}
