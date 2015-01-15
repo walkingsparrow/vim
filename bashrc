@@ -32,8 +32,8 @@ alias mv='mv -iv'
 alias R='TERM=xterm-256color R'
 
 # alias gv='gvim'
-# alias t='tig --topo-order'
-alias tg='tig --all --topo-order'
+alias tt='tig --topo-order'
+alias t='tig --all --topo-order'
 
 #alias ipython='ipython --no-autoindent'
 
