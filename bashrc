@@ -106,8 +106,32 @@ pf() {
   /google/data/ro/projects/quality/ranklab/tools/print_flatfile ${1} | less
 }
 
-update-display() {
-  good_display=$(netstat -an | /bin/grep 0\ [0-9,:,.]*:60..\  | awk '{print $4}' | tail -n 1)
-  good_display=${good_display: -2}
-  export DISPLAY=localhost:${good_display}.0
+# update-display() {
+#   good_display=$(netstat -an | /bin/grep 0\ [0-9,:,.]*:60..\  | awk '{print $4}' | tail -n 1)
+#   good_display=${good_display: -2}
+#   export DISPLAY=localhost:${good_display}.0
+# }
+
+function tmux() 
+{
+  local tmux=$(type -fp tmux)
+  case "$1" in
+    update-environment|update-env|env-update)
+      local v
+      while read v; do
+        if [[ $v == -* ]]; then
+          unset ${v/#-/}
+        else
+          # Add quotes around the argument
+          v=${v/=/=\"}
+          v=${v/%/\"}
+          eval export $v
+        fi
+      done < <(tmux show-environment)
+      ;;
+    *)
+      $tmux "$@"
+      ;;
+  esac
 }
+
