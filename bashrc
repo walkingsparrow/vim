@@ -135,3 +135,10 @@ function tmux()
   esac
 }
 
+alias web='glogin && googlenetworkaccess'
+alias prod='prodaccess'
+
+alias vpact='. ~/vPy/bin/activate'
+alias deact='deactivate'
+
+alias sl='/usr/games/sl'
